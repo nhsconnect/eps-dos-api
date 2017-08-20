@@ -88,8 +88,7 @@ defaults:
 # these are defaults used for the frontmatter for these file types
 
 sidebars:
-- overview_sidebar
-- capability_one_sidebar
+- overview_sidebars
 
 description: "Description of the site."
 # the description is used in the feed.xml file
