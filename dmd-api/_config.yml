@@ -89,7 +89,6 @@ defaults:
 
 sidebars:
 - overview_sidebar
-- capability_one_sidebar
 
 description: "Description of the site."
 # the description is used in the feed.xml file
