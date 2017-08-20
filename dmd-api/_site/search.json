@@ -1,0 +1,306 @@
+[
+
+
+
+
+{
+"title": "Developing with DM+D resources",
+"tags": "develop",
+"keywords": "develop",
+"url": "kop.html",
+"summary": "REST endpoints"
+},
+
+
+
+{
+"title": "Assurance Overview",
+"tags": "testingintegrationdeployment",
+"keywords": "testing, assurance",
+"url": "assure_overview.html",
+"summary": "An overview of the technical assurance process and tools."
+},
+
+
+
+{
+"title": "Capability One",
+"tags": "capability",
+"keywords": "capability",
+"url": "capability_one.html",
+"summary": "Details of the functionality available in capability pack one."
+},
+
+
+
+{
+"title": "Capability One First Use Case",
+"tags": "use_casefhir",
+"keywords": "capability, use case",
+"url": "capability_one_first_use_case.html",
+"summary": "First use case."
+},
+
+
+
+{
+"title": "Capability One Known Issues",
+"tags": "",
+"keywords": "capability, known issues, bugs",
+"url": "capability_one_known_issues.html",
+"summary": "Known issues for the capability."
+},
+
+
+
+{
+"title": "Capability One Release Notes",
+"tags": "",
+"keywords": "capability, release notes",
+"url": "capability_one_release_notes.html",
+"summary": "Release notes for the capability."
+},
+
+
+
+{
+"title": "Frequently Asked Questions (FAQ)",
+"tags": "support",
+"keywords": "support, faq, questions",
+"url": "communications_faq.html",
+"summary": "Frequently Asked Questions (FAQ)."
+},
+
+
+
+{
+"title": "Communications Overview",
+"tags": "support",
+"keywords": "support, communications, community",
+"url": "communications_overview.html",
+"summary": "An overview of the communication channels used by the team."
+},
+
+
+
+{
+"title": "Download DM+D data",
+"tags": "develop",
+"keywords": "develop",
+"url": "data_download.html",
+"summary": "Download complete DM+D releases in an immediately useful format via the API"
+},
+
+
+
+{
+"title": "API Deployment Overview",
+"tags": "testingintegrationdeployment",
+"keywords": "deployment",
+"url": "deploy_overview.html",
+"summary": "An overview of the API deployment, including how to host API instances in your own environment."
+},
+
+
+
+{
+"title": "Development Overview",
+"tags": "develop",
+"keywords": "develop",
+"url": "develop_overview.html",
+"summary": "An overview of the high-level approach for the DM+D API."
+},
+
+
+
+{
+"title": "Explore Overview",
+"tags": "designexplore",
+"keywords": "explore, design, reference",
+"url": "explore_overview.html",
+"summary": "An overview of the tools and documentation available to explore the Open APIs."
+},
+
+
+
+{
+"title": "",
+"tags": "",
+"keywords": "",
+"url": "feed.xml",
+"summary": ""
+},
+
+
+
+{
+"title": "",
+"tags": "",
+"keywords": "",
+"url": "",
+"summary": ""
+},
+
+
+
+{
+"title": "Introduction to DM+D API",
+"tags": "getting_started",
+"keywords": "homepage",
+"url": "index.html",
+"summary": "A brief introduction to getting started."
+},
+
+
+
+{
+"title": "",
+"tags": "",
+"keywords": "",
+"url": "cssmain.css",
+"summary": ""
+},
+
+
+
+{
+"title": "News",
+"tags": "",
+"keywords": "news, blog, updates, release notes, announcements",
+"url": "news.html",
+"summary": ""
+},
+
+
+
+{
+"title": "News Archive",
+"tags": "",
+"keywords": "news, blog, updates, release notes, announcements",
+"url": "news_archive.html",
+"summary": ""
+},
+
+
+
+{
+"title": "Glossary",
+"tags": "getting_started",
+"keywords": "abbreviations, definitions, glossaries, terms",
+"url": "overview_glossary.html",
+"summary": "Glossary of terms"
+},
+
+
+
+{
+"title": "Workshops",
+"tags": "engagementgetting_started",
+"keywords": "usecases",
+"url": "overview_workshops.html",
+"summary": "An overview of the workshops being held to support the design and development of the capabilities."
+},
+
+
+
+{
+"title": "Developing with DM+D resources",
+"tags": "develop",
+"keywords": "develop",
+"url": "rest_endpoints.html",
+"summary": "REST endpoints"
+},
+
+
+
+{
+"title": "DM+D API REST Endpoint Reference",
+"tags": "",
+"keywords": "",
+"url": "rest_endpoints_reference.html",
+"summary": ""
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+"title": "",
+"tags": "",
+"keywords": "",
+"url": "sitemap.xml",
+"summary": ""
+},
+
+
+
+{
+"title": "",
+"tags": "",
+"keywords": "",
+"url": "robots.txt",
+"summary": ""
+},
+
+
+
+
+
+{
+"title": "Welcome to Jekyll!",
+"tags": "",
+"keywords": "",
+"url": "/jekyll/update/2017/02/23/welcome-to-jekyll.html",
+"summary": ""
+}
+,
+
+
+{
+"title": "News Item",
+"tags": "newsfhir",
+"keywords": "news",
+"url": "/news_item.html",
+"summary": "News Item!"
+}
+
+
+
+]

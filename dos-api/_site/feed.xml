@@ -3,10 +3,10 @@
   <channel>
     <title></title>
     <description>Description of the site.</description>
-    <link>https://nhsconnect.github.io/spine-eps-tracker/</link>
-    <atom:link href="https://nhsconnect.github.io/spine-eps-tracker/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 20 Aug 2017 14:40:23 +0100</pubDate>
-    <lastBuildDate>Sun, 20 Aug 2017 14:40:23 +0100</lastBuildDate>
+    <link>http://localhost:4005/</link>
+    <atom:link href="http://localhost:4005/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 20 Aug 2017 14:46:09 +0100</pubDate>
+    <lastBuildDate>Sun, 20 Aug 2017 14:46:09 +0100</lastBuildDate>
     <generator>Jekyll v3.4.0</generator>
     
       <item>
@@ -27,8 +27,8 @@
 
 </description>
         <pubDate>Thu, 23 Feb 2017 19:05:07 +0000</pubDate>
-        <link>https://nhsconnect.github.io/spine-eps-tracker/jekyll/update/2017/02/23/welcome-to-jekyll.html</link>
-        <guid isPermaLink="true">https://nhsconnect.github.io/spine-eps-tracker/jekyll/update/2017/02/23/welcome-to-jekyll.html</guid>
+        <link>http://localhost:4005/jekyll/update/2017/02/23/welcome-to-jekyll.html</link>
+        <guid isPermaLink="true">http://localhost:4005/jekyll/update/2017/02/23/welcome-to-jekyll.html</guid>
         
         
         <category>jekyll</category>
@@ -42,8 +42,8 @@
         <description>&lt;p&gt;Text of news item.&lt;/p&gt;
 </description>
         <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
-        <link>https://nhsconnect.github.io/spine-eps-tracker/news_item.html</link>
-        <guid isPermaLink="true">https://nhsconnect.github.io/spine-eps-tracker/news_item.html</guid>
+        <link>http://localhost:4005/news_item.html</link>
+        <guid isPermaLink="true">http://localhost:4005/news_item.html</guid>
         
         <category>news</category>
         
