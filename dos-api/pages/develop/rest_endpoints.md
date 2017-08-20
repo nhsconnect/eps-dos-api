@@ -4,7 +4,6 @@ keywords: develop
 tags: [develop]
 permalink: rest_endpoints.html
 summary: REST endpoints
-layout:swagger
 ---
 
 ## DM+D Resources ##
