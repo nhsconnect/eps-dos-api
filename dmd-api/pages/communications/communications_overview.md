@@ -22,8 +22,6 @@ For all the latest news/announcements please subscribe to our [News](news.html) 
 
 > A two-way channel to allow the Supplier Community to engage with each other and NHS Digital to seek suport related to product development.
 
-{% include gitterbadge.html %}
-
 ## Issues
 
 > A system used so that Suppliers can report errors and ommisions in the documentation, and to help keep track of the progress of resolving these.
