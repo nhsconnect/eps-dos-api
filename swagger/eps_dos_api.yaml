@@ -38,11 +38,11 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /dispensers/byLocationDispensation:
+  /dispensers/byLocationDisposition:
     get:
-      summary: Search dispensers by dispensation & location 
+      summary: Search dispensers by disposition & location 
       description: |
-        Searches for a suitable dispenser based on patient location and dispensation, ensuring that opening times fall within the dispensation. 
+        Searches for a suitable dispenser based on patient location and disposition, ensuring that opening times fall within the timeframe required by the disposition. 
         Optionally filtering by service type and distance. Returns a maximum of five matching dispensers. 
       parameters:
       - name: postcode
@@ -62,7 +62,13 @@ paths:
         in: query
         type: string
         description: |
-            The patient disposition. The service only supports prescrition and dispenser-related dispositions. Only permits a single disposition.
+            The patient disposition. The service only supports prescrition and dispenser-related dispositions. Only permits a single disposition. 
+            Supported dispositions are:
+              * `Dx85` - Repeat prescription required within 2 hours
+              * `Dx86` - Repeat prescription required within 12 hours
+              * `Dx87` - Repeat prescription required within 24 hours
+              * `Dx80` - Repeat prescription required within 6 hours
+        enum: [Dx85,Dx86,Dx87,Dx80]
       - name: service_type
         in: query
         description: |
