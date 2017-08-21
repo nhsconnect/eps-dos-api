@@ -40,9 +40,10 @@ paths:
             $ref: '#/definitions/Error'
   /dispensers/byLocationDispensation:
     get:
-      summary: Search for a suitable dispenser by dispensation and location, optionally filtering by service type and distance. 
+      summary: Search dispensers by dispensation & location 
       description: |
-        Takes search parameters and returns a maximum of five matching dispensers. 
+        Searches for a suitable dispenser based on patient location and dispensation, ensuring that opening times fall within the dispensation. 
+        Optionally filtering by service type and distance. Returns a maximum of five matching dispensers. 
       parameters:
       - name: postcode
         in: query
@@ -92,11 +93,12 @@ paths:
             
   /dispensers/byName/{name}:
     get:
-      summary: Search dispensers by name. Simple wildcards are allowed. Optionally filter by service type and distance. 
+      summary: Search dispensers by name
+      description: Search dispensers by name with simple wildcards allowed. Optionally filter by service type and distance.
       parameters:
         - name: name
           in: path
-          description: The ODS code of the dispenser
+          description: The name of the dispenser, including wildcards. Permitted wildcards are [*,?]
           required: true
           type: string
         - name: service_type
