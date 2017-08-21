@@ -32,10 +32,8 @@ For all the latest news/announcements please subscribe to our [News](news.html) 
 
 > A mailing list is a list of contacts who have subscribed to an email mailing distribution on a particular topic. 
 
-{% include tinyletter.html %}
 
 ## Twitter
 
 > Twitter is an online social networking service that enables users to send and read short 140-character messages called "tweets".
 
-{% include twittertimeline.html %}
