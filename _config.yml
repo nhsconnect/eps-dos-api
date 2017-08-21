@@ -2,10 +2,10 @@
 output: web
 # this property is useful for conditional filtering of content that is separate from the PDF.
 
-topnav_title: NHS DM+D API
+topnav_title: NHS EPS DoS API
 # this appears on the top navigation bar next to the home button
 
-site_title: NHS DM+D API
+site_title: NHS EPS DoS API
 # this appears in the html browser tab for the site title (seen mostly by search engines, not users)
 
 company_name: NHS Digital
@@ -39,7 +39,7 @@ exclude:
   - .gitignore
 # these are the files and directories that jekyll will exclude from the build
 
-feedback_email: dummy@nhs.net
+feedback_email: eps@nhs.net
 # used as a contact email for the Feedback link in the top navigation bar
 
 feedback_disable: true
