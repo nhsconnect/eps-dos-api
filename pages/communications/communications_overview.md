@@ -22,6 +22,10 @@ For all the latest news/announcements please subscribe to our [News](news.html) 
 
 > A two-way channel to allow the Supplier Community to engage with each other and NHS Digital to seek suport related to product development.
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5bfc72d9223d5d46397538fc3cad696fc1216d96
 ## Issues
 
 > A system used so that Suppliers can report errors and ommisions in the documentation, and to help keep track of the progress of resolving these.
