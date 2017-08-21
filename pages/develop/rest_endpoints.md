@@ -2,10 +2,7 @@
 title: Developing with DM+D resources
 keywords: develop
 tags: [develop]
-<<<<<<< HEAD
 sidebar: overview_sidebar
-=======
->>>>>>> 5bfc72d9223d5d46397538fc3cad696fc1216d96
 permalink: rest_endpoints.html
 summary: REST endpoints
 ---

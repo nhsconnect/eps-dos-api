@@ -1,10 +1,4 @@
-<<<<<<< HEAD
 
-=======
-sass:
-  sass-dir: ./dos-api/_sass
-  
->>>>>>> 5bfc72d9223d5d46397538fc3cad696fc1216d96
 output: web
 # this property is useful for conditional filtering of content that is separate from the PDF.
 
@@ -94,11 +88,7 @@ defaults:
 # these are defaults used for the frontmatter for these file types
 
 sidebars:
-<<<<<<< HEAD
 - overview_sidebar
-=======
-- overview_sidebars
->>>>>>> 5bfc72d9223d5d46397538fc3cad696fc1216d96
 
 description: "Description of the site."
 # the description is used in the feed.xml file
