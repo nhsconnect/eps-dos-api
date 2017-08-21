@@ -14,9 +14,10 @@ A disposition is an indication of the needs of the patient encompassing both the
 
 | Disposition Code   | Descriptive Name                             |
 |--------------------|----------------------------------------------|
-| 07                 | Repeat prescription needed within 2 hours    |
-| 08                 | Repeat prescription needed within 8 hours    |
-| ...                | ...                                          |
+| Dx85               | Repeat prescription required within 2 hours  |
+| Dx86               | Repeat prescription required within 12 hours |
+| Dx87               | Repeat prescription required within 24 hours |
+| Dx80               | Repeat prescription required within 6 hour   |
 
 ### Dispenser Types ###
 

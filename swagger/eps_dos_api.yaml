@@ -329,7 +329,7 @@ definitions:
         sat: 
           open: "08:00"
           close: "12:00"
-      bank_holiday:
+        bank_holiday:
         - name: christmas
         - name: boxing
         - name: bank_holiday
