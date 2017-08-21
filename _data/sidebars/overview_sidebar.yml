@@ -1,7 +1,7 @@
 entries:
-- title: DM+D API
-  product: DM+D API<br/>
-  version: 1.0.0-alpha.1
+- title: EPS DoS API
+  product: EPS DoS API<br/>
+  version: v0.0.1
   levels: one
   folders:
 
@@ -12,8 +12,8 @@ entries:
       url: /index.html
       output: web, pdf
       type: homepage
-    - title: Workshops
-      url: /overview_workshops.html
+    - title: Key Concepts
+      url: /key_concepts.html
       output: web
     - title: Glossary
       url: /overview_glossary.html
@@ -32,14 +32,20 @@ entries:
     - title: Overview
       url: /develop_overview.html
       output: web
-    - title: Data Download
-      url: /data_download.html
+    - title: Authentication
+      url: /authentication.html
+      output: web
+    - title: API Limits
+      url: /api_limits.html
       output: web
     - title: REST Endpoints
       url: /rest_endpoints.html
       output: web
     - title: REST Endpoints Reference
       url: /rest_endpoints_reference.html
+      output: web
+    - title: Integrating EPS Messaging
+      url: /integrating_messaging.html
       output: web
 
 #  - title: Capabilities

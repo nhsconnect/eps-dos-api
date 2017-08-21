@@ -1,23 +1,19 @@
 ---
-title: Introduction to DM+D API
+title: Introduction to EPS DoS API
 keywords: homepage
 tags: [getting_started]
 sidebar: overview_sidebar
 permalink: index.html
 toc: true
-summary: A brief introduction to getting started.
+summary: An introduction to the EPS DoS API
 ---
 
 ## Introduction ##
 
-The DM+D API is an experimental API, aiming to find ways of making the rich information alreaday available in the NHS Dictionary of Medicines + Devices easier to use and maintain within modern applications and technologies.
+The EPS Directory of Service (DoS) API is an API providing information about dispensing services, and includes search functionality which lists dispensers who shold be able to provide dispensing services for a patient with a given location and urgency. 
 
 ## Purpose ##
 
-The DM+D is an extension to the Snomed CT UK Drug extension which aims to provide information on most medications and medical devices available in UK primary care. It is a keystone of NHS interoperability, and already forms the heart of many national systems supporting care accross the UK. The API documented here aims to:
+The EPS DoS API is a means of making existing information from NHS Choices, NHS Pathways and the NHS Organisation Data Service (ODS) available to prescribing systems from a single consolidaetd resource with a high degree of availability. Assured prescribing systems may use this to identify a dispenser who can meet a patient's needs and use this in sending prescriptions either via EPS or paper-based means. 
 
-- Ease the burden of getting hold of the up to date data in a useful format.
-- Make search and retrieval directly from an application fast and simple.
-
-It does this by providing the data openly in a number of ready-to-use formats. It also provides a REST interface allowing search on any attribute, suggestions for partial input and delivering results including linked concepts.
-
+{% include note.html content="In order to ensure availability for clinical use the live DoS API is only available to assured EPS prescribing systems." %}
