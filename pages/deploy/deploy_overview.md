@@ -4,60 +4,58 @@ keywords: deployment
 tags: [testing,integration,deployment]
 sidebar: overview_sidebar
 permalink: deploy_overview.html
-summary: An overview of the API deployment, including how to host API instances in your own environment.
+summary: An overview of how the API is deployed, and how to connect to it
 ---
 
-## Deploying the API
+## API Deployment and Usage
 
-Details of the solution assurance process that ensures the correct level of clinical safety, governance, and security has been accepted, understood and signed off by the organisation using the APIs and data controllers of the records.
+This page will cover the environments that the API is available in inclding the the network configuration. It will also cover how releases are deployed into these environments.
 
-### Lambda ###
-The functions below are implemented as java classes which are run as AWS lambda functions. They will also run locally and could be configured to run by another orchestraction mechanism.
+### Test Environments ###
+There are a number of test environments available for general use in order to allow API and application testing:
 
-#### Download and Unzip ####
-##### Handler #####
-`uk.nhs.dmd.lambda::lambdaHandler`
-##### Config items #####
-Environment variables or args:
+  * **Live** - The production environement only by assured prescribing systems
+  * **NFT** - Used in non functional testing of both API and applications
+  * **Int** - Used for end to end application integration teting
+  * **Dev** - Used by applications under development
+  
+Other environments created to support specific testing may be used but may only be available over a fixed time period.
 
-- _bucket_ the S3 bucket to store releases in
-- _trud user_  the trud ftp user
-- _trud user_  the trud ftp password
-- _trud address_ the  
-- _release folder_ the path from point release to release zip
+### Environment Details ###
 
-##### Trigger #####
-Scheduled daily
+This section provides details of the generally available environments. Other environments created to support specific testing may be used.
 
-##### Failure Behaviour #####
-Two retries. Any releases failing to download will be picked up in next run
+#### Live ####
 
-#### Transform and push to ElasticSearch  ####
-##### Handler #####
-`uk.nhs.dmd.lambda::transform`
-###### Config items #####
-Environment variables or args:
-
-- _es-index_ elasticsearch index to store 
-
-##### Trigger #####
-Key ending with '/' put into release bucket, signifying download from TRUD complete
-
-##### Failure Behaviour #####
-Two retries. 
-
-#### Transform to JSON  ####
-##### Handler #####
-`uk.nhs.dmd.lambda::transformToJson`
-##### Config items #####
-Environment variables or args:
-
-- _bucket_ the S3 bucket to store trasformed data in
-
-##### Trigger #####
-Key ending with '/' put into release bucket, signifying download from TRUD complete
-
-##### Failure Behaviour #####
-Two retries. 
+| **DNS Name**    | dos.eps.digital.nhs.uk    | 
+| **Virtual IP**  | TBC                       |
+| **Port**        | TCP 443, TCP 80           |
+| **Dataset**     | Live                      |
 
 
+#### NFT ####
+
+Non Functional Test Environment. Infrastructure should directly reflect live, although may be scaled. Dataset should be the same as the live environment.
+
+| **DNS Name**    | dos-NFT.eps.digital.nhs.uk | 
+| **Virtual IP**  | TBC                       |
+| **Port**        | TCP 443, TCP 80           |
+| **Dataset**     | Live                      |
+
+#### Int ####
+
+Integration Test Environment. May be configured to have the same release as in Live to allow application testing, or the current release +1 to allow NFT of the new release. Test data will be configured at supplier request.
+
+| **DNS Name**    | dos-int.eps.digital.nhs.uk | 
+| **Virtual IP**  | TBC                       |
+| **Port**        | TCP 443, TCP 80           |
+| **Dataset**     | Test data                 |
+
+#### Dev ####
+
+Integration Test Environment. Test data may be configured directly by suppliers.
+
+| **DNS Name**    | dos-int.eps.digital.nhs.uk | 
+| **Virtual IP**  | TBC                       |
+| **Port**        | TCP 443, TCP 80           |
+| **Dataset**     | Test data                 |

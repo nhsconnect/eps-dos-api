@@ -159,6 +159,7 @@ definitions:
     - name
     - service_type
     type: object
+    #TODO: add disptance to patient location.
     properties:
       ods:
         type: string
@@ -220,6 +221,7 @@ definitions:
           lon:
             type: number
             format: decimal
+          
       opening:
         type: object
         properties:
@@ -240,54 +242,15 @@ definitions:
             $ref: '#/definitions/OpeningTime'
           sat:
             $ref: '#/definitions/OpeningTime'
-          # TODO: this would be better keyed off the bank holiday name enum
           bank_holiday:
-            type: array
-            items: 
-              type: object
-              properties:
-                name:
-                  type: string
-                  enum: [christmas,boxing,easter,may,new_year,bank_holiday]
-                  description: |
-                    Bank holiday:
-                      * `christmas` - Christmas day bank holiday
-                      * `boxing` - Boxing day bank holiday
-                      * `easter` - Easter bank holiday
-                      * `may` - May bank holiday
-                      * `new_year` - New Years Day bank holiday
-                      * `bank_holiday` - Other bank holiday
-                open:
-                  type: string
-                  description: Unqualified local time in HH:MM format
-                close:
-                  type: string
-                  description: Unqualified local time in HH:MM format
+            $ref: '#/definitions/OpeningTime'
             # TODO: this would be better keyed off the date
           specified_date:
             type: array
-            items: 
+            items:
               type: object
-              properties:
-                date:
-                  type: string
-                  format: date
-                  description: ISO 8601-format date only
-                open:
-                  type: string
-                  description: Unqualified local time in HH:MM format
-                close:
-                  type: string
-                  description: Unqualified local time in HH:MM format
-      referral_instructions:
-        type: string
-        description: TODO
-      call_handler_instructions:
-        type: string
-        description: TODO
-      disposition_instructions:
-        type: string
-        description: TODO
+              additionalProperties:
+                $ref: '#/definitions/OpeningTime'
     example: 
       ods: FLM42
       name: Vantage Pharmacy
@@ -330,11 +293,12 @@ definitions:
           open: "08:00"
           close: "12:00"
         bank_holiday:
-        - name: christmas
-        - name: boxing
-        - name: bank_holiday
           open: "09:00"
           close: "12:00"
+        specified_date:
+
+            open: "09:00"
+            close: "12:00"
   OpeningTime:
     type: object
     properties:
