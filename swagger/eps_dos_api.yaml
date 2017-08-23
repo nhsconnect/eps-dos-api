@@ -38,6 +38,7 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
+            
   /dispensers/byLocationDisposition:
     get:
       summary: Search dispensers by disposition & location 
@@ -89,7 +90,7 @@ paths:
             items:
               $ref: '#/definitions/dispenser'
         400:
-          description: Invalid search
+          description: Invalid search          
         429:
           description: Exceeded rate limit
         default:
@@ -152,6 +153,22 @@ paths:
           schema:
             $ref: '#/definitions/Error'
             
+  /status:
+    get:
+      summary: The current status of the API
+      description: Performs a deep ping to confirm the API is available. May optionally return info on the backing services.
+      responses:
+        200:
+          description: All elements of the API are live
+        203:
+          description: One of the backing elements is unavailable and the API is returning cached information. Error information relates to the backing service
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: API is not available, but is still able to serve responses.
+          schema:
+            $ref: '#/definitions/Error'
+
 definitions:
   dispenser:
     required:
@@ -319,3 +336,24 @@ definitions:
         type: string
       fields:
         type: string
+        
+  ResponseHeaders:
+    X-RateLimit-Limit:
+      schema:
+        type: integer
+        description: Request limit per hour.
+    X-RateLimit-Remaining:
+      schema:
+        type: integer
+        description: The number of requests left for the time window.
+    X-RateLimit-Reset:
+      schema:
+        type: string
+        format: date-time
+        description: The UTC date/time at which the current rate limit window resets.
+    Warning:
+      schema: 
+        type: string
+        description: |
+          This header is added where one of the backing services is unavailable so the response data is being served from the cache. 
+          The `111 - "Revalidation Failed"` warning code will be used in this circumstance.
