@@ -64,8 +64,44 @@ paths:
             
         404:
           description: Dispenser not found
+          headers:
+            X-RateLimit-Limit:
+              type: number
+              format: integer
+              description: Request limit per hour.
+            X-RateLimit-Remaining:
+              type: number
+              format: integer
+              description: The number of requests left for the time window.
+            X-RateLimit-Reset:
+              type: string
+              format: date-time
+              description: The UTC date/time at which the current rate limit window resets.
+            Warning:
+              type: string
+              description: |
+                This header is added where one of the backing services is unavailable so the response data is being served from the cache. 
+                  The `111 - "Revalidation Failed"` warning code will be used in this circumstance.
         429:
           description: Exceeded rate limit
+          headers:
+            X-RateLimit-Limit:
+              type: number
+              format: integer
+              description: Request limit per hour.
+            X-RateLimit-Remaining:
+              type: number
+              format: integer
+              description: The number of requests left for the time window.
+            X-RateLimit-Reset:
+              type: string
+              format: date-time
+              description: The UTC date/time at which the current rate limit window resets.
+            Warning:
+              type: string
+              description: |
+                This header is added where one of the backing services is unavailable so the response data is being served from the cache. 
+                  The `111 - "Revalidation Failed"` warning code will be used in this circumstance.
         default:
           description: Unexpected error
           schema:
@@ -115,7 +151,7 @@ paths:
         404:
           description: Attempted to remove a resource which does not exist
 
-  /dispensers/byLocationDisposition:
+  /dispensers/byLocationOpening:
     get:
       summary: Search dispensers by opening hours & location 
       description: |
@@ -159,16 +195,70 @@ paths:
       responses:
         200:
           description: Up to five dispensers matching the search cirteria, ordered by distance.
+          headers:
+            X-RateLimit-Limit:
+              type: number
+              format: integer
+              description: Request limit per hour.
+            X-RateLimit-Remaining:
+              type: number
+              format: integer
+              description: The number of requests left for the time window.
+            X-RateLimit-Reset:
+              type: string
+              format: date-time
+              description: The UTC date/time at which the current rate limit window resets.
+            Warning:
+              type: string
+              description: |
+                This header is added where one of the backing services is unavailable so the response data is being served from the cache. 
+                  The `111 - "Revalidation Failed"` warning code will be used in this circumstance.
           schema:
             type: array
             items:
               $ref: '#/definitions/dispenser'
         400:
           description: Invalid search
+          headers:
+            X-RateLimit-Limit:
+              type: number
+              format: integer
+              description: Request limit per hour.
+            X-RateLimit-Remaining:
+              type: number
+              format: integer
+              description: The number of requests left for the time window.
+            X-RateLimit-Reset:
+              type: string
+              format: date-time
+              description: The UTC date/time at which the current rate limit window resets.
+            Warning:
+              type: string
+              description: |
+                This header is added where one of the backing services is unavailable so the response data is being served from the cache. 
+                  The `111 - "Revalidation Failed"` warning code will be used in this circumstance.
           schema:
             $ref: '#/definitions/Error'
         429:
           description: Exceeded rate limit
+          headers:
+            X-RateLimit-Limit:
+              type: number
+              format: integer
+              description: Request limit per hour.
+            X-RateLimit-Remaining:
+              type: number
+              format: integer
+              description: The number of requests left for the time window.
+            X-RateLimit-Reset:
+              type: string
+              format: date-time
+              description: The UTC date/time at which the current rate limit window resets.
+            Warning:
+              type: string
+              description: |
+                This header is added where one of the backing services is unavailable so the response data is being served from the cache. 
+                  The `111 - "Revalidation Failed"` warning code will be used in this circumstance.
         default:
           description: Unexpected error
           schema:
@@ -201,16 +291,70 @@ paths:
       responses:
         200:
           description: Matching dispensers
+          headers:
+            X-RateLimit-Limit:
+              type: number
+              format: integer
+              description: Request limit per hour.
+            X-RateLimit-Remaining:
+              type: number
+              format: integer
+              description: The number of requests left for the time window.
+            X-RateLimit-Reset:
+              type: string
+              format: date-time
+              description: The UTC date/time at which the current rate limit window resets.
+            Warning:
+              type: string
+              description: |
+                This header is added where one of the backing services is unavailable so the response data is being served from the cache. 
+                  The `111 - "Revalidation Failed"` warning code will be used in this circumstance.
           schema:
             type: array
             items:
               $ref: '#/definitions/dispenser'
         400:
           description: Invalid search
+          headers:
+            X-RateLimit-Limit:
+              type: number
+              format: integer
+              description: Request limit per hour.
+            X-RateLimit-Remaining:
+              type: number
+              format: integer
+              description: The number of requests left for the time window.
+            X-RateLimit-Reset:
+              type: string
+              format: date-time
+              description: The UTC date/time at which the current rate limit window resets.
+            Warning:
+              type: string
+              description: |
+                This header is added where one of the backing services is unavailable so the response data is being served from the cache. 
+                  The `111 - "Revalidation Failed"` warning code will be used in this circumstance.
           schema:
             $ref: '#/definitions/Error'
         429:
           description: Exceeded rate limit
+          headers:
+            X-RateLimit-Limit:
+              type: number
+              format: integer
+              description: Request limit per hour.
+            X-RateLimit-Remaining:
+              type: number
+              format: integer
+              description: The number of requests left for the time window.
+            X-RateLimit-Reset:
+              type: string
+              format: date-time
+              description: The UTC date/time at which the current rate limit window resets.
+            Warning:
+              type: string
+              description: |
+                This header is added where one of the backing services is unavailable so the response data is being served from the cache. 
+                  The `111 - "Revalidation Failed"` warning code will be used in this circumstance.
         default:
           description: Unexpected error
           schema:
@@ -223,12 +367,61 @@ paths:
       responses:
         200:
           description: All elements of the API are live
+          headers:
+            X-RateLimit-Limit:
+              type: number
+              format: integer
+              description: Request limit per hour.
+            X-RateLimit-Remaining:
+              type: number
+              format: integer
+              description: The number of requests left for the time window.
+            X-RateLimit-Reset:
+              type: string
+              format: date-time
+              description: The UTC date/time at which the current rate limit window resets.
         203:
           description: One of the backing elements is unavailable and the API is returning cached information. Error information relates to the backing service
           schema:
             $ref: '#/definitions/Error'
+          headers:
+            X-RateLimit-Limit:
+              type: number
+              format: integer
+              description: Request limit per hour.
+            X-RateLimit-Remaining:
+              type: number
+              format: integer
+              description: The number of requests left for the time window.
+            X-RateLimit-Reset:
+              type: string
+              format: date-time
+              description: The UTC date/time at which the current rate limit window resets.
+            Warning:
+              type: string
+              description: |
+                This header is added where one of the backing services is unavailable so the response data is being served from the cache. 
+                  The `111 - "Revalidation Failed"` warning code will be used in this circumstance.
         500:
           description: API is not available, but is still able to serve responses.
+          headers:
+            X-RateLimit-Limit:
+              type: number
+              format: integer
+              description: Request limit per hour.
+            X-RateLimit-Remaining:
+              type: number
+              format: integer
+              description: The number of requests left for the time window.
+            X-RateLimit-Reset:
+              type: string
+              format: date-time
+              description: The UTC date/time at which the current rate limit window resets.
+            Warning:
+              type: string
+              description: |
+                This header is added where one of the backing services is unavailable so the response data is being served from the cache. 
+                  The `111 - "Revalidation Failed"` warning code will be used in this circumstance.
           schema:
             $ref: '#/definitions/Error'
 
