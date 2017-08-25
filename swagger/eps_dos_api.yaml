@@ -8,7 +8,6 @@ host: dos.eps.digital.nhs.uk
 # array of all schemes that your API supports
 schemes:
   - https
-  - http
 # will be prefixed to all paths
 basePath: /v0.0.1
 produces:
@@ -225,9 +224,12 @@ definitions:
         type: object
         properties:
           line:
+            description: Five address lines, null where blank.
             type: array
             items:
               type: string
+              maxItems: 5
+              minItems: 5
           postcode:
             type: string
       distance:
@@ -288,6 +290,7 @@ definitions:
           specified_date:
             type: array
             items:
+              description: A map of date string to opening time object. Date is formated as ISO 8609 YYYY-MM-DD. Null values indicate complete closure on that date. 
               type: object
               additionalProperties:
                 $ref: '#/definitions/OpeningTime'
