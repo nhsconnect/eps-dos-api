@@ -18,7 +18,8 @@ paths:
     get:
       summary: Dispenser
       description: |
-        A dispensing contractor, including Dispensing Applicance Contractors and Internet Pharmacies.
+        A dispensing contractor, currently limited to only EPS-enabled dispensing contractors who are able to dispense EPS Release 2 prescriptions 
+        and are able to be physically accessed by the patient.
       parameters:
       - in: path
         name: ods
@@ -38,17 +39,57 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-            
+    put:
+      summary: Create Dispenser resource.
+      description: |
+        Creates a dispensing contractor, overwriting any that exist with the same ODS code. The PUT method is not generally available other than to 
+        support testing in some environments. 
+      parameters:
+      - in: path
+        name: ods
+        description: The ODS code of the dispenser
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: Dispenser to be created
+        required: true
+        schema:
+          $ref: '#/definitions/dispenser'
+      responses:
+        201:
+          description: Dispenser created
+        403:
+          description: This account is not authorised to use this method
+    delete:
+      summary: Remove Dispenser resource.
+      description: |
+        Deletes the identified dispensing contractor. The DELETE method is not generally available other than to 
+        support testing in some environments. 
+      parameters:
+      - in: path
+        name: ods
+        description: The ODS code of the dispenser
+        required: true
+        type: string
+      responses:
+        204:
+          description: Dispenser deleted
+        403:
+          description: This account is not authorised to use this method
+        404:
+          description: Attempted to remove a resource which does not exist
+
   /dispensers/byLocationDisposition:
     get:
-      summary: Search dispensers by disposition & location 
+      summary: Search dispensers by opening hours & location 
       description: |
-        Searches for a suitable dispenser based on patient location and disposition, ensuring that opening times fall within the timeframe required by the disposition. 
+        Searches for a suitable dispenser based on patient location and opening hours, ensuring that opening times fall within the timeframe required. 
         Optionally filtering by service type and distance. Returns a maximum of five matching dispensers. 
       parameters:
       - name: postcode
         in: query
-        description: Postcode of patient location. Must be URL-encoded.
+        description: Postcode of patient location. 
         required: true
         type: string
       - name: distance
@@ -59,38 +100,38 @@ paths:
         type: number
         format: decimal
         default: 36.0
-      - name: disposition
+      - name: open_within
+        in: query
+        allowEmptyValue: false
+        required: true
+        type: number
+        format: integer
+        description: |
+            The number of hours from the current time within which the service must be open. Takes account of bank holidays, specified dates and timezone offsets. 
+      - name: availability_start
         in: query
         type: string
+        required: false
         description: |
-            The patient disposition. The service only supports prescrition and dispenser-related dispositions. Only permits a single disposition. 
-            Supported dispositions are:
-              * `Dx85` - Repeat prescription required within 2 hours
-              * `Dx86` - Repeat prescription required within 12 hours
-              * `Dx87` - Repeat prescription required within 24 hours
-              * `Dx80` - Repeat prescription required within 6 hours
-        enum: [Dx85,Dx86,Dx87,Dx80]
+            Timestamp from which to start `open_within` calculation. Defaults to `now()`. Should not be used in production - this is primarily to support testing.
       - name: service_type
         in: query
         description: |
-          Service type:
+            The service type to include in results. The current release only supports EPS-enabled community pharmacy:
               * `eps_pharmacy` - An EPS R2 enabled community pharmacy
-              * `eps_dac` - An EPS R2 enabled dispensing applicance contractor (DAC)
-              * `eps_internet` - An EPS R2 enabled internet pharmacy
-              * `pharmacy` - A community pharmacy
-              * `dac` - A dispensing applicance contractor (DAC)
-              * `internet` - An Internet pharmacy
         type: string
-        enum: [eps_pharmacy, eps_dac, eps_internet, pharmacy, dac, internet]
+        enum: [eps_pharmacy]
       responses:
         200:
-          description: Up to five dispensers
+          description: Up to five dispensers matching the search cirteria, ordered by distance.
           schema:
             type: array
             items:
               $ref: '#/definitions/dispenser'
         400:
-          description: Invalid search          
+          description: Invalid search
+          schema:
+            $ref: '#/definitions/Error'
         429:
           description: Exceeded rate limit
         default:
@@ -108,24 +149,9 @@ paths:
           description: The name of the dispenser, including wildcards. Permitted wildcards are [*,?]
           required: true
           type: string
-        - name: service_type
-          in: query
-          description: >
-            Service type:
-              * `eps_pharmacy` - An EPS R2 enabled community pharmacy
-              * `eps_dac` - An EPS R2 enabled dispensing applicance contractor (DAC)
-              * `eps_internet` - An EPS R2 enabled internet pharmacy
-              * `pharmacy` - A community pharmacy
-              * `dac` - A dispensing applicance contractor (DAC)
-              * `internet` - An Internet pharmacy
-              * 'dispenser' - All dispensers
-          type: string
-          required: false
-          default: dispenser
-          enum: [eps_pharmacy, eps_dac, eps_internet, pharmacy, dac, internet, dispenser]
         - name: postcode
           in: query
-          description: Postcode of patient location. Must be URL-encoded.
+          description: Postcode of patient location.
           required: false
           allowEmptyValue: false
           type: string
@@ -146,6 +172,8 @@ paths:
               $ref: '#/definitions/dispenser'
         400:
           description: Invalid search
+          schema:
+            $ref: '#/definitions/Error'
         429:
           description: Exceeded rate limit
         default:
@@ -155,7 +183,7 @@ paths:
             
   /status:
     get:
-      summary: The current status of the API
+      summary: Current status of the API
       description: Performs a deep ping to confirm the API is available. May optionally return info on the backing services.
       responses:
         200:
@@ -175,8 +203,10 @@ definitions:
     - ods
     - name
     - service_type
+    - opening
+    - address
+    - location
     type: object
-    #TODO: add disptance to patient location.
     properties:
       ods:
         type: string
@@ -185,16 +215,11 @@ definitions:
         type: string
         description: Name of the dispenser
       service_type:
-        description: >
-            Service type:
+        description: |
+            The service type to include in results. The current release only supports EPS-enabled community pharmacy:
               * `eps_pharmacy` - An EPS R2 enabled community pharmacy
-              * `eps_dac` - An EPS R2 enabled dispensing applicance contractor (DAC)
-              * `eps_internet` - An EPS R2 enabled internet pharmacy
-              * `pharmacy` - A community pharmacy
-              * `dac` - A dispensing applicance contractor (DAC)
-              * `internet` - An Internet pharmacy
         type: string
-        enum: [eps_pharmacy, eps_dac, eps_internet, pharmacy, dac, internet]
+        enum: [eps_pharmacy]
       address:
         description: Street address of the dispenser
         type: object
@@ -205,15 +230,15 @@ definitions:
               type: string
           postcode:
             type: string
+      distance:
+        description: Distance from patient location in km, where this has been provided in a search. 
+        type: number
+        format: decimal
       patient_contact:
         description: contact details for the patient to contact the dispenser
         type: object
         properties:
           tel:
-            type: string
-          fax:
-            type: string
-          email: 
             type: string
           web_address:
             type: string
@@ -227,19 +252,17 @@ definitions:
             type: string
           email: 
             type: string
-          web_address:
-            type: string
       location:
         type: object
         properties:
-          lat:
+          easting:
             type: number
             format: decimal
-          lon:
+          northing:
             type: number
             format: decimal
-          
       opening:
+        description: Opening time as an open/closed pair in local time. A null value incidates closed on that day.
         type: object
         properties:
           open_247:
@@ -261,7 +284,7 @@ definitions:
             $ref: '#/definitions/OpeningTime'
           bank_holiday:
             $ref: '#/definitions/OpeningTime'
-            # TODO: this would be better keyed off the date
+            # TODO: this doesn't get presented well
           specified_date:
             type: array
             items:
@@ -275,19 +298,18 @@ definitions:
       address:
         line:
         - 123 Brown Street
-        - 
+        - null
         - York
         postcode: YO1 3EH
       patient_contact:
         tel: 01952784465
-        fax: 01952784460
         web_address: http://www.vantage-pharmacy.co.uk
       prescriber_contact:
         tel: 01952784470
         fax: 01952784460
       location:
-        lat: 55.45673
-        lon: 1.45678
+        northing: 55.45673
+        easting: 1.45678
       opening:
         open_247: false
         sun:
@@ -313,7 +335,7 @@ definitions:
           open: "09:00"
           close: "12:00"
         specified_date:
-
+          "2018-01-10":
             open: "09:00"
             close: "12:00"
   OpeningTime:
