@@ -12,6 +12,18 @@ schemes:
 basePath: /v0.0.1
 produces:
   - application/json
+securityDefinitions:
+  ReadOnlySecurity:
+    type: basic
+    description: All operations require basic auth, including all read operations.
+  WriteSecurity:
+    type: basic
+    description: All write operations will require write permission using basic auth.
+
+# By default all methods need basic auth for read access
+security:
+  - ReadOnlySecurity: [] 
+
 paths:
   /dispenser/{ods}:
     get:
@@ -20,16 +32,36 @@ paths:
         A dispensing contractor, currently limited to only EPS-enabled dispensing contractors who are able to dispense EPS Release 2 prescriptions 
         and are able to be physically accessed by the patient.
       parameters:
-      - in: path
-        name: ods
-        description: The ODS code of the dispenser
-        required: true
-        type: string
+        - in: path
+          name: ods
+          description: The ODS code of the dispenser
+          required: true
+          type: string
       responses:
         200:
           description: A dispenser
+          headers:
+            X-RateLimit-Limit:
+              type: number
+              format: integer
+              description: Request limit per hour.
+            X-RateLimit-Remaining:
+              type: number
+              format: integer
+              description: The number of requests left for the time window.
+            X-RateLimit-Reset:
+              type: string
+              format: date-time
+              description: The UTC date/time at which the current rate limit window resets.
+            Warning:
+              type: string
+              description: |
+                This header is added where one of the backing services is unavailable so the response data is being served from the cache. 
+                  The `111 - "Revalidation Failed"` warning code will be used in this circumstance.
           schema:
             $ref: '#/definitions/dispenser'
+
+            
         404:
           description: Dispenser not found
         429:
@@ -55,6 +87,8 @@ paths:
         required: true
         schema:
           $ref: '#/definitions/dispenser'
+      security:
+        - WriteSecurity: []
       responses:
         201:
           description: Dispenser created
@@ -71,6 +105,8 @@ paths:
         description: The ODS code of the dispenser
         required: true
         type: string
+      security:
+        - WriteSecurity: []
       responses:
         204:
           description: Dispenser deleted
@@ -361,24 +397,3 @@ definitions:
         type: string
       fields:
         type: string
-        
-  ResponseHeaders:
-    X-RateLimit-Limit:
-      schema:
-        type: integer
-        description: Request limit per hour.
-    X-RateLimit-Remaining:
-      schema:
-        type: integer
-        description: The number of requests left for the time window.
-    X-RateLimit-Reset:
-      schema:
-        type: string
-        format: date-time
-        description: The UTC date/time at which the current rate limit window resets.
-    Warning:
-      schema: 
-        type: string
-        description: |
-          This header is added where one of the backing services is unavailable so the response data is being served from the cache. 
-          The `111 - "Revalidation Failed"` warning code will be used in this circumstance.
