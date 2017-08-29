@@ -260,7 +260,6 @@ paths:
       responses:
         200:
           description: All elements of the API are live
-          headers:
         203:
           description: One of the backing elements is unavailable and the API is returning cached information. Error information relates to the backing service
           schema:
