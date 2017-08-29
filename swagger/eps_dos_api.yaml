@@ -256,6 +256,7 @@ paths:
     get:
       summary: Current status of the API
       description: Performs a deep ping to confirm the API is available. May optionally return info on the backing services.
+      security: []
       responses:
         200:
           description: All elements of the API are live
