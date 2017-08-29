@@ -498,7 +498,7 @@ definitions:
         properties:
           open_247:
             type: boolean
-            description: indicates the service is open 24/7, in which case normal opening times not shown
+            description: indicates the service is open 24/7, in which case weekday opening times are not included
           sun:
             $ref: '#/definitions/OpeningTime'
           mon:
@@ -514,6 +514,7 @@ definitions:
           sat:
             $ref: '#/definitions/OpeningTime'
           bank_holiday:
+            description: foo
             $ref: '#/definitions/OpeningTime'
             # TODO: this doesn't get presented well
           specified_date:
@@ -544,7 +545,7 @@ definitions:
         easting: 1.45678
       opening:
         open_247: false
-        sun:
+        sun: null
         mon: 
           open: "08:00"
           close: "18:00"

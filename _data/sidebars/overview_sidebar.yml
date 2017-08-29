@@ -38,8 +38,8 @@ entries:
     - title: API Limits
       url: /api_limits.html
       output: web
-    - title: REST Endpoints
-      url: /rest_endpoints.html
+    - title: Errors
+      url: /errors.html
       output: web
     - title: Searching for Dispensers
       url: /searching.html
