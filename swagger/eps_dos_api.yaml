@@ -41,18 +41,6 @@ paths:
         200:
           description: A dispenser
           headers:
-            X-RateLimit-Limit:
-              type: number
-              format: integer
-              description: Request limit per hour.
-            X-RateLimit-Remaining:
-              type: number
-              format: integer
-              description: The number of requests left for the time window.
-            X-RateLimit-Reset:
-              type: string
-              format: date-time
-              description: The UTC date/time at which the current rate limit window resets.
             Warning:
               type: string
               description: |
@@ -65,18 +53,6 @@ paths:
         404:
           description: Dispenser not found
           headers:
-            X-RateLimit-Limit:
-              type: number
-              format: integer
-              description: Request limit per hour.
-            X-RateLimit-Remaining:
-              type: number
-              format: integer
-              description: The number of requests left for the time window.
-            X-RateLimit-Reset:
-              type: string
-              format: date-time
-              description: The UTC date/time at which the current rate limit window resets.
             Warning:
               type: string
               description: |
@@ -85,18 +61,6 @@ paths:
         429:
           description: Exceeded rate limit
           headers:
-            X-RateLimit-Limit:
-              type: number
-              format: integer
-              description: Request limit per hour.
-            X-RateLimit-Remaining:
-              type: number
-              format: integer
-              description: The number of requests left for the time window.
-            X-RateLimit-Reset:
-              type: string
-              format: date-time
-              description: The UTC date/time at which the current rate limit window resets.
             Warning:
               type: string
               description: |
@@ -196,18 +160,6 @@ paths:
         200:
           description: Up to five dispensers matching the search cirteria, ordered by distance.
           headers:
-            X-RateLimit-Limit:
-              type: number
-              format: integer
-              description: Request limit per hour.
-            X-RateLimit-Remaining:
-              type: number
-              format: integer
-              description: The number of requests left for the time window.
-            X-RateLimit-Reset:
-              type: string
-              format: date-time
-              description: The UTC date/time at which the current rate limit window resets.
             Warning:
               type: string
               description: |
@@ -220,18 +172,6 @@ paths:
         400:
           description: Invalid search
           headers:
-            X-RateLimit-Limit:
-              type: number
-              format: integer
-              description: Request limit per hour.
-            X-RateLimit-Remaining:
-              type: number
-              format: integer
-              description: The number of requests left for the time window.
-            X-RateLimit-Reset:
-              type: string
-              format: date-time
-              description: The UTC date/time at which the current rate limit window resets.
             Warning:
               type: string
               description: |
@@ -242,18 +182,6 @@ paths:
         429:
           description: Exceeded rate limit
           headers:
-            X-RateLimit-Limit:
-              type: number
-              format: integer
-              description: Request limit per hour.
-            X-RateLimit-Remaining:
-              type: number
-              format: integer
-              description: The number of requests left for the time window.
-            X-RateLimit-Reset:
-              type: string
-              format: date-time
-              description: The UTC date/time at which the current rate limit window resets.
             Warning:
               type: string
               description: |
@@ -292,18 +220,6 @@ paths:
         200:
           description: Matching dispensers
           headers:
-            X-RateLimit-Limit:
-              type: number
-              format: integer
-              description: Request limit per hour.
-            X-RateLimit-Remaining:
-              type: number
-              format: integer
-              description: The number of requests left for the time window.
-            X-RateLimit-Reset:
-              type: string
-              format: date-time
-              description: The UTC date/time at which the current rate limit window resets.
             Warning:
               type: string
               description: |
@@ -316,18 +232,6 @@ paths:
         400:
           description: Invalid search
           headers:
-            X-RateLimit-Limit:
-              type: number
-              format: integer
-              description: Request limit per hour.
-            X-RateLimit-Remaining:
-              type: number
-              format: integer
-              description: The number of requests left for the time window.
-            X-RateLimit-Reset:
-              type: string
-              format: date-time
-              description: The UTC date/time at which the current rate limit window resets.
             Warning:
               type: string
               description: |
@@ -338,18 +242,6 @@ paths:
         429:
           description: Exceeded rate limit
           headers:
-            X-RateLimit-Limit:
-              type: number
-              format: integer
-              description: Request limit per hour.
-            X-RateLimit-Remaining:
-              type: number
-              format: integer
-              description: The number of requests left for the time window.
-            X-RateLimit-Reset:
-              type: string
-              format: date-time
-              description: The UTC date/time at which the current rate limit window resets.
             Warning:
               type: string
               description: |
@@ -368,35 +260,11 @@ paths:
         200:
           description: All elements of the API are live
           headers:
-            X-RateLimit-Limit:
-              type: number
-              format: integer
-              description: Request limit per hour.
-            X-RateLimit-Remaining:
-              type: number
-              format: integer
-              description: The number of requests left for the time window.
-            X-RateLimit-Reset:
-              type: string
-              format: date-time
-              description: The UTC date/time at which the current rate limit window resets.
         203:
           description: One of the backing elements is unavailable and the API is returning cached information. Error information relates to the backing service
           schema:
             $ref: '#/definitions/Error'
           headers:
-            X-RateLimit-Limit:
-              type: number
-              format: integer
-              description: Request limit per hour.
-            X-RateLimit-Remaining:
-              type: number
-              format: integer
-              description: The number of requests left for the time window.
-            X-RateLimit-Reset:
-              type: string
-              format: date-time
-              description: The UTC date/time at which the current rate limit window resets.
             Warning:
               type: string
               description: |
@@ -405,18 +273,6 @@ paths:
         500:
           description: API is not available, but is still able to serve responses.
           headers:
-            X-RateLimit-Limit:
-              type: number
-              format: integer
-              description: Request limit per hour.
-            X-RateLimit-Remaining:
-              type: number
-              format: integer
-              description: The number of requests left for the time window.
-            X-RateLimit-Reset:
-              type: string
-              format: date-time
-              description: The UTC date/time at which the current rate limit window resets.
             Warning:
               type: string
               description: |
