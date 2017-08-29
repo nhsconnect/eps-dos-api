@@ -9,7 +9,7 @@ summary: Error reporting including the complete errorbase
 
 
 Errors are generally using the HTTP status code with addtional information available returned in the Error object. Where the error relates to a specific parameter
-these are specifically named in the `fields` property. Multiple parameters are comma-delimited. The Error object has the following definition:
+these are specifically named in the `fields` property. The Error object has the following definition:
 ```yaml
   Error:
     type: object
@@ -47,6 +47,9 @@ All DoS-specific errors are listed below. This list is expected to be extended a
 | 8     | Dispenser search service not responding                                                            | `null`           | 500         |
 | 9     | Opening time service returned error - {error}                                                      | `null`           | 500         |
 | 10    | Dispenser search service returned error - {error}                                                  | `null`           | 500         |
+| 11    | Dispenser search service returned error - {error}                                                  | `null`           | 500         |
+| 12    | Authentication is required to access this resource                                                 | `null`           | 403         |
+| 13    | Authentication invalid                                                                             | `null`           | 403         |
 
 ### Examples ###
 
