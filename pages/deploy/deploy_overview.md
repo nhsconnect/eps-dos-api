@@ -29,7 +29,7 @@ This section provides details of the generally available environments. Other env
 
 | **DNS Name**    | dos.eps.digital.nhs.uk    | 
 | **Virtual IP**  | TBC                       |
-| **Port**        | TCP 443, TCP 80           |
+| **Port**        | TCP 443                   |
 | **Dataset**     | Live                      |
 
 
@@ -39,7 +39,7 @@ Non Functional Test Environment. Infrastructure should directly reflect live, al
 
 | **DNS Name**    | dos-NFT.eps.digital.nhs.uk | 
 | **Virtual IP**  | TBC                       |
-| **Port**        | TCP 443, TCP 80           |
+| **Port**        | TCP 443                   |
 | **Dataset**     | Live                      |
 
 #### Int ####
@@ -48,14 +48,14 @@ Integration Test Environment. May be configured to have the same release as in L
 
 | **DNS Name**    | dos-int.eps.digital.nhs.uk | 
 | **Virtual IP**  | TBC                       |
-| **Port**        | TCP 443, TCP 80           |
+| **Port**        | TCP 443                   |
 | **Dataset**     | Test data                 |
 
 #### Dev ####
 
 Integration Test Environment. Test data may be configured directly by suppliers.
 
-| **DNS Name**    | dos-int.eps.digital.nhs.uk | 
+| **DNS Name**    | dos-dev.eps.digital.nhs.uk | 
 | **Virtual IP**  | TBC                       |
-| **Port**        | TCP 443, TCP 80           |
+| **Port**        | TCP 443                   |
 | **Dataset**     | Test data                 |
