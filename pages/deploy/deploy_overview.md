@@ -53,7 +53,7 @@ Integration Test Environment. May be configured to have the same release as in L
 
 #### Dev ####
 
-Integration Test Environment. Test data may be configured directly by suppliers.
+Development and Test Environment. Test data may be configured directly by suppliers.
 
 | **DNS Name**    | dos-dev.eps.digital.nhs.uk | 
 | **Virtual IP**  | TBC                       |
