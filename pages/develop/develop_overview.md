@@ -15,7 +15,7 @@ The dispenser object includes the following information:
 * Name
 * Service type _currently only EPS R2 enabled pharmacies_
 * Address
-  - Address line x 4
+  - Address line _x 4_
   - Postcode
 * Patient Contact Details
   - Phone
@@ -30,8 +30,8 @@ The dispenser object includes the following information:
 * Opening Hours
   - 24/7 opening
   - Monday
-    + Open
-    + Close
+    + Open _HH:MM format_
+    + Close _HH:MM format_
   - ...
   - Sunday
     + Open
@@ -40,4 +40,7 @@ The dispenser object includes the following information:
     + Open
     + Close
   - Specified dates
+    + Date _YYYY-MM-DD format_
+      - Open
+      - Close
 
