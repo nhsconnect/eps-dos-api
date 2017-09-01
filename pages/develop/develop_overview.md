@@ -4,30 +4,40 @@ keywords: develop
 tags: [develop]
 sidebar: overview_sidebar
 permalink: develop_overview.html
-summary: An overview of the high-level approach for the DM+D API.
+summary: An overview of the information available in the EPS DoS API
 ---
 
-##Data Download##
+## Dispenser Information##
 
-The data are available for download in the folloing formats:
+The dispenser object includes the following information:
 
-- CSV, for bulk copy into a relational database. Standard ISO SQL DDL is provided.
-- Raw xml, as available compressed from TRUD
-- JSON, in the same format as provided in the REST interface
-- RDF
+* ODS Code
+* Name
+* Service type _currently only EPS R2 enabled pharmacies_
+* Address
+  - Address line x 4
+  - Postcode
+* Patient Contact Details
+  - Phone
+  - Web
+* Prescriber Contact Details
+  - Phone
+  - Fax
+  - Email
+* Location
+  - Easting
+  - Northing
+* Opening Hours
+  - 24/7 opening
+  - Monday
+    + Open
+    + Close
+  - ...
+  - Sunday
+    + Open
+    + Close
+  - Bank holiday
+    + Open
+    + Close
+  - Specified dates
 
-## Security ##
-
-Security of the service will be enforced by checking ...
-
-## REST interface ##
-
-All REST requests are standard HTTP requests using the `application/json` mime-type.
-
-# Response #
-
-The json response will follow a simple structure...
-
-## Error Handling ##
-
-If there is a problem, e.g. an invalid request parameter, concept can't be found...
