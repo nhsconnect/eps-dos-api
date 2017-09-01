@@ -389,6 +389,7 @@ definitions:
         - 123 Brown Street
         - null
         - York
+        - North Yorkshire
         postcode: YO1 3EH
       patient_contact:
         tel: 01952784465
