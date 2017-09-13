@@ -5,6 +5,7 @@
  */
 package uk.nhs.digital.eps.dos.test;
 
+import io.vertx.core.AsyncResult;
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Verticle;
 import io.vertx.core.Vertx;
@@ -17,6 +18,7 @@ import io.vertx.ext.unit.Async;
 import io.vertx.ext.unit.TestContext;
 import io.vertx.ext.unit.junit.VertxUnitRunner;
 import io.vertx.ext.web.client.HttpRequest;
+import io.vertx.ext.web.client.HttpResponse;
 import io.vertx.ext.web.client.WebClient;
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -50,10 +52,7 @@ public class DispenserInformationServiceVerticleTest {
     HttpServer choicesServer, pathwaysServer;
     String verticleDeployId;
 
-    public DispenserInformationServiceVerticleTest() {
-    }
-
-    @Before()
+    @Before
     public void setUp(TestContext context) {
         vertx.exceptionHandler(context.exceptionHandler());
         
@@ -96,14 +95,25 @@ public class DispenserInformationServiceVerticleTest {
         DeploymentOptions options = new DeploymentOptions().setConfig(config);
         DispenserInformationServiceVerticle verticle = new DispenserInformationServiceVerticle();
         vertx.deployVerticle(verticle, options, r -> verticleDeployId = verticle.deploymentID());
+        
+        choicesServer = vertx.createHttpServer(new HttpServerOptions().setLogActivity(true).setHost("localhost").setPort(choicesPort));
+        pathwaysServer = vertx.createHttpServer(new HttpServerOptions().setLogActivity(true).setHost("localhost").setPort(pathwaysPort));
     }
 
     @After
     public void tearDown(TestContext context) {
+        LOG.fine("teardown " + verticleDeployId);
         Async async=context.async();
         choicesServer.close();
         pathwaysServer.close();
-        vertx.undeploy(verticleDeployId, context.asyncAssertSuccess());
+        vertx.undeploy(verticleDeployId, ar -> {
+            if (ar.succeeded()) {
+                async.complete();
+            } else {
+                context.fail(ar.cause());
+                async.complete();
+            }
+        });
     }
 
     @BeforeClass
@@ -111,33 +121,29 @@ public class DispenserInformationServiceVerticleTest {
         vertx = Vertx.vertx();
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
     @Test
     public void getDispenserTest(TestContext context) {
+        LOG.fine("testing verticle " + verticleDeployId);
          Async async = context.async();
-        choicesServer = vertx.createHttpServer(new HttpServerOptions().setLogActivity(true).setHost("localhost").setPort(choicesPort));
-        pathwaysServer = vertx.createHttpServer(new HttpServerOptions().setLogActivity(true).setHost("localhost").setPort(pathwaysPort));
 
         choicesServer.requestHandler( request -> {
             request.response()
                     .putHeader("Content-Type", "text/xml")
                     .end(BaseTest.getFile("/choices_dispenser_FA242.xml"));})
-                    .listen(context.asyncAssertSuccess());
+                    .listen();
         
         pathwaysServer.requestHandler( request -> {
             request.response()
                     .end(BaseTest.getFile("/pathways_dispenser.json"));})
-                    .listen(context.asyncAssertSuccess());
+                    .listen();
         
         WebClient client = WebClient.create(vertx);
         client.get(verticlePort, "localhost", "/dispenser/FA242")
                 .ssl(false)
                 .putHeader("Authorization", "Basic ".concat("auth-placeholder"))
-                .putHeader("x-Request-Id", "getDispenserTest").send(ar -> {
+                .putHeader("x-Request-Id", "getDispenserTest").send((ar) -> {
                     context.assertTrue(ar.succeeded());
-                    LOG.fine(ar.result().bodyAsString());
+                    LOG.fine("result:" + ar.result().bodyAsString());
                     async.complete();
                 });
     }
