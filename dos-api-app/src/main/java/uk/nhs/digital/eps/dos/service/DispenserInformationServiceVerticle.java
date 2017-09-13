@@ -5,16 +5,12 @@
  */
 package uk.nhs.digital.eps.dos.service;
 
-import groovy.transform.stc.FirstParam;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.CompositeFuture;
 import io.vertx.core.Future;
-import io.vertx.core.Vertx;
-import io.vertx.core.http.HttpServer;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -65,6 +61,7 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
     private void getDispenser(RoutingContext context) {
         String ods = context.request().getParam("ods");
         String requestId = context.request().getHeader(ApiGatewayVerticle.REQUEST_ID_HEADER);
+        LOG.log(Level.INFO, "getDispenser called with param ODS={0} adn request.id={1}", new Object[]{ods, requestId});
         Future<Dispenser> openingInfo = Future.future();
         dispenserAccessInformation.dispenserAccessInformation(requestId, ods, openingInfo.completer());
         Future<Dispenser> detail = Future.future();
@@ -82,7 +79,7 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
     private void searchByName(RoutingContext context) {
         String name = context.request().getParam("name");
         String requestId = context.request().getHeader(ApiGatewayVerticle.REQUEST_ID_HEADER);
-        
+        LOG.log(Level.INFO, "searchByName REST request recieved with param name={0} and request.id={1}", new Object[]{name, requestId});
         Future<List<Dispenser>> queryFuture = Future.future();
 
         Future<List<Dispenser>> detail = Future.future();
@@ -109,7 +106,7 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
                 boolean noMatch = detailList.retainAll(openingTimeDispensers);
                 
                 if (noMatch){
-                    LOG.log(Level.WARNING, "No matching dispenserAccessInformation for query for name={} request.id={1}", new Object[]{name, requestId});
+                    LOG.log(Level.WARNING, "No matching dispenserAccessInformation for query for name={0} request.id={1}", new Object[]{name, requestId});
                 }
                 
                 if (detailList.isEmpty()){
