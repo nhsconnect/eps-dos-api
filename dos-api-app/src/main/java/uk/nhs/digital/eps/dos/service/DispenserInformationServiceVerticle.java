@@ -73,7 +73,7 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
                 .listen(port, host);
     }
     
-    private static String responseAsJson(Object o){
+    private static String errorResponseAsJson(Object o){
         try {
             return MAPPER.writeValueAsString(o);
         } catch (JsonProcessingException ex) {
@@ -89,21 +89,23 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
         Future<Dispenser> openingInfo = Future.future();
         dispenserAccessInformation.dispenserAccessInformation(requestId, ods, openingInfo.completer());
         Future<Dispenser> detail = Future.future();
-        dispenserDetailService.dispenserDetail(requestId, ods, openingInfo.completer());
+        dispenserDetailService.dispenserDetail(requestId, ods, detail.completer());
         CompositeFuture.all(detail, openingInfo).setHandler(responses -> {
             if (responses.succeeded()) {
-                JsonObject detailJson = JsonObject.mapFrom(detail.result());
-                JsonObject openingJson = JsonObject.mapFrom(openingInfo.result());
-                JsonObject responseJson = detailJson.mergeIn(openingJson, true);
-                context.response().setStatusCode(200).end(responseJson.encodePrettily());
+                BeanUtils.copyProperties(detail.result(), openingInfo.result());
+                try {
+                    context.response().setStatusCode(200).end(MAPPER.writeValueAsString(openingInfo.result()));
+                } catch (JsonProcessingException ex) {
+                    context.response().setStatusCode(ApiErrorbase.UNKNOWN.getStatusCode()).end(errorResponseAsJson(new APIException(ApiErrorbase.UNKNOWN)));
+                }
             } else {
                 Throwable ex = responses.cause();
                 if (ex instanceof APIException){
                     LOG.log(Level.INFO, "getDispenser failed request.id={1}", new Object[]{ods, requestId});
-                    context.response().setStatusCode(((APIException) ex).getStatusCode()).end(responseAsJson(responses.cause()));
+                    context.response().setStatusCode(((APIException) ex).getStatusCode()).end(errorResponseAsJson(responses.cause()));
                 } else {
                     LOG.log(Level.WARNING, "getDispenser failed with unknown error request.id={1} exception={0}", new Object[]{ex.getMessage(), requestId});
-                    context.response().setStatusCode(ApiErrorbase.UNKNOWN.getStatusCode()).end(responseAsJson(new APIException(ApiErrorbase.UNKNOWN)));
+                    context.response().setStatusCode(ApiErrorbase.UNKNOWN.getStatusCode()).end(errorResponseAsJson(new APIException(ApiErrorbase.UNKNOWN)));
                 }
             }
         });
@@ -164,9 +166,9 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
             } else {
                 Throwable ex = ar.cause();
                 if (ex instanceof APIException){
-                    context.response().setStatusCode(((APIException) ex).getStatusCode()).end(responseAsJson(ar.cause()));
+                    context.response().setStatusCode(((APIException) ex).getStatusCode()).end(errorResponseAsJson(ar.cause()));
                 } else {
-                    context.response().setStatusCode(ApiErrorbase.UNKNOWN.getStatusCode()).end(responseAsJson(new APIException(ApiErrorbase.UNKNOWN)));
+                    context.response().setStatusCode(ApiErrorbase.UNKNOWN.getStatusCode()).end(errorResponseAsJson(new APIException(ApiErrorbase.UNKNOWN)));
                 }
             }
         
