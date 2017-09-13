@@ -1,0 +1,43 @@
+---
+# Install docker on ubuntu hosts
+# Following instructions at https://docs.docker.com/engine/installation/linux/ubuntulinux/
+
+- name: Configure nginx
+  hosts: nginx
+  become: True
+  tasks:
+    - name: Move the config file
+      copy: 
+          src: ../nginx-config/dos-api
+          dest: /etc/nginx/sites-available/dos-api
+    
+    - name: Create web root
+      file:
+        path: /var/www/dos-api/
+        state: directory
+        mode: 0755
+        
+    - name: Move the sorry-file
+      copy:
+        src: ../nginx-config/maintenance_off.json
+        dest: /var/www/dos-api/maintenance_off.json
+        group: www-data
+        owner: www-data
+        mode: 0644
+        
+    - name: Symlink to enable config
+      file:
+        src: /etc/nginx/sites-available/dos-api
+        state: link
+        path: /etc/nginx/sites-enabled/dos-api
+        
+    - name: remove default nginx host config
+      file:
+        path: /etc/nginx/sites-enabled/default
+        state: absent
+        
+    - service:
+        name: nginx
+        state: restarted
+    
+        

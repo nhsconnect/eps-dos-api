@@ -1,0 +1,1848 @@
+{
+  "success": {
+    "code": 200,
+    "transactionId": "567FE747-0AD2-76DE-096A-9BDDD779FE54",
+    "servicesReturnedAreCatchAll": "FALSE",
+    "serviceCount": 10,
+    "services": [
+      {
+        "id": "147914",
+        "name": "Pharmacy - Medway - Your local Boots Rochester",
+        "type": {
+          "id": "13",
+          "name": "Pharmacist"
+        },
+        "odsCode": "FYN18",
+        "address": [
+          "The Dame Sybil Thorndike Medical Centre ",
+          "Longley Road",
+          "Rochester",
+          "Kent"
+        ],
+        "postcode": "ME1 2TH",
+        "easting": "574274",
+        "northing": "167612",
+        "phone": {
+          "public": "01634 817317",
+          "nonPublic": "",
+          "fax": ""
+        },
+        "web": "",
+        "openingTimes": {
+          "allHours": false,
+          "days": [
+            {
+              "day": "Monday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Tuesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Wednesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Thursday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Friday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Saturday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "12",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Sunday",
+              "sessions": [
+                
+              ]
+            },
+            {
+              "day": "Bankholiday",
+              "sessions": [
+                
+              ]
+            }
+          ],
+          "specifiedDates": [
+            
+          ]
+        },
+        "referralInstructions": {
+          "callHandler": "",
+          "other": "AREA COVERED: \nOpen Access\n\nREFERRAL METHOD: \nPatient to self-present\n\nFURTHER INFO: \nOn bank holidays inform the patient to contact the pharmacy to confirm opening times. Provide the telephone number."
+        },
+        "capacity": {
+          "status": {
+            "rag": "",
+            "human": "",
+            "hex": ""
+          }
+        },
+        "endpoints": [
+          
+        ],
+        "patientDistance": "0.3"
+      },
+      {
+        "id": "147951",
+        "name": "Pharmacy - Medway - Paydens Rochester",
+        "type": {
+          "id": "13",
+          "name": "Pharmacist"
+        },
+        "odsCode": "FGF64",
+        "address": [
+          "134-136 Delce Road",
+          "Rochester",
+          "Kent"
+        ],
+        "postcode": "ME1 2DG",
+        "easting": "574606",
+        "northing": "167865",
+        "phone": {
+          "public": "01634 842089",
+          "nonPublic": "",
+          "fax": ""
+        },
+        "web": "",
+        "openingTimes": {
+          "allHours": false,
+          "days": [
+            {
+              "day": "Monday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Tuesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Wednesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Thursday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Friday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Saturday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Sunday",
+              "sessions": [
+                
+              ]
+            },
+            {
+              "day": "Bankholiday",
+              "sessions": [
+                
+              ]
+            }
+          ],
+          "specifiedDates": [
+            
+          ]
+        },
+        "referralInstructions": {
+          "callHandler": "",
+          "other": "AREA COVERED: \nOpen Access\n\nREFERRAL METHOD: \nPatient to self-present\n\nFURTHER INFO: \nOn bank holidays inform the patient to contact the pharmacy to confirm opening times. Provide the telephone number."
+        },
+        "capacity": {
+          "status": {
+            "rag": "",
+            "human": "",
+            "hex": ""
+          }
+        },
+        "endpoints": [
+          
+        ],
+        "patientDistance": "0.6"
+      },
+      {
+        "id": "147929",
+        "name": "Pharmacy - Medway - Focus Rochester",
+        "type": {
+          "id": "13",
+          "name": "Pharmacist"
+        },
+        "odsCode": "FH750",
+        "address": [
+          "Focus Chemists",
+          "126 Borstal Street",
+          "Rochester",
+          "Kent"
+        ],
+        "postcode": "ME1 3JS",
+        "easting": "573048",
+        "northing": "166688",
+        "phone": {
+          "public": "01634 405691",
+          "nonPublic": "",
+          "fax": ""
+        },
+        "web": "",
+        "openingTimes": {
+          "allHours": false,
+          "days": [
+            {
+              "day": "Monday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Tuesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Wednesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Thursday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Friday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Saturday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Sunday",
+              "sessions": [
+                
+              ]
+            },
+            {
+              "day": "Bankholiday",
+              "sessions": [
+                
+              ]
+            }
+          ],
+          "specifiedDates": [
+            
+          ]
+        },
+        "referralInstructions": {
+          "callHandler": "",
+          "other": "AREA COVERED: \nOpen Access\n\nREFERRAL METHOD: \nPatient to self-present\n\nFURTHER INFO: \nOn bank holidays inform the patient to contact the pharmacy to confirm opening times. Provide the telephone number."
+        },
+        "capacity": {
+          "status": {
+            "rag": "",
+            "human": "",
+            "hex": ""
+          }
+        },
+        "endpoints": [
+          
+        ],
+        "patientDistance": "0.7"
+      },
+      {
+        "id": "147944",
+        "name": "Pharmacy - Medway - Merlin Rochester",
+        "type": {
+          "id": "13",
+          "name": "Pharmacist"
+        },
+        "odsCode": "FL693",
+        "address": [
+          "Merlin Pharmacy",
+          "364 City Way",
+          "Rochester",
+          "Kent"
+        ],
+        "postcode": "ME1 2BQ",
+        "easting": "574715",
+        "northing": "166141",
+        "phone": {
+          "public": "01634 842789",
+          "nonPublic": "",
+          "fax": ""
+        },
+        "web": "",
+        "openingTimes": {
+          "allHours": false,
+          "days": [
+            {
+              "day": "Monday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "14",
+                    "minutes": "15"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Tuesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "14",
+                    "minutes": "15"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Wednesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "14",
+                    "minutes": "15"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Thursday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Friday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "14",
+                    "minutes": "15"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Saturday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "14",
+                    "minutes": "15"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Sunday",
+              "sessions": [
+                
+              ]
+            },
+            {
+              "day": "Bankholiday",
+              "sessions": [
+                
+              ]
+            }
+          ],
+          "specifiedDates": [
+            {
+              "date": "24-12-2016",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "date": "31-12-2016",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "referralInstructions": {
+          "callHandler": "",
+          "other": "AREA COVERED: \nOpen Access\n\nREFERRAL METHOD: \nPatient to self-present\n\nFURTHER INFO: \nOn bank holidays inform the patient to contact the pharmacy to confirm opening times. Provide the telephone number."
+        },
+        "capacity": {
+          "status": {
+            "rag": "",
+            "human": "",
+            "hex": ""
+          }
+        },
+        "endpoints": [
+          
+        ],
+        "patientDistance": "0.8"
+      },
+      {
+        "id": "147955",
+        "name": "Pharmacy - Medway - Paydens High Street Rochester",
+        "type": {
+          "id": "13",
+          "name": "Pharmacist"
+        },
+        "odsCode": "FHY79",
+        "address": [
+          "Ryders Chemist",
+          "130 High Street",
+          "Rochester",
+          "Kent"
+        ],
+        "postcode": "ME1 1JT",
+        "easting": "574379",
+        "northing": "168444",
+        "phone": {
+          "public": "01634 842838   Fax 01634 847238",
+          "nonPublic": "",
+          "fax": ""
+        },
+        "web": "",
+        "openingTimes": {
+          "allHours": false,
+          "days": [
+            {
+              "day": "Monday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Tuesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Wednesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Thursday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Friday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Saturday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Sunday",
+              "sessions": [
+                
+              ]
+            },
+            {
+              "day": "Bankholiday",
+              "sessions": [
+                
+              ]
+            }
+          ],
+          "specifiedDates": [
+            {
+              "date": "26-12-2015",
+              "sessions": [
+                
+              ]
+            }
+          ]
+        },
+        "referralInstructions": {
+          "callHandler": "Free Levonelle (EHC effective for up to 72 hours after UPSI) for women up to and including 30 years of age.",
+          "other": "AREA COVERED: \nOpen Access\n\nREFERRAL METHOD: \nPatient to self-present\n\nFURTHER INFO: \nOn bank holidays inform the patient to contact the pharmacy to confirm opening times. Provide the telephone number."
+        },
+        "capacity": {
+          "status": {
+            "rag": "",
+            "human": "",
+            "hex": ""
+          }
+        },
+        "endpoints": [
+          
+        ],
+        "patientDistance": "0.8"
+      },
+      {
+        "id": "147934",
+        "name": "Pharmacy - Medway - Karsons Pattens Lane Chatham",
+        "type": {
+          "id": "13",
+          "name": "Pharmacist"
+        },
+        "odsCode": "FGL46",
+        "address": [
+          "Karsons Pharmacy",
+          "33 Pattens Lane",
+          "Chatham",
+          "Kent"
+        ],
+        "postcode": "ME4 6JR",
+        "easting": "575312",
+        "northing": "166053",
+        "phone": {
+          "public": "01634 843177",
+          "nonPublic": "",
+          "fax": ""
+        },
+        "web": "",
+        "openingTimes": {
+          "allHours": false,
+          "days": [
+            {
+              "day": "Monday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "14",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Tuesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "14",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Wednesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "14",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Thursday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "14",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Friday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "14",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Saturday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Sunday",
+              "sessions": [
+                
+              ]
+            },
+            {
+              "day": "Bankholiday",
+              "sessions": [
+                
+              ]
+            }
+          ],
+          "specifiedDates": [
+            
+          ]
+        },
+        "referralInstructions": {
+          "callHandler": "Free Levonelle (EHC effective for up to 72 hours after UPSI) for women up to and including 30 years of age.",
+          "other": "AREA COVERED: \nOpen Access\n\nREFERRAL METHOD: \nPatient to self-present\n\nFURTHER INFO: \nOn bank holidays inform the patient to contact the pharmacy to confirm opening times. Provide the telephone number."
+        },
+        "capacity": {
+          "status": {
+            "rag": "",
+            "human": "",
+            "hex": ""
+          }
+        },
+        "endpoints": [
+          
+        ],
+        "patientDistance": "1.1"
+      },
+      {
+        "id": "147921",
+        "name": "Pharmacy - Medway - Palmers Chatham",
+        "type": {
+          "id": "13",
+          "name": "Pharmacist"
+        },
+        "odsCode": "FTC25",
+        "address": [
+          "Palmers Pharmacy",
+          "Palmerston Road",
+          "Chatham",
+          "Kent"
+        ],
+        "postcode": "ME4 5SJ",
+        "easting": "575857",
+        "northing": "166802",
+        "phone": {
+          "public": "01634 845624",
+          "nonPublic": "",
+          "fax": ""
+        },
+        "web": "",
+        "openingTimes": {
+          "allHours": false,
+          "days": [
+            {
+              "day": "Monday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "14",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Tuesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "14",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Wednesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "14",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Thursday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "14",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Friday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "14",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Saturday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "12",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Sunday",
+              "sessions": [
+                
+              ]
+            },
+            {
+              "day": "Bankholiday",
+              "sessions": [
+                
+              ]
+            }
+          ],
+          "specifiedDates": [
+            
+          ]
+        },
+        "referralInstructions": {
+          "callHandler": "",
+          "other": "*\nAREA COVERED: \nOpen Access\n\nREFERRAL METHOD: \nPatient to self-present\n\nFURTHER INFO: \nOn bank holidays inform the patient to contact the pharmacy to confirm opening times. Provide the telephone number."
+        },
+        "capacity": {
+          "status": {
+            "rag": "",
+            "human": "",
+            "hex": ""
+          }
+        },
+        "endpoints": [
+          
+        ],
+        "patientDistance": "1.2"
+      },
+      {
+        "id": "1349872212",
+        "name": "Pharmacy - Medway - Amcare Rochester",
+        "type": {
+          "id": "13",
+          "name": "Pharmacist"
+        },
+        "odsCode": "FTQ92",
+        "address": [
+          "Unit 69",
+          "Sir Thomas Longley Road",
+          "Medway City Estate",
+          "Rochester"
+        ],
+        "postcode": "ME2 4BH",
+        "easting": "575258",
+        "northing": "168657",
+        "phone": {
+          "public": "01634 724050",
+          "nonPublic": "",
+          "fax": ""
+        },
+        "web": "",
+        "openingTimes": {
+          "allHours": false,
+          "days": [
+            {
+              "day": "Monday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Tuesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Wednesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Thursday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Friday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Saturday",
+              "sessions": [
+                
+              ]
+            },
+            {
+              "day": "Sunday",
+              "sessions": [
+                
+              ]
+            },
+            {
+              "day": "Bankholiday",
+              "sessions": [
+                
+              ]
+            }
+          ],
+          "specifiedDates": [
+            
+          ]
+        },
+        "referralInstructions": {
+          "callHandler": "",
+          "other": "AREA COVERED: \nOpen Access\n\nREFERRAL METHOD: \nPatient to self-present\n\nFURTHER INFO: \nOn bank holidays inform the patient to contact the pharmacy to confirm opening times. Provide the telephone number."
+        },
+        "capacity": {
+          "status": {
+            "rag": "",
+            "human": "",
+            "hex": ""
+          }
+        },
+        "endpoints": [
+          
+        ],
+        "patientDistance": "1.2"
+      },
+      {
+        "id": "147916",
+        "name": "Pharmacy - Medway - Boots Chatham Kent",
+        "type": {
+          "id": "13",
+          "name": "Pharmacist"
+        },
+        "odsCode": "FM682",
+        "address": [
+          "Boots the Chemist",
+          "30-34 Wilmot Square ",
+          "The Pentagon",
+          "Chatham",
+          "Kent"
+        ],
+        "postcode": "ME4 4BB",
+        "easting": "575800",
+        "northing": "167900",
+        "phone": {
+          "public": "01634 405471          Fax 01634 842609",
+          "nonPublic": "",
+          "fax": ""
+        },
+        "web": "",
+        "openingTimes": {
+          "allHours": false,
+          "days": [
+            {
+              "day": "Monday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "14",
+                    "minutes": "00"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "15",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "19",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Tuesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "14",
+                    "minutes": "00"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "15",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "19",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Wednesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "14",
+                    "minutes": "00"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "15",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "19",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Thursday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "14",
+                    "minutes": "00"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "15",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "19",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Friday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "14",
+                    "minutes": "00"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "15",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "19",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Saturday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "14",
+                    "minutes": "00"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "15",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Sunday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "10",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "16",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Bankholiday",
+              "sessions": [
+                
+              ]
+            }
+          ],
+          "specifiedDates": [
+            {
+              "date": "28-08-2017",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "10",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "16",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "referralInstructions": {
+          "callHandler": "",
+          "other": "AREA COVERED: \nOpen Access\n\nREFERRAL METHOD: \nPatient to self-present\n\nFURTHER INFO: \nOn bank holidays inform the patient to contact the pharmacy to confirm opening times. Provide the telephone number."
+        },
+        "capacity": {
+          "status": {
+            "rag": "",
+            "human": "",
+            "hex": ""
+          }
+        },
+        "endpoints": [
+          
+        ],
+        "patientDistance": "1.2"
+      },
+      {
+        "id": "147915",
+        "name": "Pharmacy - Medway - Boots High Street Strood",
+        "type": {
+          "id": "13",
+          "name": "Pharmacist"
+        },
+        "odsCode": "FV186",
+        "address": [
+          "Boots the Chemist",
+          "83 High Street ",
+          "Strood",
+          "Rochester",
+          "Kent"
+        ],
+        "postcode": "ME2 4AH",
+        "easting": "573758",
+        "northing": "169167",
+        "phone": {
+          "public": "01634 717367",
+          "nonPublic": "",
+          "fax": ""
+        },
+        "web": "",
+        "openingTimes": {
+          "allHours": false,
+          "days": [
+            {
+              "day": "Monday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "14",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Tuesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "14",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Wednesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "14",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Thursday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "14",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Friday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "14",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Saturday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "14",
+                    "minutes": "00"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "15",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Sunday",
+              "sessions": [
+                
+              ]
+            },
+            {
+              "day": "Bankholiday",
+              "sessions": [
+                
+              ]
+            }
+          ],
+          "specifiedDates": [
+            {
+              "date": "27-12-2016",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "10",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "16",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "date": "14-04-2017",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "10",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "16",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "referralInstructions": {
+          "callHandler": "",
+          "other": "AREA COVERED: \nOpen Access\n\nREFERRAL METHOD: \nPatient to self-present\n\nFURTHER INFO: \nOn bank holidays inform the patient to contact the pharmacy to confirm opening times. Provide the telephone number."
+        },
+        "capacity": {
+          "status": {
+            "rag": "",
+            "human": "",
+            "hex": ""
+          }
+        },
+        "endpoints": [
+          
+        ],
+        "patientDistance": "1.2"
+      }
+    ]
+  }
+}

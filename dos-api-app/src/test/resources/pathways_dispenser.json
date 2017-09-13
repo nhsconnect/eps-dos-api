@@ -1,0 +1,480 @@
+{
+  "success": {
+    "code": 200,
+    "transactionId": "NOT SET",
+    "servicesReturnedAreCatchAll": "FALSE",
+    "serviceCount": 1,
+    "services": [
+      {
+        "id": "1326205804",
+        "name": "Pharmacist - York, North Yorkshire (Lloyds, Intake Avenue)",
+        "type": {
+          "id": 13,
+          "name": "Pharmacist"
+        },
+        "odsCode": "FA242",
+        "isNational": false,
+        "created": {
+          "date": "10\/01\/2012",
+          "time": "14:30",
+          "by": "LBarker2"
+        },
+        "updated": {
+          "date": "14\/03\/2017",
+          "time": "11:51",
+          "by": "ROBOT"
+        },
+        "address": [
+          "3 Intake Avenue",
+          "York"
+        ],
+        "town": "YORK",
+        "country": "England",
+        "postcode": "YO30 6HB",
+        "easting": 460095,
+        "northing": 453531,
+        "phone": {
+          "public": "01904 623472",
+          "nonPublic": "",
+          "fax": "01904 623472"
+        },
+        "email": "lp6937@lloydspharmacy.co.uk",
+        "web": "",
+        "openingTimes": {
+          "allHours": false,
+          "days": [
+            {
+              "day": "Monday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Tuesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Wednesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Thursday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Friday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Saturday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Sunday",
+              "sessions": [
+                
+              ]
+            },
+            {
+              "day": "Bankholiday",
+              "sessions": [
+                
+              ]
+            }
+          ],
+          "specifiedDates": [
+            {
+              "date": "28-08-2017",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "10",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "region": {
+          "id": "100000010",
+          "name": "Yorkshire And The Humber"
+        },
+        "parent": {
+          "id": "1319464069"
+        },
+        "referralInstructions": {
+          "callHandler": "DISPOSITION INSTRUCTIONS\n\nHow is a referral to this service made?\nNone specified.\n\nExclusions?\nNone specified.\n\nInformation to be given to the caller?\nNone Specified.",
+          "other": "DISPOSITION INSTRUCTIONS\n\nHow is a referral to this service made?\nNone specified.\n\nExclusions?\nNone specified.\n\nInformation to be given to the caller?\nNone Specified."
+        },
+        "capacity": {
+          "status": {
+            "rag": "",
+            "human": "",
+            "hex": ""
+          },
+          "updated": {
+            "date": "",
+            "time": "",
+            "by": "robot"
+          }
+        },
+        "symptomGroups": [
+          {
+            "id": 1008,
+            "name": "Acne, Spots and Pimples",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1017,
+            "name": "Athlete's Foot",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1063,
+            "name": "Ear Discharge or Ear Wax",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1064,
+            "name": "Earache",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1073,
+            "name": "Eye, Red or Irritable",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1074,
+            "name": "Eye, Sticky or Watery",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1078,
+            "name": "Eyelid Problems",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1106,
+            "name": "Hair loss",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1109,
+            "name": "Head Lice",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1116,
+            "name": "Itch",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1129,
+            "name": "Mouth Ulcers",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1130,
+            "name": "Nasal Congestion",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1135,
+            "name": "Pain and\/or Frequency Passing Urine",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1144,
+            "name": "Rectal Pain, Swelling, Lump or Itch",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1160,
+            "name": "Tattoos, Birthmarks or Moles",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1166,
+            "name": "Toe Pain or Swelling",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1176,
+            "name": "Vaginal Discharge",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1177,
+            "name": "Vaginal Itch or Soreness",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1182,
+            "name": "Wrist, Hand or Finger Pain or Swelling",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1191,
+            "name": "Health and Social Information",
+            "symptomDiscriminators": [
+              {
+                "id": 4193,
+                "name": "PC General Health Information"
+              },
+              {
+                "id": 4194,
+                "name": "PC pharmacy, location information"
+              }
+            ]
+          }
+        ],
+        "dispositions": [
+          {
+            "id": "DX28",
+            "name": "Contact Pharmacist within 12 hours"
+          },
+          {
+            "id": "DX45",
+            "name": "Service Location Information"
+          },
+          {
+            "id": "DX82",
+            "name": "Medication Enquiry"
+          }
+        ],
+        "referralRoles": [
+          {
+            "id": "127",
+            "name": "HCP GP"
+          },
+          {
+            "id": "2",
+            "name": "HCP Registered"
+          },
+          {
+            "id": "126",
+            "name": "HCP Unregistered"
+          },
+          {
+            "id": "128",
+            "name": "Non HCP"
+          },
+          {
+            "id": "23",
+            "name": "Pathways Referral"
+          }
+        ],
+        "serviceReferrals": {
+          "restricted": false,
+          "services": [
+            
+          ]
+        },
+        "ageGroups": [
+          {
+            "id": 1,
+            "name": "Adult (16+)"
+          },
+          {
+            "id": 2,
+            "name": "Child (5-15)"
+          },
+          {
+            "id": 3,
+            "name": "Toddler (1-4)"
+          },
+          {
+            "id": 4,
+            "name": "Neonate & Infant (0)"
+          },
+          {
+            "id": 8,
+            "name": "Older People (65+)"
+          }
+        ],
+        "genders": [
+          {
+            "id": "F",
+            "name": "Female"
+          },
+          {
+            "id": "M",
+            "name": "Male"
+          },
+          {
+            "id": "I",
+            "name": "Indeterminate"
+          }
+        ],
+        "endpoints": [
+          
+        ]
+      }
+    ]
+  }
+}

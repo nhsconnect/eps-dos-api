@@ -1,0 +1,13 @@
+---
+- name: Provision EC2 environment
+  hosts: localhost
+  vars:
+    region:  eu-west-2
+    instance_type: t2.micro
+    count: 1
+  tasks:
+  - ec2_vpc_subnet_facts:
+      filters:
+          "tag:subnet": dmz
+          "tag:env": "{{ env }}"
+      register: dmz_subnet

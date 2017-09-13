@@ -1,0 +1,12 @@
+---
+# Install docker on ubuntu hosts
+# Following instructions at https://docs.docker.com/engine/installation/linux/ubuntulinux/
+
+- name: Configure nginx to maintenance mode on
+  hosts: nginx
+  become: True
+  tasks:
+    - name: Move maintenance file to end '_off'
+      shell: mv /var/www/dos-api/maintenance_on.json /var/www/dos-api/maintenance_off.json
+    
+        

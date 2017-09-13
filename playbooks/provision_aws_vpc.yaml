@@ -1,0 +1,91 @@
+---
+# build a VPC
+# Following instructions at https://docs.docker.com/engine/installation/linux/ubuntulinux/
+
+- name: Build AWS VPC
+  hosts: localhost
+  vars:
+    region:  eu-west-2
+  tasks:
+    - name: create VPC
+      ec2_vpc_net:
+        region: "{{ region }}"
+        name: "{{ env_name }}_vpc"
+        cidr_block: 192.168.1.0/26
+        tags:
+          env: "{{ env_name }}"
+      register: vpc
+
+    - name: create internet gateway
+      ec2_vpc_igw:
+        region: "{{ region }}"
+        vpc_id: "{{ vpc.vpc.id }}"
+      register: igw
+
+    - name: create dmz subnet
+      ec2_vpc_subnet:
+        region: "{{ region }}"
+        state: present
+        vpc_id: "{{ vpc.vpc.id }}"
+        cidr: "192.168.1.0/28"
+        resource_tags:
+              Name: Public Subnet
+              env: "{{ env_name }}"
+              subnet: dmz
+      register: dmz
+
+    - name: create private subnet
+      ec2_vpc_subnet:
+        region: "{{ region }}"
+        cidr: 192.168.1.16/28
+        vpc_id: "{{ vpc.vpc.id }}"
+        resource_tags:
+              Name: Private Subnet
+              env: "{{ env_name }}"
+              subnet: private
+      register: private
+
+    - name: create management subnet
+      ec2_vpc_subnet:
+        region: "{{ region }}"
+        cidr: 192.168.1.32/28
+        vpc_id: "{{ vpc.vpc.id }}"
+        resource_tags:
+              Name: Management Subnet
+              env: "{{ env_name }}"
+              subnet: management
+      register: mgmt
+
+    - name: create nat gateway
+      ec2_vpc_nat_gateway:
+        region: "{{ region }}"
+        subnet_id: "{{ dmz.subnet.id }}"
+        wait: yes
+      register: nat
+
+    - name: create route to Internet
+      ec2_vpc_route_table:
+        vpc_id: "{{ vpc.vpc.id }}"
+        region: "{{ region }}"
+        tags:
+          env: "{{ env_name }}"
+        subnets:
+          - "{{ mgmt.subnet.id }}"
+          - "{{ dmz.subnet.id }}"
+        routes:
+          - dest: 0.0.0.0/0
+            gateway_id: "{{ igw.gateway_id }}"
+      register: public_route_table
+
+    - name: create route to Internet
+      ec2_vpc_route_table:
+        region: "{{ region }}"
+        tags:
+          env: "{{ env_name }}"
+        vpc_id: "{{ vpc.vpc.id }}"
+        subnets:
+          - "{{ private.subnet.id }}"
+        routes:
+          - dest: 0.0.0.0/0
+            gateway_id: "{{ nat.nat_gateway_id }}"
+      register: public_route_table

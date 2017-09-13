@@ -1,0 +1,65 @@
+{
+  "ods": "FLM42",
+  "name": "Vantage Pharmacy",
+  "service_type": "eps_pharmacy",
+  "address": {
+    "line": [
+      "123 Brown Street",
+      null,
+      "York",
+      "North Yorkshire"
+    ],
+    "postcode": "YO1 3EH"
+  },
+  "patient_contact": {
+    "tel": "01952784465",
+    "web_address": "http://www.vantage-pharmacy.co.uk"
+  },
+  "prescriber_contact": {
+    "tel": "01952784470",
+    "fax": "01952784460"
+  },
+  "location": {
+    "northing": 55.45673,
+    "easting": 1.45678
+  },
+  "distance": 123.4,
+  "opening": {
+    "open_247": false,
+    "sun": null,
+    "mon": {
+      "open": "08:00",
+      "close": "18:00"
+    },
+    "tue": {
+      "open": "08:00",
+      "close": "18:00"
+    },
+    "wed": {
+      "open": "08:00",
+      "close": "18:00"
+    },
+    "thu": {
+      "open": "08:00",
+      "close": "18:00"
+    },
+    "fri": {
+      "open": "08:00",
+      "close": "18:00"
+    },
+    "sat": {
+      "open": "08:00",
+      "close": "12:00"
+    },
+    "bank_holiday": {
+      "open": "09:00",
+      "close": "12:00"
+    },
+    "specified_date": {
+      "2018-01-10": {
+        "open": "09:00",
+        "close": "12:00"
+      }
+    }
+  }
+}

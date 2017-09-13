@@ -1,0 +1,12 @@
+---
+# Install docker on ubuntu hosts
+# Following instructions at https://docs.docker.com/engine/installation/linux/ubuntulinux/
+
+- name: Install nginx
+  hosts: nginx
+  become: True
+  tasks:
+    - name: install nginx
+      apt: 
+          name: nginx
+          update_cache: yes
