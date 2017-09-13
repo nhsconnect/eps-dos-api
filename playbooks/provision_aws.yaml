@@ -10,11 +10,11 @@
     ec2_vpc_subnet_facts:
       filters:
           "tag:subnet": dmz
-          "tag:env": "{{ env }}"
+          "tag:env": "{{ env_name }}"
       register: dmz_subnet
   - ec2_vpc_net_facts:
       filters:
-        "tag:env": "{{ env }}"
+        "tag:env": "{{ env_name }}"
       register: vpc
   - name: ec2 keypair
     ec2_key: "name={{ env_name }} key_material={{ item }} region={{ region }}"

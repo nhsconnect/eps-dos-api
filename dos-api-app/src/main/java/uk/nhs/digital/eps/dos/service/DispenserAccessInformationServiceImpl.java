@@ -18,6 +18,7 @@ import io.vertx.core.buffer.Buffer;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.client.HttpRequest;
+import io.vertx.ext.web.client.HttpResponse;
 import io.vertx.ext.web.client.WebClient;
 import java.util.ArrayList;
 import java.util.Date;
@@ -304,13 +305,13 @@ public class DispenserAccessInformationServiceImpl implements DispenserAccessInf
 
         LOG.log(Level.FINE, "Requesting {0}:{1}{2} x-Request-Id: {3}", new Object[]{host, port, resource, requestId});
 
-        request.send(response -> {
+        request.send((AsyncResult<HttpResponse<Buffer>> response) -> {
             if (response.failed()) {
                 //no response
                 LOG.log(Level.INFO, "pathways query for request.id={0} failed with exception {1}", new Object[]{requestId, response.cause().toString()});
                 serviceResponseHandler.handle(Future.failedFuture(new APIException(ApiErrorbase.SEARCH_NOT_RESPONDING)));
-            } else //there was a response
-             if (response.result().statusCode() > 204) {
+            } else {//there was a response
+                if (response.result().statusCode() > 204) {
                     //an error response
                     switch (response.result().bodyAsString().trim()) {
                         //TODO
@@ -350,6 +351,7 @@ public class DispenserAccessInformationServiceImpl implements DispenserAccessInf
                         serviceResponseHandler.handle(Future.failedFuture(new APIException(ApiErrorbase.OPENING_TIME_ERROR)));
                     }
                 }
+            }
         });
 
     }

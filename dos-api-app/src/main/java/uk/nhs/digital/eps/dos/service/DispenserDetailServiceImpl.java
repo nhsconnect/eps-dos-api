@@ -122,7 +122,7 @@ public class DispenserDetailServiceImpl implements DispenserDetailService {
 
         String resource=String.format(config.getString(CHOICES_DISPENSER_RESOURCE_KEY, CHOICES_DISPENSER_RESOURCE_DEFAULT), ods);
         HttpRequest<Buffer> request = client.get(port,host,resource)
-            .ssl(config.getBoolean(CHOICES_SSL_KEY, Boolean.TRUE))
+            .ssl(config.getBoolean(CHOICES_SSL_KEY, true))
             .putHeader("x-Request-Id", requestId);
         
         LOG.log(Level.FINE, "Requesting {0}:{1}{2} x-Request-Id: {3}", new Object[]{host, port, resource, requestId});
