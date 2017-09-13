@@ -16,30 +16,40 @@ public class APIException extends Throwable {
     private String message = null;
     private String fields = null;
     private Throwable cause = null;
+    private int statusCode = 500;
 
     public APIException() {
         this(ApiErrorbase.UNKNOWN);
     }
 
-    public APIException(Integer code, String message, String fields, Throwable cause) {
+    public APIException(Integer code, String message, String fields, Throwable cause, int statusCode) {
         this.code = code;
         this.message = message;
         this.fields = fields;
         this.cause = cause;
+        this.statusCode = statusCode;
     }
 
     public APIException(Integer code, String message, String fields) {
-        this(code, message, fields, null);
+        this(code, message, fields, null, 500);
     }
 
     public APIException(ApiErrorbase error, String fields, Throwable cause) {
-        this(error.getCode(), error.getName(), fields, cause);
+        this(error.getCode(), error.getName(), fields, cause, error.getStatusCode());
     }
 
     public APIException(ApiErrorbase error) {
         this(error, null, null);
     }
 
+    public int getStatusCode() {
+        return statusCode;
+    }
+
+    public void setStatusCode(int statusCode) {
+        this.statusCode = statusCode;
+    }
+    
     @JsonProperty("code")
     public Integer getCode() {
         return code;

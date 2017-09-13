@@ -14,10 +14,15 @@ import io.vertx.core.http.HttpServer;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
+import org.springframework.beans.BeanUtils;
 import uk.nhs.digital.eps.dos.ApiGatewayVerticle;
+import uk.nhs.digital.eps.dos.model.APIException;
+import uk.nhs.digital.eps.dos.model.ApiErrorbase;
 import uk.nhs.digital.eps.dos.model.Dispenser;
 
 /**
@@ -85,7 +90,7 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
         
         //once the detail search is complete get access info for each dispenser returned
         detail.compose((List<Dispenser> detailList) -> {
-            List<Future> openingTimeList = 
+            List<Future> openingTimeResults = 
                 detailList.stream().map(dispenserDetail -> {
                     Future<Dispenser> future = Future.future();
                     dispenserAccessInformation.dispenserAccessInformation(requestId, dispenserDetail.getOds(), future.completer());
@@ -93,44 +98,58 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
                 })
                 .collect(Collectors.toList());
             
-            CompositeFuture.all(openingTimeList).setHandler(ar -> {
-                openingTimeList.stream().map( openingTimeQuery -> {
-                    return (Dispenser) openingTimeQuery.result();
-                })
-                .forEach( dispenserWithOpeningTime ->{ 
-                    Dispenser dispenserWithDetail = detailList.stream().filter( dispenserWithDetail -> {
-                        return dispenserWithDetail.getOds().equals(dispenserWithOpeningTime.getOds());
-                    }).findFirst()
-                            
-                })
-                        
-                        ;
-                    JsonObject detailJson = JsonObject.mapFrom(detail.result());
-                JsonObject openingJson = JsonObject.mapFrom(openingInfo.result());
-                JsonObject responseJson = detailJson.mergeIn(openingJson, true);
-                context.response().setStatusCode(200).end(responseJson.encodePrettily()););
+            CompositeFuture.all(openingTimeResults).setHandler(ar -> {
+                
+                List<Future> openingTimeSuccessfulResults = openingTimeResults;
+                //get rid of any failed results
+                if (ar.failed()) openingTimeSuccessfulResults = openingTimeResults.stream().filter(result -> result.failed()).collect(Collectors.toList());
+                //convert Future to Dispenser
+                List<Dispenser> openingTimeDispensers = openingTimeSuccessfulResults.stream().map(f->(Dispenser) f.result()).collect(Collectors.toList()) ;
+                //remove any dispenser for which we don't have opening time detail        
+                boolean noMatch = detailList.retainAll(openingTimeDispensers);
+                
+                if (noMatch){
+                    LOG.log(Level.WARNING, "No matching dispenserAccessInformation for query for name={} request.id={1}", new Object[]{name, requestId});
+                }
+                
+                if (detailList.isEmpty()){
+                    queryFuture.fail(new APIException(ApiErrorbase.NO_MATCH));
+                }
+                
+                List<Dispenser> resultList = openingTimeDispensers.stream()
+                    .map(f -> {
+                        BeanUtils.copyProperties(detailList.stream().filter( d -> d.equals(d)).findFirst().get(),f);
+                        return f;})
+                    .collect(Collectors.toList());
+
+                
+                queryFuture.complete(resultList);
             });
             
         },queryFuture);
         
-        
-        Future<Dispenser> openingInfo = Future.future();
-        dispenserAccessInformation.dispenserAccessInformation(requestId, ods, openingInfo.completer());
-        
-        
-        CompositeFuture.all(detail, openingInfo).setHandler(responses -> {
-            if (responses.succeeded()) {
-                JsonObject detailJson = JsonObject.mapFrom(detail.result());
-                JsonObject openingJson = JsonObject.mapFrom(openingInfo.result());
-                JsonObject responseJson = detailJson.mergeIn(openingJson, true);
-                context.response().setStatusCode(200).end(responseJson.encodePrettily());
+        queryFuture.setHandler(ar -> {
+            if (ar.succeeded()){
+                context.response().setStatusCode(200).end(JsonObject.mapFrom(ar.result()).encodePrettily());
+            } else {
+                Throwable ex = ar.cause();
+                if (ex instanceof APIException){
+                    context.response().setStatusCode(((APIException) ex).getStatusCode()).end(JsonObject.mapFrom(ar.cause()).encodePrettily());
+                } else {
+                    context.response().setStatusCode(ApiErrorbase.UNKNOWN.getStatusCode()).end(JsonObject.mapFrom(new APIException(ApiErrorbase.UNKNOWN)).encodePrettily());
+                }
             }
+        
         });
+                
+        
+
     }
 
     private void searchByLocationOpening(RoutingContext context) {
+        context.response().setStatusCode(ApiErrorbase.SERVICE_DOWN.getStatusCode()).end(JsonObject.mapFrom(new APIException(ApiErrorbase.SERVICE_DOWN)).encodePrettily());
     }
-
-
+    
+    
     
 }

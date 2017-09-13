@@ -31,24 +31,24 @@ import uk.nhs.digital.eps.dos.model.Errorbase;
  */
 public enum ApiErrorbase implements Errorbase {
     
-    UNKNOWN(1, "Unknown error"),
-    NOT_FOUND(2, "Dispenser not found"),
-    EXCEEDED_RATE(3, "Exceeded rate limit"),
-    INVALID_PARAMETER(4, "Invalid parameter"),
-    INVALID_DISPENSER(5, "Invalid dispenser"),
-    NOT_AUTHORISED(6, "This account is not authorised to use this method"),
-    OPENING_TIME_NOT_RESPONDING(7, "Opening time service not responding"),
-    SEARCH_NOT_RESPONDING(8,"Dispenser search service not responding"),
-    OPENING_TIME_ERROR(9,"Opening time service returned error - "),
-    SEARCH_ERROR(10,"Dispenser search service returned error - "),
-    AUTHENTICATION_REQUIRED(11,"Authentication is required to access this resource"),
-    AUTHENTICATION_INVALID(12,"Authentication invalid"),
-    SERVICE_DOWN(13,"Service is down for maintenance"),
-    TOO_MANY_DISPENSERS(14,"Too many search results"),
-    NO_MATCH(15,"No matching dispenser");
+    UNKNOWN(1, "Unknown error", 500),
+    NOT_FOUND(2, "Dispenser not found", 404),
+    EXCEEDED_RATE(3, "Exceeded rate limit", 429),
+    INVALID_PARAMETER(4, "Invalid parameter", 400),
+    INVALID_DISPENSER(5, "Invalid dispenser", 400),
+    NOT_AUTHORISED(6, "This account is not authorised to use this method", 403),
+    OPENING_TIME_NOT_RESPONDING(7, "Opening time service not responding", 500),
+    SEARCH_NOT_RESPONDING(8,"Dispenser search service not responding", 500),
+    OPENING_TIME_ERROR(9,"Opening time service returned error - ", 500),
+    SEARCH_ERROR(10,"Dispenser search service returned error - ", 500),
+    AUTHENTICATION_REQUIRED(11,"Authentication is required to access this resource", 403),
+    AUTHENTICATION_INVALID(12,"Authentication invalid", 403),
+    SERVICE_DOWN(13,"Service is down for maintenance", 501),
+    TOO_MANY_DISPENSERS(14,"Too many search results", 500),
+    NO_MATCH(15,"No matching dispenser", 500);
 
     private final String name;
-    private final int code;
+    private final int code, statusCode;
 
     private static final Map<Integer, ApiErrorbase> intToEnum = new HashMap<>();
 
@@ -58,9 +58,10 @@ public enum ApiErrorbase implements Errorbase {
         }
     }
 
-    ApiErrorbase(int code, String name) {
+    ApiErrorbase(int code, String name, int statusCode) {
         this.code = code;
         this.name = name;
+        this.statusCode = statusCode;
     }
 
     @Override
@@ -82,6 +83,10 @@ public enum ApiErrorbase implements Errorbase {
     public String getName() {
         return name;
     }
-;
 
+    public int getStatusCode() {
+        return statusCode;
+    }
+    
+    
 }
