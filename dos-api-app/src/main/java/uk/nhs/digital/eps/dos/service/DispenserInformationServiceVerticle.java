@@ -5,6 +5,10 @@
  */
 package uk.nhs.digital.eps.dos.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.CompositeFuture;
 import io.vertx.core.Future;
@@ -34,6 +38,17 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
     public static final String DISPENSER = "/dispenser/:ods";
     public static final String ADDRESS_KEY = "dispenser.http.address";
     public static final String PORT_KEY = "dispenser.http.port";
+    
+    private static final ObjectMapper MAPPER;
+    static {
+        MAPPER = new ObjectMapper();
+        MAPPER
+            .disable(MapperFeature.AUTO_DETECT_CREATORS,
+                MapperFeature.AUTO_DETECT_FIELDS,
+                MapperFeature.AUTO_DETECT_GETTERS,
+                MapperFeature.AUTO_DETECT_IS_GETTERS)
+            .enable(DeserializationFeature.UNWRAP_SINGLE_VALUE_ARRAYS);
+    }
 
     private DispenserAccessInformationService dispenserAccessInformation;
     private DispenserDetailService dispenserDetailService;
@@ -57,7 +72,16 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
                 .requestHandler(router::accept)
                 .listen(port, host);
     }
-
+    
+    private static String responseAsJson(Object o){
+        try {
+            return MAPPER.writeValueAsString(o);
+        } catch (JsonProcessingException ex) {
+            LOG.severe("JsonProcessingException while parsing response");
+            return "{\"code\" = 1, \"message\":\"Unknown error\", \"fields\": null}";
+        }
+    }
+    
     private void getDispenser(RoutingContext context) {
         String ods = context.request().getParam("ods");
         String requestId = context.request().getHeader(ApiGatewayVerticle.REQUEST_ID_HEADER);
@@ -72,6 +96,15 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
                 JsonObject openingJson = JsonObject.mapFrom(openingInfo.result());
                 JsonObject responseJson = detailJson.mergeIn(openingJson, true);
                 context.response().setStatusCode(200).end(responseJson.encodePrettily());
+            } else {
+                Throwable ex = responses.cause();
+                if (ex instanceof APIException){
+                    LOG.log(Level.INFO, "getDispenser failed request.id={1}", new Object[]{ods, requestId});
+                    context.response().setStatusCode(((APIException) ex).getStatusCode()).end(responseAsJson(responses.cause()));
+                } else {
+                    LOG.log(Level.WARNING, "getDispenser failed with unknown error request.id={1} exception={0}", new Object[]{ex.getMessage(), requestId});
+                    context.response().setStatusCode(ApiErrorbase.UNKNOWN.getStatusCode()).end(responseAsJson(new APIException(ApiErrorbase.UNKNOWN)));
+                }
             }
         });
     }
@@ -131,9 +164,9 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
             } else {
                 Throwable ex = ar.cause();
                 if (ex instanceof APIException){
-                    context.response().setStatusCode(((APIException) ex).getStatusCode()).end(JsonObject.mapFrom(ar.cause()).encodePrettily());
+                    context.response().setStatusCode(((APIException) ex).getStatusCode()).end(responseAsJson(ar.cause()));
                 } else {
-                    context.response().setStatusCode(ApiErrorbase.UNKNOWN.getStatusCode()).end(JsonObject.mapFrom(new APIException(ApiErrorbase.UNKNOWN)).encodePrettily());
+                    context.response().setStatusCode(ApiErrorbase.UNKNOWN.getStatusCode()).end(responseAsJson(new APIException(ApiErrorbase.UNKNOWN)));
                 }
             }
         
