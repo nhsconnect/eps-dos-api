@@ -64,9 +64,11 @@ public class DispenserDetailServiceImpl implements DispenserDetailService {
     public static final String CHOICES_HOST_KEY = "choices_host";
     private static final String CHOICES_HOST_DEFAULT = "nww.etpwebservices.cfh.nhs.uk";
     public static final String CHOICES_DISPENSER_RESOURCE_KEY = "choices_dispenser";
+    public static final String CHOICES_DISPENSER_RESOURCE_DEFAULT = "/ETPWebservices/service.asmx/GetDispenserByNacsCode?strnacscode=%s";
     public static final String CHOICES_SSL_KEY = "choices_use_ssl";
     public static final String CHOICES_PORT_KEY = "choices_port";
     public static final String CHOICES_DISPENSER_SEARCH_RESOURCE_KEY = "choices_search";
+    public static final String CHOICES_DISPENSER_SEARCH_RESOURCE_DEFAULT = "/ETPWebservices/service.asmx/GetDispenserByName?strorganisationame=%s&intservicetype=1&streps=YES";
     
     private final int port;
     private final String host;
@@ -118,7 +120,7 @@ public class DispenserDetailServiceImpl implements DispenserDetailService {
             return;
         }
 
-        String resource=String.format(config.getString(CHOICES_DISPENSER_RESOURCE_KEY), ods);
+        String resource=String.format(config.getString(CHOICES_DISPENSER_RESOURCE_KEY, CHOICES_DISPENSER_RESOURCE_DEFAULT), ods);
         HttpRequest<Buffer> request = client.get(port,host,resource)
             .ssl(config.getBoolean(CHOICES_SSL_KEY, Boolean.TRUE))
             .putHeader("x-Request-Id", requestId);
@@ -170,7 +172,7 @@ public class DispenserDetailServiceImpl implements DispenserDetailService {
             return;
         }
         
-        String resource=String.format(config.getString(CHOICES_DISPENSER_SEARCH_RESOURCE_KEY), name);
+        String resource=String.format(config.getString(CHOICES_DISPENSER_SEARCH_RESOURCE_KEY, CHOICES_DISPENSER_SEARCH_RESOURCE_DEFAULT), name);
         HttpRequest<Buffer> request = client.get(port,host,resource)
             .ssl(config.getBoolean(CHOICES_SSL_KEY, Boolean.TRUE))
             .putHeader("x-Request-Id", requestId);
