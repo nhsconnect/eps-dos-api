@@ -47,10 +47,11 @@ All DoS-specific errors are listed below. This list is expected to be extended a
 | 8     | Dispenser search service not responding                                                            | `null`           | 500         |
 | 9     | Opening time service returned error - {error}                                                      | `null`           | 500         |
 | 10    | Dispenser search service returned error - {error}                                                  | `null`           | 500         |
-| 11    | Dispenser search service returned error - {error}                                                  | `null`           | 500         |
-| 12    | Authentication is required to access this resource                                                 | `null`           | 403         |
-| 13    | Authentication invalid                                                                             | `null`           | 403         |
-| 14    | Service is down for maintenance                                                                    | `null`           | 501         |
+| 11    | Authentication is required to access this resource                                                 | `null`           | 403         |
+| 12    | Authentication invalid                                                                             | `null`           | 403         |
+| 13    | Service is down for maintenance                                                                    | `null`           | 501         |
+| 14    | Too many search results                                                                            | `null`           | 500         |
+| 15    | No matching dispenser                                                                              | `null`           | 500         |
 
 
 ### Examples ###
