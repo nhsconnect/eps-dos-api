@@ -15,10 +15,12 @@ import io.vertx.core.Future;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
+import org.apache.commons.beanutils.BeanUtilsBean;
 import org.springframework.beans.BeanUtils;
 import uk.nhs.digital.eps.dos.ApiGatewayVerticle;
 import uk.nhs.digital.eps.dos.model.APIException;
@@ -82,6 +84,20 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
         }
     }
     
+    private static Object merge(Object o1, Object o2){
+        try {
+            new BeanUtilsBean() {
+                @Override
+                public void copyProperty(Object dest, String name, Object value) throws IllegalAccessException, InvocationTargetException{
+                    if(value != null) super.copyProperty(dest, name, value);
+                }
+            }.copyProperties(o1, o2);
+        } catch (IllegalAccessException | InvocationTargetException ex) {
+            LOG.log(Level.SEVERE, "Exception while merging objects");
+        } 
+        return o2;
+    }
+    
     private void getDispenser(RoutingContext context) {
         String ods = context.request().getParam("ods");
         String requestId = context.request().getHeader(ApiGatewayVerticle.REQUEST_ID_HEADER);
@@ -92,10 +108,15 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
         dispenserDetailService.dispenserDetail(requestId, ods, detail.completer());
         CompositeFuture.all(detail, openingInfo).setHandler(responses -> {
             if (responses.succeeded()) {
-                BeanUtils.copyProperties(detail.result(), openingInfo.result());
+                LOG.log(Level.INFO, "Queries completed for ODS={0} and request.id={1} merging results", new Object[]{ods, requestId});
+                LOG.log(Level.FINE, "Results for ODS={0} and request.id={1} before merge {2} {3}", new Object[]{ods, requestId, detail.result(), openingInfo.result()});
+                Dispenser result = (Dispenser)merge(detail.result(), openingInfo.result());
+                LOG.log(Level.FINE, "Results for ODS={0} and request.id={1} after merge {2}", new Object[]{ods, requestId, result});
                 try {
-                    context.response().setStatusCode(200).end(MAPPER.writeValueAsString(openingInfo.result()));
+                    LOG.log(Level.INFO, "Responding with status=success to query for ODS={0} with request.id={1}", new Object[]{ods, requestId});
+                    context.response().setStatusCode(200).end(MAPPER.writeValueAsString(result));
                 } catch (JsonProcessingException ex) {
+                    LOG.log(Level.WARNING, "Exception deserialising merged dipsenser info, responding with status=failed to query for ODS={0} with request.id={1}", new Object[]{ods, requestId});
                     context.response().setStatusCode(ApiErrorbase.UNKNOWN.getStatusCode()).end(errorResponseAsJson(new APIException(ApiErrorbase.UNKNOWN)));
                 }
             } else {
@@ -131,7 +152,6 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
                 .collect(Collectors.toList());
             
             CompositeFuture.all(openingTimeResults).setHandler(ar -> {
-                
                 List<Future> openingTimeSuccessfulResults = openingTimeResults;
                 //get rid of any failed results
                 if (ar.failed()) openingTimeSuccessfulResults = openingTimeResults.stream().filter(result -> result.failed()).collect(Collectors.toList());
