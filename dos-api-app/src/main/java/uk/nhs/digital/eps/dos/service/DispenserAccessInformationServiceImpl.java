@@ -165,38 +165,38 @@ public class DispenserAccessInformationServiceImpl implements DispenserAccessInf
     private static Dispenser parseDispenser(JsonObject jsonDispenser) {
         Dispenser d = new Dispenser();
         try {
-        d.setOds(jsonDispenser.getString("odsCode"));
-        d.setLocation(new Location(
-                //This is necessary to avoid class cast exception: the API inconsistently represents easting & northing as string and number
-                Double.parseDouble(jsonDispenser.getValue("easting").toString()), 
-                Double.parseDouble(jsonDispenser.getValue("northing").toString()) 
-        ));
-        d.setPatientContact(
-                new PatientContact(
-                        jsonDispenser.getJsonObject("phone").getString("public"),
-                        jsonDispenser.getString("web"))
-        );
-        d.setPrescriberContact(
-                new PrescriberContact(
-                        jsonDispenser.getJsonObject("phone").getString("nonPublic"),
-                        jsonDispenser.getJsonObject("phone").getString("fax"),
-                        jsonDispenser.getString("email"))
-        );
-        if (jsonDispenser.containsKey("patientDistance")) {
-            d.setDistance(Double.parseDouble(jsonDispenser.getString("patientDistance")));
-        }
-        JsonObject ot = jsonDispenser.getJsonObject("openingTimes");
-        d.setOpening(new OpeningTimes());
-        d.getOpening().setOpen247(ot.getBoolean("allHours"));
-        JsonArray days = ot.getJsonArray("days").addAll(ot.getJsonArray("specifiedDates"));
+            d.setOds(jsonDispenser.getString("odsCode"));
+            d.setLocation(new Location(
+                    //This is necessary to avoid class cast exception: the API inconsistently represents easting & northing as string and number
+                    Double.parseDouble(jsonDispenser.getValue("easting").toString()),
+                    Double.parseDouble(jsonDispenser.getValue("northing").toString())
+            ));
+            d.setPatientContact(
+                    new PatientContact(
+                            jsonDispenser.getJsonObject("phone").getString("public"),
+                            jsonDispenser.getString("web"))
+            );
+            d.setPrescriberContact(
+                    new PrescriberContact(
+                            jsonDispenser.getJsonObject("phone").getString("nonPublic"),
+                            jsonDispenser.getJsonObject("phone").getString("fax"),
+                            jsonDispenser.getString("email"))
+            );
+            if (jsonDispenser.containsKey("patientDistance")) {
+                d.setDistance(Double.parseDouble(jsonDispenser.getString("patientDistance")));
+            }
+            JsonObject ot = jsonDispenser.getJsonObject("openingTimes");
+            d.setOpening(new OpeningTimes());
+            d.getOpening().setOpen247(ot.getBoolean("allHours"));
+            JsonArray days = ot.getJsonArray("days").addAll(ot.getJsonArray("specifiedDates"));
 
-        for (Object day : days) {
-            JsonObject jsonDay = (JsonObject) day;
-            populateOpening(d, jsonDay.getString("day", jsonDay.getString("date")), periodFromJsonDay(jsonDay));
-        }
+            for (Object day : days) {
+                JsonObject jsonDay = (JsonObject) day;
+                populateOpening(d, jsonDay.getString("day", jsonDay.getString("date")), periodFromJsonDay(jsonDay));
+            }
         } catch (Exception e) {
             //TODO
-            LOG.log(Level.WARNING,"Exception while parsing");
+            LOG.log(Level.WARNING, "Exception while parsing");
         }
         return d;
     }
@@ -219,7 +219,8 @@ public class DispenserAccessInformationServiceImpl implements DispenserAccessInf
                 LOG.log(Level.INFO, "Pathways query for request.id={0} failed with exception {1}", new Object[]{requestId, response.cause().toString()});
                 future.fail(new APIException(ApiErrorbase.SEARCH_NOT_RESPONDING));
             } else //there was a response
-             if (response.result().statusCode() > 204) {
+            {
+                if (response.result().statusCode() > 204) {
                     //an error response
                     switch (response.result().bodyAsString().trim()) {
                         //TODO
@@ -250,6 +251,7 @@ public class DispenserAccessInformationServiceImpl implements DispenserAccessInf
                         future.fail(new APIException(ApiErrorbase.OPENING_TIME_ERROR));
                     }
                 }
+            }
         });
 
         return future;
@@ -310,46 +312,46 @@ public class DispenserAccessInformationServiceImpl implements DispenserAccessInf
                 //no response
                 LOG.log(Level.INFO, "pathways query for request.id={0} failed with exception {1}", new Object[]{requestId, response.cause().toString()});
                 serviceResponseHandler.handle(Future.failedFuture(new APIException(ApiErrorbase.SEARCH_NOT_RESPONDING)));
-            } else {//there was a response
-                if (response.result().statusCode() > 204) {
-                    //an error response
-                    switch (response.result().bodyAsString().trim()) {
-                        //TODO
-                        default:
-                            LOG.log(Level.INFO, "Query with ODS={0} and request.id={1} failed with response {2}", new Object[]{odsCode, requestId, response.result().bodyAsString().trim()});
-                            serviceResponseHandler.handle(Future.failedFuture(new APIException(ApiErrorbase.UNKNOWN)));
-                            break;
-                    }
-                } else {
-                    //a json response
-                    LOG.log(Level.INFO, "Response recieved with request.id={0}", requestId);
-                    try {
-                        JsonObject jsonResponse = response.result().bodyAsJsonObject();
-                        if (jsonResponse.containsKey("error")) {
-                            LOG.log(Level.INFO, "Error response recieved for request.id={0}", requestId);
-                            serviceResponseHandler.handle(Future.failedFuture(new APIException(ApiErrorbase.OPENING_TIME_ERROR)));
-                        } else if (jsonResponse.containsKey("success")) {
-                            switch (jsonResponse.getJsonObject("success").getInteger("serviceCount")) {
-                                case 0:
-                                    serviceResponseHandler.handle(Future.failedFuture(new APIException(ApiErrorbase.NOT_FOUND)));
-                                    break;
-                                case 1:
-                                    JsonObject jsonDispenser = jsonResponse.getJsonObject("success").getJsonArray("services").getJsonObject(0);
-                                    serviceResponseHandler.handle(Future.succeededFuture(parseDispenser(jsonDispenser)));
-                                    break;
-                                default:
-                                    LOG.log(Level.WARNING, "Multiple matches for ODS query with ODS={0} and request.id={1}", new Object[]{odsCode, requestId});
-                                    serviceResponseHandler.handle(Future.failedFuture(new APIException(ApiErrorbase.OPENING_TIME_ERROR)));
-                                    break;
-                            }
-                        } else {
-                            LOG.log(Level.WARNING, "Unrecognised response for request.id={0}", requestId);
-                            serviceResponseHandler.handle(Future.failedFuture(new APIException(ApiErrorbase.OPENING_TIME_ERROR)));
+            } else//there was a response
+            if (response.result().statusCode() > 204) {
+                //an error response
+                switch (response.result().bodyAsString().trim()) {
+                    //TODO
+                    default:
+                        LOG.log(Level.INFO, "Query with ODS={0} and request.id={1} failed with response {2}", new Object[]{odsCode, requestId, response.result().bodyAsString().trim()});
+                        serviceResponseHandler.handle(Future.failedFuture(new APIException(ApiErrorbase.UNKNOWN)));
+                        break;
+                }
+            } else {
+                //a json response
+                LOG.log(Level.INFO, "Response recieved with request.id={0}", requestId);
+                try {
+                    JsonObject jsonResponse = response.result().bodyAsJsonObject();
+                    if (jsonResponse.containsKey("error")) {
+                        LOG.log(Level.INFO, "Error response recieved for request.id={0}", requestId);
+                        serviceResponseHandler.handle(Future.failedFuture(new APIException(ApiErrorbase.OPENING_TIME_ERROR)));
+                    } else if (jsonResponse.containsKey("success")) {
+                        switch (jsonResponse.getJsonObject("success").getInteger("serviceCount")) {
+                            case 0:
+                                serviceResponseHandler.handle(Future.failedFuture(new APIException(ApiErrorbase.NOT_FOUND)));
+                                break;
+                            case 1:
+                                JsonObject jsonDispenser = jsonResponse.getJsonObject("success").getJsonArray("services").getJsonObject(0);
+                                Dispenser d = parseDispenser(jsonDispenser);
+                                serviceResponseHandler.handle(Future.succeededFuture(d));
+                                break;
+                            default:
+                                LOG.log(Level.WARNING, "Multiple matches for ODS query with ODS={0} and request.id={1}", new Object[]{odsCode, requestId});
+                                serviceResponseHandler.handle(Future.failedFuture(new APIException(ApiErrorbase.OPENING_TIME_ERROR)));
+                                break;
                         }
-                    } catch (Exception e) {
-                        LOG.log(Level.WARNING, "Exception parsing response for request.id={0} exception {1}", new Object[]{requestId, e});
+                    } else {
+                        LOG.log(Level.WARNING, "Unrecognised response for request.id={0}", requestId);
                         serviceResponseHandler.handle(Future.failedFuture(new APIException(ApiErrorbase.OPENING_TIME_ERROR)));
                     }
+                } catch (Exception e) {
+                    LOG.log(Level.WARNING, "Exception parsing response for request.id={0} exception {1}", new Object[]{requestId, e});
+                    serviceResponseHandler.handle(Future.failedFuture(new APIException(ApiErrorbase.OPENING_TIME_ERROR)));
                 }
             }
         });

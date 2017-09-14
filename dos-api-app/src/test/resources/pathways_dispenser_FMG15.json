@@ -1,0 +1,598 @@
+{
+  "success": {
+    "code": 200,
+    "transactionId": "NOT SET",
+    "servicesReturnedAreCatchAll": "FALSE",
+    "serviceCount": 1,
+    "services": [
+      {
+        "id": "149474",
+        "name": "Pharmacy - Bishops Castle Pharmacy -Bishops Castle- Shropshire",
+        "type": {
+          "id": 13,
+          "name": "Pharmacist"
+        },
+        "odsCode": "FMG15",
+        "isNational": false,
+        "created": {
+          "date": "29\/06\/2011",
+          "time": "08:53",
+          "by": "manager"
+        },
+        "updated": {
+          "date": "17\/04\/2017",
+          "time": "12:16",
+          "by": "ROBOT"
+        },
+        "address": [
+          "Church Street",
+          "Bishops Castle"
+        ],
+        "town": "BISHOPS CASTLE",
+        "country": "England",
+        "postcode": "SY9 5AE",
+        "easting": 332369,
+        "northing": 288803,
+        "phone": {
+          "public": "01588 638408",
+          "nonPublic": "",
+          "fax": ""
+        },
+        "email": "bishops.castle@dudleytaylor.co.uk",
+        "web": "www.dudleytaylor.co.uk",
+        "openingTimes": {
+          "allHours": false,
+          "days": [
+            {
+              "day": "Monday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Tuesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Wednesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Thursday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Friday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Saturday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Sunday",
+              "sessions": [
+                
+              ]
+            },
+            {
+              "day": "Bankholiday",
+              "sessions": [
+                
+              ]
+            }
+          ],
+          "specifiedDates": [
+            
+          ]
+        },
+        "region": {
+          "id": "100000006",
+          "name": "West Midlands"
+        },
+        "parent": {
+          "id": "9540"
+        },
+        "referralInstructions": {
+          "callHandler": "",
+          "other": "No instructions specified."
+        },
+        "capacity": {
+          "status": {
+            "rag": "",
+            "human": "",
+            "hex": ""
+          },
+          "updated": {
+            "date": "28\/06\/2011",
+            "time": "22:53",
+            "by": ""
+          }
+        },
+        "symptomGroups": [
+          {
+            "id": 360,
+            "name": "z2.0 - Service Types",
+            "symptomDiscriminators": [
+              {
+                "id": 14041,
+                "name": "Pharmacist"
+              }
+            ]
+          },
+          {
+            "id": 1008,
+            "name": "Acne, Spots and Pimples",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1010,
+            "name": "Allergic Reaction",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1017,
+            "name": "Athlete's Foot",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1063,
+            "name": "Ear Discharge or Ear Wax",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1064,
+            "name": "Earache",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1072,
+            "name": "Eye, Painful",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              },
+              {
+                "id": 4311,
+                "name": "PC extended ophthalmic assessment and management capability, minor condition (MECS)"
+              }
+            ]
+          },
+          {
+            "id": 1073,
+            "name": "Eye, Red or Irritable",
+            "symptomDiscriminators": [
+              {
+                "id": 4311,
+                "name": "PC extended ophthalmic assessment and management capability, minor condition (MECS)"
+              }
+            ]
+          },
+          {
+            "id": 1074,
+            "name": "Eye, Sticky or Watery",
+            "symptomDiscriminators": [
+              {
+                "id": 4311,
+                "name": "PC extended ophthalmic assessment and management capability, minor condition (MECS)"
+              }
+            ]
+          },
+          {
+            "id": 1076,
+            "name": "Eye, Visual Loss or Disturbance",
+            "symptomDiscriminators": [
+              {
+                "id": 4311,
+                "name": "PC extended ophthalmic assessment and management capability, minor condition (MECS)"
+              }
+            ]
+          },
+          {
+            "id": 1078,
+            "name": "Eyelid Problems",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              },
+              {
+                "id": 4311,
+                "name": "PC extended ophthalmic assessment and management capability, minor condition (MECS)"
+              }
+            ]
+          },
+          {
+            "id": 1106,
+            "name": "Hair loss",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1109,
+            "name": "Head Lice",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1116,
+            "name": "Itch",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1129,
+            "name": "Mouth Ulcers",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1130,
+            "name": "Nasal Congestion",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1135,
+            "name": "Pain and\/or Frequency Passing Urine",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1144,
+            "name": "Rectal Pain, Swelling, Lump or Itch",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1160,
+            "name": "Tattoos, Birthmarks or Moles",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1166,
+            "name": "Toe Pain or Swelling",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1176,
+            "name": "Vaginal Discharge",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1177,
+            "name": "Vaginal Itch or Soreness",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1182,
+            "name": "Wrist, Hand or Finger Pain or Swelling",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1191,
+            "name": "Health and Social Information",
+            "symptomDiscriminators": [
+              {
+                "id": 4198,
+                "name": "PC failed contraception"
+              },
+              {
+                "id": 4192,
+                "name": "PC medication enquiry"
+              },
+              {
+                "id": 4194,
+                "name": "PC pharmacy, location information"
+              }
+            ]
+          },
+          {
+            "id": 1192,
+            "name": "Repeat Prescription",
+            "symptomDiscriminators": [
+              {
+                "id": 4199,
+                "name": "PC repeat prescription, routine"
+              },
+              {
+                "id": 4329,
+                "name": "PC repeat prescription, urgent"
+              }
+            ]
+          },
+          {
+            "id": 1202,
+            "name": "Limb, cold or colour change",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1204,
+            "name": "Failed Contraception",
+            "symptomDiscriminators": [
+              {
+                "id": 4198,
+                "name": "PC failed contraception"
+              },
+              {
+                "id": 4003,
+                "name": "PC full Primary Care assessment and prescribing capability"
+              }
+            ]
+          },
+          {
+            "id": 1205,
+            "name": "Hearing Problems or Blocked Ear",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1206,
+            "name": "NHS Pathways in House Clinician",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          },
+          {
+            "id": 1209,
+            "name": "Scabies",
+            "symptomDiscriminators": [
+              {
+                "id": 4020,
+                "name": "PC assessment and management capability, minor condition"
+              }
+            ]
+          }
+        ],
+        "dispositions": [
+          {
+            "id": "DX28",
+            "name": "Contact Pharmacist within 12 hours"
+          },
+          {
+            "id": "DX45",
+            "name": "Service Location Information"
+          },
+          {
+            "id": "DX82",
+            "name": "Medication Enquiry"
+          },
+          {
+            "id": "DX97",
+            "name": "Emergency Contraception within 2 hours"
+          },
+          {
+            "id": "DX98",
+            "name": "Emergency Contraception within 12 hours"
+          }
+        ],
+        "referralRoles": [
+          {
+            "id": "127",
+            "name": "HCP GP"
+          },
+          {
+            "id": "2",
+            "name": "HCP Registered"
+          },
+          {
+            "id": "126",
+            "name": "HCP Unregistered"
+          },
+          {
+            "id": "128",
+            "name": "Non HCP"
+          },
+          {
+            "id": "23",
+            "name": "Pathways Referral"
+          },
+          {
+            "id": "1",
+            "name": "Public Facing"
+          }
+        ],
+        "serviceReferrals": {
+          "restricted": false,
+          "services": [
+            
+          ]
+        },
+        "ageGroups": [
+          {
+            "id": 1,
+            "name": "Adult (16+)"
+          },
+          {
+            "id": 2,
+            "name": "Child (5-15)"
+          },
+          {
+            "id": 3,
+            "name": "Toddler (1-4)"
+          },
+          {
+            "id": 4,
+            "name": "Neonate & Infant (0)"
+          },
+          {
+            "id": 8,
+            "name": "Older People (65+)"
+          }
+        ],
+        "genders": [
+          {
+            "id": "F",
+            "name": "Female"
+          },
+          {
+            "id": "M",
+            "name": "Male"
+          },
+          {
+            "id": "I",
+            "name": "Indeterminate"
+          }
+        ],
+        "endpoints": [
+          
+        ]
+      }
+    ]
+  }
+}

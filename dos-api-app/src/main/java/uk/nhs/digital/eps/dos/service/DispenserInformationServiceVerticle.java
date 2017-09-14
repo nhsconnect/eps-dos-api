@@ -136,6 +136,7 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
         String name = context.request().getParam("name");
         String requestId = context.request().getHeader(ApiGatewayVerticle.REQUEST_ID_HEADER);
         LOG.log(Level.INFO, "searchByName REST request recieved with param name={0} and request.id={1}", new Object[]{name, requestId});
+        //this marks the success of the whole query
         Future<List<Dispenser>> queryFuture = Future.future();
 
         Future<List<Dispenser>> detail = Future.future();
@@ -152,9 +153,10 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
                 .collect(Collectors.toList());
             
             CompositeFuture.all(openingTimeResults).setHandler(ar -> {
+                LOG.log(Level.FINE, "query openingTimeResults running");
                 List<Future> openingTimeSuccessfulResults = openingTimeResults;
                 //get rid of any failed results
-                if (ar.failed()) openingTimeSuccessfulResults = openingTimeResults.stream().filter(result -> result.failed()).collect(Collectors.toList());
+                if (ar.failed()) openingTimeSuccessfulResults = openingTimeResults.stream().filter(result -> !result.failed()).collect(Collectors.toList());
                 //convert Future to Dispenser
                 List<Dispenser> openingTimeDispensers = openingTimeSuccessfulResults.stream().map(f->(Dispenser) f.result()).collect(Collectors.toList()) ;
                 //remove any dispenser for which we don't have opening time detail        
@@ -169,12 +171,10 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
                 }
                 
                 List<Dispenser> resultList = openingTimeDispensers.stream()
-                    .map(f -> {
-                        BeanUtils.copyProperties(detailList.stream().filter( d -> d.equals(d)).findFirst().get(),f);
-                        return f;})
+                    .map(dispenserWithOpening -> {
+                        Dispenser d = (Dispenser) merge(detailList.stream().filter( dispenserWithName -> dispenserWithName.equals(dispenserWithOpening)).findFirst().get(),dispenserWithOpening);
+                        return dispenserWithOpening;})
                     .collect(Collectors.toList());
-
-                
                 queryFuture.complete(resultList);
             });
             
@@ -182,7 +182,12 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
         
         queryFuture.setHandler(ar -> {
             if (ar.succeeded()){
-                context.response().setStatusCode(200).end(JsonObject.mapFrom(ar.result()).encodePrettily());
+                try {
+                    context.response().setStatusCode(200).end(MAPPER.writeValueAsString(ar.result()));
+                } catch (JsonProcessingException ex) {
+                    LOG.log(Level.SEVERE, "Unable to map result to json for request.id={0}", requestId);
+                    context.response().setStatusCode(ApiErrorbase.UNKNOWN.getStatusCode()).end(errorResponseAsJson(new APIException(ApiErrorbase.UNKNOWN)));
+                }
             } else {
                 Throwable ex = ar.cause();
                 if (ex instanceof APIException){
