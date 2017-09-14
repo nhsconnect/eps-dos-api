@@ -84,7 +84,7 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
         }
     }
     
-    private static Object merge(Object o1, Object o2){
+    public static Object merge(Object o1, Object o2){
         try {
             new BeanUtilsBean() {
                 @Override

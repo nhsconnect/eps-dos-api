@@ -104,6 +104,7 @@ public class DispenserDetailServiceImplTest extends BaseTest {
             if (response.failed()) LOG.warning(response.cause().getMessage());
             context.assertTrue(response.succeeded());
             context.assertEquals(response.result().getOds(), "FLM42");
+            context.assertEquals(response.result().getName(), "Everett Hj (Chemists) Ltd");
             async.complete();
         });
     }
