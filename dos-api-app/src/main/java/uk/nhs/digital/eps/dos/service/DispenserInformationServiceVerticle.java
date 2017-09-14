@@ -156,11 +156,13 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
                 LOG.log(Level.FINE, "query openingTimeResults running");
                 List<Future> openingTimeSuccessfulResults = openingTimeResults;
                 //get rid of any failed results
-                if (ar.failed()) openingTimeSuccessfulResults = openingTimeResults.stream().filter(result -> !result.failed()).collect(Collectors.toList());
+                if (ar.failed()) openingTimeSuccessfulResults = openingTimeResults.stream().filter(result -> result.succeeded()).collect(Collectors.toList());
                 //convert Future to Dispenser
                 List<Dispenser> openingTimeDispensers = openingTimeSuccessfulResults.stream().map(f->(Dispenser) f.result()).collect(Collectors.toList()) ;
-                //remove any dispenser for which we don't have opening time detail        
-                boolean noMatch = detailList.retainAll(openingTimeDispensers);
+                //remove any dispenser for which we don't have opening time detail
+                
+                List<Dispenser> detailDispensers = detail.result();
+                boolean noMatch = detailDispensers.retainAll(openingTimeDispensers);
                 
                 if (noMatch){
                     LOG.log(Level.WARNING, "No matching dispenserAccessInformation for query for name={0} request.id={1}", new Object[]{name, requestId});

@@ -158,7 +158,7 @@ public class DispenserInformationServiceVerticleTest {
                 });
     }
     
-    @Test
+    //@Test
     public void getDispenserByNameTest(TestContext context) {
         LOG.fine("getDispenserByNameTest");
          Async async = context.async();
@@ -241,7 +241,7 @@ public class DispenserInformationServiceVerticleTest {
         context.assertEquals(testDispenser2.getName(), d3.getName());
     }
     
-    @Test
+    @Test(timeout =300000L)
     public void getDispenserByNameMultipleIncompleteTest(TestContext context) {
         LOG.fine("getDispenserByNameMultipleIncompleteTest");
          Async async = context.async();
@@ -268,12 +268,13 @@ public class DispenserInformationServiceVerticleTest {
 
         WebClient client = WebClient.create(vertx);
         client.get(verticlePort, "localhost", "/dispensers/byName/Bishop")
-                .ssl(false)
-                .putHeader("Authorization", "Basic ".concat("auth-placeholder"))
-                .putHeader("x-Request-Id", "getDispenserByNameTest-3333333333").send((ar) -> {
-                    context.assertTrue(ar.succeeded());
-                    LOG.fine("result:" + ar.result().bodyAsString());
-                    async.complete();
-                });
+            .ssl(false)
+            .putHeader("Authorization", "Basic ".concat("auth-placeholder"))
+            .putHeader("x-Request-Id", "getDispenserByNameTest-3333333333").send((ar) -> {
+                context.assertTrue(ar.succeeded());
+                LOG.fine("result:" + ar.result().bodyAsString());
+                context.assertTrue(ar.result().bodyAsJsonArray().size()==2);
+                async.complete();
+            });
     }
 }

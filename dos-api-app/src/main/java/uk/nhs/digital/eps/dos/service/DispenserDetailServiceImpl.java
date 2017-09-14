@@ -21,6 +21,7 @@ import io.vertx.ext.web.client.WebClient;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
@@ -85,7 +86,8 @@ public class DispenserDetailServiceImpl implements DispenserDetailService {
     }
     
     private List<Dispenser> parseDispenserList(String xmlString) throws TransformerConfigurationException, TransformerException, IOException {
-        return Arrays.asList(parseResponse(xmlString, Dispenser[].class));
+        //we need to call retainAll() on this later which isn't supported by the lsit returned by Arrays.asList
+        return new ArrayList<>(Arrays.asList(parseResponse(xmlString, Dispenser[].class)));
     }
 
     private Dispenser parseDispenser(String xmlString) throws TransformerConfigurationException, TransformerException, IOException {
