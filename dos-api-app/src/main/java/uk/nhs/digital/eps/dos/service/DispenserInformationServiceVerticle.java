@@ -152,7 +152,7 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
                 })
                 .collect(Collectors.toList());
             
-            CompositeFuture.all(openingTimeResults).setHandler(ar -> {
+            CompositeFuture.join(openingTimeResults).setHandler(ar -> {
                 LOG.log(Level.FINE, "query openingTimeResults running");
                 List<Future> openingTimeSuccessfulResults = openingTimeResults;
                 //get rid of any failed results
