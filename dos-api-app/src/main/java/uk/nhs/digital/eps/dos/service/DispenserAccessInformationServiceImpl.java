@@ -201,7 +201,7 @@ public class DispenserAccessInformationServiceImpl implements DispenserAccessInf
         return d;
     }
 
-    private Future<List<Dispenser>> getDispensersByPostcode(String requestId, String postcode, int distance) {
+    private Future<List<Dispenser>> getDispensersByPostcode(String requestId, String postcode, double distance) {
 
         Future<List<Dispenser>> future = Future.future();
 
@@ -264,7 +264,7 @@ public class DispenserAccessInformationServiceImpl implements DispenserAccessInf
     }
 
     @Override
-    public void searchDispensersAvailableFromWithin(String requestId, Date timestamp, int hours, int distance, String postcode, Handler<AsyncResult<List<Dispenser>>> serviceResponseHandler) {
+    public void searchDispensersAvailableFromWithin(String requestId, Date timestamp, int hours, double distance, String postcode, Handler<AsyncResult<List<Dispenser>>> serviceResponseHandler) {
 
         LOG.log(Level.FINE, "searchDispensersAvailableFromWithin service call with request.id={0}", requestId);
         if (hours < 0 || hours > 24) {

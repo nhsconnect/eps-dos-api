@@ -17,7 +17,7 @@ import uk.nhs.digital.eps.dos.model.Dispenser;
  */
 public interface DispenserAccessInformationService {
     
-    public void searchDispensersAvailableFromWithin(String requestId, Date timestamp, int hours, int distance, String postcode, Handler<AsyncResult<List<Dispenser>>> resultHandler);
+    public void searchDispensersAvailableFromWithin(String requestId, Date timestamp, int hours, double distance, String postcode, Handler<AsyncResult<List<Dispenser>>> resultHandler);
     
     public void dispenserAccessInformation(String requestId, String odsCode, Handler<AsyncResult<Dispenser>> resultHandler);
     
