@@ -5,20 +5,14 @@
  */
 package uk.nhs.digital.eps.dos.test;
 
-import io.vertx.core.AsyncResult;
 import io.vertx.core.DeploymentOptions;
-import io.vertx.core.Verticle;
 import io.vertx.core.Vertx;
-import io.vertx.core.VertxOptions;
-import io.vertx.core.buffer.Buffer;
 import io.vertx.core.http.HttpServer;
 import io.vertx.core.http.HttpServerOptions;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.unit.Async;
 import io.vertx.ext.unit.TestContext;
 import io.vertx.ext.unit.junit.VertxUnitRunner;
-import io.vertx.ext.web.client.HttpRequest;
-import io.vertx.ext.web.client.HttpResponse;
 import io.vertx.ext.web.client.WebClient;
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -30,7 +24,6 @@ import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import uk.nhs.digital.eps.dos.model.Address;
@@ -41,7 +34,6 @@ import uk.nhs.digital.eps.dos.model.OpeningTimes;
 import uk.nhs.digital.eps.dos.model.PatientContact;
 import uk.nhs.digital.eps.dos.model.PrescriberContact;
 import uk.nhs.digital.eps.dos.service.DispenserAccessInformationServiceImpl;
-import static uk.nhs.digital.eps.dos.service.DispenserAccessInformationServiceImpl.PATHWAYS_USE_SSL_KEY;
 import uk.nhs.digital.eps.dos.service.DispenserDetailServiceImpl;
 import uk.nhs.digital.eps.dos.service.DispenserInformationServiceVerticle;
 
@@ -274,6 +266,48 @@ public class DispenserInformationServiceVerticleTest {
                 context.assertTrue(ar.succeeded());
                 LOG.fine("result:" + ar.result().bodyAsString());
                 context.assertTrue(ar.result().bodyAsJsonArray().size()==2);
+                async.complete();
+            });
+    }
+    
+    @Test()
+    public void getDispenserByOpeningHourLocationTest(TestContext context) {
+        LOG.fine("getDispenserByOpeningHourLocationTest");
+         Async async = context.async();
+
+        pathwaysServer.requestHandler( request -> {
+            request.response()
+                .putHeader("Content-Type", "text/json")
+                .end(BaseTest.getFile("/pathways_nearby_YO231AY.json"));})
+            .listen(context.asyncAssertSuccess());
+        
+        final Map<String,String> choicesResponses = new HashMap<>();
+        choicesResponses.put("FWD97", BaseTest.getFile("/choices_dispenser_FWD97.xml"));
+        choicesResponses.put("FEP25", BaseTest.getFile("/choices_dispenser_FEP25.xml"));
+        choicesResponses.put("FTT40", BaseTest.getFile("/choices_dispenser_FTT40.xml"));
+        choicesResponses.put("FLN31", BaseTest.getFile("/choices_dispenser_FLN31.xml"));
+        choicesResponses.put("FL410", BaseTest.getFile("/choices_dispenser_FL410.xml"));
+        choicesResponses.put("FQ084", BaseTest.getFile("/choices_dispenser_FQ084.xml"));
+        choicesResponses.put("FTP37", BaseTest.getFile("/choices_dispenser_FTP37.xml"));
+        choicesResponses.put("FN626", BaseTest.getFile("/choices_dispenser_FN626.xml"));
+        choicesResponses.put("FAM96", BaseTest.getFile("/choices_dispenser_FAM96.xml"));
+        choicesResponses.put("FMJ79", BaseTest.getFile("/choices_dispenser_FMJ79.xml"));
+        
+        pathwaysServer.requestHandler( request -> {
+            if (!choicesResponses.containsKey(request.getParam("strnacscode"))) request.response().end();
+            else request.response().end(choicesResponses.get(request.getParam("strnacscode")));
+        }).listen(context.asyncAssertSuccess());
+        
+        WebClient client = WebClient.create(vertx);
+        client.get(verticlePort, "localhost", "/dispensers/byLocationOpening")
+            .addQueryParam("postcode", "YO231AY")
+            .addQueryParam("open_within", "8")
+            .ssl(false)
+            .putHeader("Authorization", "Basic ".concat("auth-placeholder"))
+            .putHeader("x-Request-Id", "getDispenserByOpeningHourLocationTest-4444444444").send((ar) -> {
+                context.assertTrue(ar.succeeded());
+                LOG.fine("result:" + ar.result().bodyAsString());
+                //context.assertTrue(ar.result().bodyAsJsonArray().size()==2);
                 async.complete();
             });
     }
