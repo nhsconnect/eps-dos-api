@@ -22,6 +22,7 @@ import io.vertx.ext.web.client.HttpResponse;
 import io.vertx.ext.web.client.WebClient;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.IllegalFormatException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -48,7 +49,7 @@ public class DispenserAccessInformationServiceImpl implements DispenserAccessInf
     private static final String PATHWAYS_DISPENSER_RESOURCE_DEFAULT = "/app/controllers/api/v1.0/services/byOdsCode/%s";
     public static final String PATHWAYS_PORT_KEY = "pathways_port";
     public static final String PATHWAYS_DISPENSER_SEARCH_RESOURCE_KEY = "pathways_dispenser_search";
-    private static final String PATHWAYS_DISPENSER_SEARCH_RESOURCE_DEFAULT = "/app/controllers/api/v1.0/services/byServiceType/0/%s/%d/0/0/0/0/13,14/50";
+    private static final String PATHWAYS_DISPENSER_SEARCH_RESOURCE_DEFAULT = "/app/controllers/api/v1.0/services/byServiceType/0/%s/%d/0/0/0/0/13/50";
     private static final String PATHWAYS_AUTH_KEY = "pathways_auth";
 
     private Vertx vertx;
@@ -204,12 +205,18 @@ public class DispenserAccessInformationServiceImpl implements DispenserAccessInf
     private Future<List<Dispenser>> getDispensersByPostcode(String requestId, String postcode, double distance) {
 
         Future<List<Dispenser>> future = Future.future();
-
-        String resource = String.format(config.getString(PATHWAYS_DISPENSER_SEARCH_RESOURCE_KEY, PATHWAYS_DISPENSER_SEARCH_RESOURCE_DEFAULT), postcode, distance);
+        String resource;
+        try{
+            resource = String.format(config.getString(PATHWAYS_DISPENSER_SEARCH_RESOURCE_KEY, PATHWAYS_DISPENSER_SEARCH_RESOURCE_DEFAULT), postcode, distance);
+        } catch (IllegalFormatException e){
+            LOG.log(Level.SEVERE, "Pathways query resource not in correct format");
+            future.fail(new APIException(ApiErrorbase.OPENING_TIME_ERROR));
+            return future;
+        }
         HttpRequest<Buffer> request = client.get(port, host, resource)
-                .ssl(config.getBoolean(PATHWAYS_USE_SSL_KEY, Boolean.TRUE))
-                .putHeader("Authorization", "Basic ".concat(config.getString(PATHWAYS_AUTH_KEY, "")))
-                .putHeader("x-Request-Id", requestId);
+            .ssl(config.getBoolean(PATHWAYS_USE_SSL_KEY, Boolean.TRUE))
+            .putHeader("Authorization", "Basic ".concat(config.getString(PATHWAYS_AUTH_KEY, "")))
+            .putHeader("x-Request-Id", requestId);
 
         LOG.log(Level.FINE, "Requesting {0}:{1}{2} x-Request-Id: {3}", new Object[]{host, port, resource, requestId});
 
