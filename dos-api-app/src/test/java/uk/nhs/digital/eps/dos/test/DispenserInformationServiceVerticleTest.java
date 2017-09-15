@@ -282,18 +282,18 @@ public class DispenserInformationServiceVerticleTest {
             .listen(context.asyncAssertSuccess());
         
         final Map<String,String> choicesResponses = new HashMap<>();
-        choicesResponses.put("FWD97", BaseTest.getFile("/choices_dispenser_FWD97.xml"));
-        choicesResponses.put("FEP25", BaseTest.getFile("/choices_dispenser_FEP25.xml"));
-        choicesResponses.put("FTT40", BaseTest.getFile("/choices_dispenser_FTT40.xml"));
-        choicesResponses.put("FLN31", BaseTest.getFile("/choices_dispenser_FLN31.xml"));
-        choicesResponses.put("FL410", BaseTest.getFile("/choices_dispenser_FL410.xml"));
-        choicesResponses.put("FQ084", BaseTest.getFile("/choices_dispenser_FQ084.xml"));
-        choicesResponses.put("FTP37", BaseTest.getFile("/choices_dispenser_FTP37.xml"));
-        choicesResponses.put("FN626", BaseTest.getFile("/choices_dispenser_FN626.xml"));
-        choicesResponses.put("FAM96", BaseTest.getFile("/choices_dispenser_FAM96.xml"));
-        choicesResponses.put("FMJ79", BaseTest.getFile("/choices_dispenser_FMJ79.xml"));
+        choicesResponses.put("FWD97", BaseTest.getFile("/choices_dispenser_FWD97.xml"));//
+        choicesResponses.put("FEP25", BaseTest.getFile("/choices_dispenser_FEP25.xml"));//
+        choicesResponses.put("FTT40", BaseTest.getFile("/choices_dispenser_FTT40.xml"));//
+        choicesResponses.put("FLN31", BaseTest.getFile("/choices_dispenser_FLN31.xml"));//
+        choicesResponses.put("FL410", BaseTest.getFile("/choices_dispenser_FL410.xml"));//
+        choicesResponses.put("FQ084", BaseTest.getFile("/choices_dispenser_FQ084.xml"));//
+        choicesResponses.put("FTP37", BaseTest.getFile("/choices_dispenser_FTP37.xml"));//
+        choicesResponses.put("FN626", BaseTest.getFile("/choices_dispenser_FN626.xml"));//
+        choicesResponses.put("FAM96", BaseTest.getFile("/choices_dispenser_FAM96.xml"));//
+        //choicesResponses.put("FMJ79", BaseTest.getFile("/choices_dispenser_FMJ79.xml"));
         
-        pathwaysServer.requestHandler( request -> {
+        choicesServer.requestHandler( request -> {
             if (!choicesResponses.containsKey(request.getParam("strnacscode"))) request.response().end();
             else request.response().end(choicesResponses.get(request.getParam("strnacscode")));
         }).listen(context.asyncAssertSuccess());
@@ -302,6 +302,7 @@ public class DispenserInformationServiceVerticleTest {
         client.get(verticlePort, "localhost", "/dispensers/byLocationOpening")
             .addQueryParam("postcode", "YO231AY")
             .addQueryParam("open_within", "8")
+            .addQueryParam("distance", "5.0")
             .ssl(false)
             .putHeader("Authorization", "Basic ".concat("auth-placeholder"))
             .putHeader("x-Request-Id", "getDispenserByOpeningHourLocationTest-4444444444").send((ar) -> {

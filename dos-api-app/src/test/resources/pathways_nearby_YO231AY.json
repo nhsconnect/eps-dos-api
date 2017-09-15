@@ -1,0 +1,3316 @@
+{
+  "success": {
+    "code": 200,
+    "transactionId": "1D659575-406C-11F0-B7C8-6561D0E74B5C",
+    "servicesReturnedAreCatchAll": "FALSE",
+    "serviceCount": 21,
+    "services": [
+      {
+        "id": "1326205878",
+        "name": "Pharmacist - York, North Yorkshire (Bishopthorpe Rd)",
+        "type": {
+          "id": "13",
+          "name": "Pharmacist"
+        },
+        "odsCode": "FWD97",
+        "address": [
+          "18 Bishopthorpe Road",
+          "York"
+        ],
+        "postcode": "YO23 1JJ",
+        "easting": "460159",
+        "northing": "450969",
+        "phone": {
+          "public": "01904 623509",
+          "nonPublic": "",
+          "fax": "01904 623307"
+        },
+        "web": "",
+        "openingTimes": {
+          "allHours": false,
+          "days": [
+            {
+              "day": "Monday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Tuesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Wednesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Thursday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Friday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Saturday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Sunday",
+              "sessions": [
+                
+              ]
+            },
+            {
+              "day": "Bankholiday",
+              "sessions": [
+                
+              ]
+            }
+          ],
+          "specifiedDates": [
+            
+          ]
+        },
+        "referralInstructions": {
+          "callHandler": "DISPOSITION INSTRUCTIONS\n\nHow is a referral to this service made?\nNone specified.\n\nExclusions?\nNone specified.\n\nInformation to be given to the caller?\nNone specified.",
+          "other": "DISPOSITION INSTRUCTIONS\n\nHow is a referral to this service made?\nNone specified.\n\nExclusions?\nNone specified.\n\nInformation to be given to the caller?\nNone specified."
+        },
+        "capacity": {
+          "status": {
+            "rag": "",
+            "human": "",
+            "hex": ""
+          }
+        },
+        "endpoints": [
+          
+        ],
+        "patientDistance": "0.2"
+      },
+      {
+        "id": "1326209442",
+        "name": "Pharmacist - York, North Yorkshire (Boots, The Coppergate Centre)",
+        "type": {
+          "id": "13",
+          "name": "Pharmacist"
+        },
+        "odsCode": "FEP25",
+        "address": [
+          "5 St. Marys Square",
+          "The Coppergate Centre ",
+          "York"
+        ],
+        "postcode": "YO1 9NY",
+        "easting": "460484",
+        "northing": "451641",
+        "phone": {
+          "public": "01904 635559",
+          "nonPublic": "",
+          "fax": "01904 633882"
+        },
+        "web": "",
+        "openingTimes": {
+          "allHours": false,
+          "days": [
+            {
+              "day": "Monday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "13",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Tuesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "13",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Wednesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "13",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Thursday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "13",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Friday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "13",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Saturday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "13",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Sunday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "10",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "16",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Bankholiday",
+              "sessions": [
+                
+              ]
+            }
+          ],
+          "specifiedDates": [
+            {
+              "date": "28-08-2017",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "10",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "referralInstructions": {
+          "callHandler": "DISPOSITION INSTRUCTIONS\n\nHow is a referral to this service made?\nNone Specified.\n\nExclusions?\nNone Specified.\n\nInformation to be given to the caller?\nNone Specified.",
+          "other": "DISPOSITION INSTRUCTIONS\n\nHow is a referral to this service made?\nNone Specified.\n\nExclusions?\nNone Specified.\n\nInformation to be given to the caller?\nNone Specified."
+        },
+        "capacity": {
+          "status": {
+            "rag": "",
+            "human": "",
+            "hex": ""
+          }
+        },
+        "endpoints": [
+          
+        ],
+        "patientDistance": "0.4"
+      },
+      {
+        "id": "1326205551",
+        "name": "Pharmacist - York, North Yorkshire (Lloyds, Fulford Rd)",
+        "type": {
+          "id": "13",
+          "name": "Pharmacist"
+        },
+        "odsCode": "FTT40",
+        "address": [
+          "210 Fulford Road",
+          "Fishergate",
+          "York"
+        ],
+        "postcode": "YO10 4DX",
+        "easting": "460866",
+        "northing": "450419",
+        "phone": {
+          "public": "01904 622652",
+          "nonPublic": "",
+          "fax": "01904 622652"
+        },
+        "web": "",
+        "openingTimes": {
+          "allHours": false,
+          "days": [
+            {
+              "day": "Monday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Tuesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Wednesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Thursday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Friday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Saturday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Sunday",
+              "sessions": [
+                
+              ]
+            },
+            {
+              "day": "Bankholiday",
+              "sessions": [
+                
+              ]
+            }
+          ],
+          "specifiedDates": [
+            
+          ]
+        },
+        "referralInstructions": {
+          "callHandler": "DISPOSITION INSTRUCTIONS\n\nHow is a referral to this service made?\nNone specified.\n\nExclusions?\nNone specified.\n\nInformation to be given to the caller?\nNone Specified.",
+          "other": "DISPOSITION INSTRUCTIONS\n\nHow is a referral to this service made?\nNone specified.\n\nExclusions?\nNone specified.\n\nInformation to be given to the caller?\nNone Specified."
+        },
+        "capacity": {
+          "status": {
+            "rag": "",
+            "human": "",
+            "hex": ""
+          }
+        },
+        "endpoints": [
+          
+        ],
+        "patientDistance": "0.4"
+      },
+      {
+        "id": "1326209172",
+        "name": "Pharmacist - York, North Yorkshire (Boots, Spurriergate\/Coney St)",
+        "type": {
+          "id": "13",
+          "name": "Pharmacist"
+        },
+        "odsCode": "FLN31",
+        "address": [
+          "2 Spurriergate ",
+          "43 Coney Street",
+          "York"
+        ],
+        "postcode": "YO1 9QR",
+        "easting": "460289",
+        "northing": "451711",
+        "phone": {
+          "public": "01904 653657",
+          "nonPublic": "",
+          "fax": "01904 652691"
+        },
+        "web": "",
+        "openingTimes": {
+          "allHours": false,
+          "days": [
+            {
+              "day": "Monday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Tuesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Wednesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Thursday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "19",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Friday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Saturday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Sunday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "11",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Bankholiday",
+              "sessions": [
+                
+              ]
+            }
+          ],
+          "specifiedDates": [
+            {
+              "date": "28-08-2017",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "10",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "referralInstructions": {
+          "callHandler": "DISPOSITION INSTRUCTIONS\n\nHow is a referral to this service made?\nNone Specified.\n\nExclusions?\nNone Specified.\n\nInformation to be given to the caller?\nBank Holiday Cover - Please ask the caller to phone the pharmacy before visiting to confirm opening times.",
+          "other": "DISPOSITION INSTRUCTIONS\n\nHow is a referral to this service made?\nNone Specified.\n\nExclusions?\nNone Specified.\n\nInformation to be given to the caller?\nBank Holiday Cover - Please ask the caller to phone the pharmacy before visiting to confirm opening times."
+        },
+        "capacity": {
+          "status": {
+            "rag": "",
+            "human": "",
+            "hex": ""
+          }
+        },
+        "endpoints": [
+          
+        ],
+        "patientDistance": "0.5"
+      },
+      {
+        "id": "1326203781",
+        "name": "Pharmacist - York, North Yorkshire (Living Care, Blossom St)",
+        "type": {
+          "id": "13",
+          "name": "Pharmacist"
+        },
+        "odsCode": "FL410",
+        "address": [
+          "57 Blossom Street",
+          "York"
+        ],
+        "postcode": "YO24 1AZ",
+        "easting": "459607",
+        "northing": "451272",
+        "phone": {
+          "public": "01904 622761",
+          "nonPublic": "",
+          "fax": "01904 622761"
+        },
+        "web": "",
+        "openingTimes": {
+          "allHours": false,
+          "days": [
+            {
+              "day": "Monday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Tuesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Wednesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Thursday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Friday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Saturday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Sunday",
+              "sessions": [
+                
+              ]
+            },
+            {
+              "day": "Bankholiday",
+              "sessions": [
+                
+              ]
+            }
+          ],
+          "specifiedDates": [
+            
+          ]
+        },
+        "referralInstructions": {
+          "callHandler": "DISPOSITION INSTRUCTIONS\n\nHow is a referral to this service made?\nNone Specified.\n\nExclusions?\nNone Specified.\n\nInformation to be given to the caller?\nNone Specified.",
+          "other": "DISPOSITION INSTRUCTIONS\n\nHow is a referral to this service made?\nNone Specified.\n\nExclusions?\nNone Specified.\n\nInformation to be given to the caller?\nNone Specified."
+        },
+        "capacity": {
+          "status": {
+            "rag": "",
+            "human": "",
+            "hex": ""
+          }
+        },
+        "endpoints": [
+          
+        ],
+        "patientDistance": "0.5"
+      },
+      {
+        "id": "1326209345",
+        "name": "Pharmacist - York, North Yorkshire (Boots, Kings Square)",
+        "type": {
+          "id": "13",
+          "name": "Pharmacist"
+        },
+        "odsCode": "FQ084",
+        "address": [
+          "1 Kings Square",
+          "York"
+        ],
+        "postcode": "YO1 8BH",
+        "easting": "460431",
+        "northing": "451943",
+        "phone": {
+          "public": "01904 671204",
+          "nonPublic": "",
+          "fax": "01904 671228"
+        },
+        "web": "",
+        "openingTimes": {
+          "allHours": false,
+          "days": [
+            {
+              "day": "Monday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Tuesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Wednesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Thursday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Friday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Saturday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Sunday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "11",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Bankholiday",
+              "sessions": [
+                
+              ]
+            }
+          ],
+          "specifiedDates": [
+            {
+              "date": "28-08-2017",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "10",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "referralInstructions": {
+          "callHandler": "DISPOSITION INSTRUCTIONS\n\nHow is a referral to this service made?\nNone Specified.\n\nExclusions?\nNone Specified.\n\n\nInformation to be given to the caller?\nNone Specified.",
+          "other": "DISPOSITION INSTRUCTIONS\n\nHow is a referral to this service made?\nNone Specified.\n\nExclusions?\nNone Specified.\n\nInformation to be given to the caller?\nNone Specified."
+        },
+        "capacity": {
+          "status": {
+            "rag": "",
+            "human": "",
+            "hex": ""
+          }
+        },
+        "endpoints": [
+          
+        ],
+        "patientDistance": "0.6"
+      },
+      {
+        "id": "1346661236",
+        "name": "Pharmacist - York, North Yorkshire (Monkbar, Goodramgate)",
+        "type": {
+          "id": "13",
+          "name": "Pharmacist"
+        },
+        "odsCode": "FTP37",
+        "address": [
+          "3 Goodramgate",
+          "York"
+        ],
+        "postcode": "YO1 7LJ",
+        "easting": "460549",
+        "northing": "452206",
+        "phone": {
+          "public": "01904 626181",
+          "nonPublic": "",
+          "fax": "01904 626181"
+        },
+        "web": "",
+        "openingTimes": {
+          "allHours": false,
+          "days": [
+            {
+              "day": "Monday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "07",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "22",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Tuesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "07",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "22",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Wednesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "07",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "22",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Thursday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "07",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "22",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Friday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "07",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "22",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Saturday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "07",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "22",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Sunday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Bankholiday",
+              "sessions": [
+                
+              ]
+            }
+          ],
+          "specifiedDates": [
+            
+          ]
+        },
+        "referralInstructions": {
+          "callHandler": "DISPOSITION INSTRUCTIONS\n\nHow is a referral to this service made?\nNone specified.\n\nExclusions?\nNone specified.\n\nInformation to be given to the caller?\nNone Specified.",
+          "other": "DISPOSITION INSTRUCTIONS\n\nHow is a referral to this service made?\nNone specified.\n\nExclusions?\nNone specified.\n\nInformation to be given to the caller?\nNone Specified."
+        },
+        "capacity": {
+          "status": {
+            "rag": "",
+            "human": "",
+            "hex": ""
+          }
+        },
+        "endpoints": [
+          
+        ],
+        "patientDistance": "0.8"
+      },
+      {
+        "id": "1326202953",
+        "name": "Pharmacist - York, North Yorkshire (Cohens, Gillygate)",
+        "type": {
+          "id": "13",
+          "name": "Pharmacist"
+        },
+        "odsCode": "FN626",
+        "address": [
+          "22 Gillygate ",
+          "York"
+        ],
+        "postcode": "YO31 7EQ",
+        "easting": "460181",
+        "northing": "452357",
+        "phone": {
+          "public": "01904 642557",
+          "nonPublic": "",
+          "fax": "01904 670632"
+        },
+        "web": "",
+        "openingTimes": {
+          "allHours": false,
+          "days": [
+            {
+              "day": "Monday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Tuesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Wednesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Thursday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Friday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Saturday",
+              "sessions": [
+                
+              ]
+            },
+            {
+              "day": "Sunday",
+              "sessions": [
+                
+              ]
+            },
+            {
+              "day": "Bankholiday",
+              "sessions": [
+                
+              ]
+            }
+          ],
+          "specifiedDates": [
+            
+          ]
+        },
+        "referralInstructions": {
+          "callHandler": "DISPOSITION INSTRUCTIONS\n\nHow is a referral to this service made?\nNone Specified.\n\nExclusions?\nNone specified.\n\nInformation to be given to the caller?\nProvides free morning after pill for women aged 14 - 24",
+          "other": "DISPOSITION INSTRUCTIONS\n\nHow is a referral to this service made?\nNone Specified.\n\nExclusions?\nNone Specified.\n\nInformation to be given to the caller?\nNone Specified."
+        },
+        "capacity": {
+          "status": {
+            "rag": "",
+            "human": "",
+            "hex": ""
+          }
+        },
+        "endpoints": [
+          
+        ],
+        "patientDistance": "0.9"
+      },
+      {
+        "id": "1326205034",
+        "name": "Pharmacist - York, North Yorkshire (Whitworth, Melrosegate)",
+        "type": {
+          "id": "13",
+          "name": "Pharmacist"
+        },
+        "odsCode": "FAM96",
+        "address": [
+          "275 Melrosegate",
+          "York"
+        ],
+        "postcode": "YO10 3SN",
+        "easting": "461861",
+        "northing": "451334",
+        "phone": {
+          "public": "01904 410987",
+          "nonPublic": "",
+          "fax": "01904 438702"
+        },
+        "web": "",
+        "openingTimes": {
+          "allHours": false,
+          "days": [
+            {
+              "day": "Monday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Tuesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Wednesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Thursday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Friday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Saturday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "16",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Sunday",
+              "sessions": [
+                
+              ]
+            },
+            {
+              "day": "Bankholiday",
+              "sessions": [
+                
+              ]
+            }
+          ],
+          "specifiedDates": [
+            
+          ]
+        },
+        "referralInstructions": {
+          "callHandler": "DISPOSITION INSTRUCTIONS\n\nHow is a referral to this service made?\nNone specified.\n\nExclusions?\nNone specified.\n\nInformation to be given to the caller?\nNone specified.",
+          "other": "DISPOSITION INSTRUCTIONS\n\nHow is a referral to this service made?\nNone specified.\n\nExclusions?\nNone specified.\n\nInformation to be given to the caller?\nNone specified."
+        },
+        "capacity": {
+          "status": {
+            "rag": "",
+            "human": "",
+            "hex": ""
+          }
+        },
+        "endpoints": [
+          
+        ],
+        "patientDistance": "0.9"
+      },
+      {
+        "id": "1326209680",
+        "name": "Pharmacist - York, North Yorkshire (Boots, East Parade)",
+        "type": {
+          "id": "13",
+          "name": "Pharmacist"
+        },
+        "odsCode": "FMJ79",
+        "address": [
+          "10 East Parade",
+          "York"
+        ],
+        "postcode": "YO31 7YJ",
+        "easting": "461333",
+        "northing": "452483",
+        "phone": {
+          "public": "01904 424375",
+          "nonPublic": "",
+          "fax": ""
+        },
+        "web": "",
+        "openingTimes": {
+          "allHours": false,
+          "days": [
+            {
+              "day": "Monday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "12",
+                    "minutes": "30"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "13",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Tuesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "12",
+                    "minutes": "30"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "13",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Wednesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "12",
+                    "minutes": "30"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "13",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Thursday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "12",
+                    "minutes": "30"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "13",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Friday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "12",
+                    "minutes": "30"
+                  }
+                },
+                {
+                  "start": {
+                    "hours": "13",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Saturday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Sunday",
+              "sessions": [
+                
+              ]
+            },
+            {
+              "day": "Bankholiday",
+              "sessions": [
+                
+              ]
+            }
+          ],
+          "specifiedDates": [
+            
+          ]
+        },
+        "referralInstructions": {
+          "callHandler": "DISPOSITION INSTRUCTIONS\n\nHow is a referral to this service made?\nNone specified.\n\nExclusions?\nNone specified.\n\nInformation to be given to the caller?\nThere is no pharmacist service between 12.30-13.30pm on week days",
+          "other": "DISPOSITION INSTRUCTIONS\n\nHow is a referral to this service made?\nNone specified.\n\nExclusions?\nNone specified.\n\nInformation to be given to the caller?\nThere is no pharmacist service between 12.30-13.30pm on week days"
+        },
+        "capacity": {
+          "status": {
+            "rag": "",
+            "human": "",
+            "hex": ""
+          }
+        },
+        "endpoints": [
+          
+        ],
+        "patientDistance": "1.1"
+      },
+      {
+        "id": "1326104131",
+        "name": "Optician - York (McBride Opticians)",
+        "type": {
+          "id": "14",
+          "name": "Optician"
+        },
+        "odsCode": "1326104131",
+        "address": [
+          "33 Bishopthorpe Road",
+          "York"
+        ],
+        "postcode": "YO23 1NA",
+        "easting": "460157",
+        "northing": "451038",
+        "phone": {
+          "public": "01904 611553",
+          "nonPublic": "",
+          "fax": ""
+        },
+        "web": "",
+        "openingTimes": {
+          "allHours": false,
+          "days": [
+            {
+              "day": "Monday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Tuesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Wednesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Thursday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Friday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Saturday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Sunday",
+              "sessions": [
+                
+              ]
+            },
+            {
+              "day": "Bankholiday",
+              "sessions": [
+                
+              ]
+            }
+          ],
+          "specifiedDates": [
+            
+          ]
+        },
+        "referralInstructions": {
+          "callHandler": "",
+          "other": ""
+        },
+        "capacity": {
+          "status": {
+            "rag": "",
+            "human": "",
+            "hex": ""
+          }
+        },
+        "endpoints": [
+          
+        ],
+        "patientDistance": "0.2"
+      },
+      {
+        "id": "1325865307",
+        "name": "Optician - York (Coverdale Opticians)",
+        "type": {
+          "id": "14",
+          "name": "Optician"
+        },
+        "odsCode": " 1325865307 ",
+        "address": [
+          "53 Walmgate",
+          "York"
+        ],
+        "postcode": "YO1 9TY",
+        "easting": "460790",
+        "northing": "451556",
+        "phone": {
+          "public": "01904 631793",
+          "nonPublic": "",
+          "fax": ""
+        },
+        "web": "",
+        "openingTimes": {
+          "allHours": false,
+          "days": [
+            {
+              "day": "Monday",
+              "sessions": [
+                
+              ]
+            },
+            {
+              "day": "Tuesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Wednesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Thursday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Friday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Saturday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "13",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Sunday",
+              "sessions": [
+                
+              ]
+            },
+            {
+              "day": "Bankholiday",
+              "sessions": [
+                
+              ]
+            }
+          ],
+          "specifiedDates": [
+            
+          ]
+        },
+        "referralInstructions": {
+          "callHandler": "",
+          "other": ""
+        },
+        "capacity": {
+          "status": {
+            "rag": "",
+            "human": "",
+            "hex": ""
+          }
+        },
+        "endpoints": [
+          
+        ],
+        "patientDistance": "0.4"
+      },
+      {
+        "id": "1325686817",
+        "name": "Optician - York (Specsavers - Low Ousegate)",
+        "type": {
+          "id": "14",
+          "name": "Optician"
+        },
+        "odsCode": "1325686817",
+        "address": [
+          "15 Low Ousegate",
+          "York"
+        ],
+        "postcode": "YO1 9QX",
+        "easting": "460271",
+        "northing": "451653",
+        "phone": {
+          "public": "01904 655611",
+          "nonPublic": "",
+          "fax": ""
+        },
+        "web": "",
+        "openingTimes": {
+          "allHours": false,
+          "days": [
+            {
+              "day": "Monday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Tuesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Wednesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Thursday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Friday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Saturday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Sunday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "10",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "16",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Bankholiday",
+              "sessions": [
+                
+              ]
+            }
+          ],
+          "specifiedDates": [
+            
+          ]
+        },
+        "referralInstructions": {
+          "callHandler": "",
+          "other": ""
+        },
+        "capacity": {
+          "status": {
+            "rag": "",
+            "human": "",
+            "hex": ""
+          }
+        },
+        "endpoints": [
+          
+        ],
+        "patientDistance": "0.4"
+      },
+      {
+        "id": "1325774533",
+        "name": "Optician - York (Binnington & Thurling Optician)",
+        "type": {
+          "id": "14",
+          "name": "Optician"
+        },
+        "odsCode": "1325774533",
+        "address": [
+          "17 Micklegate",
+          "York"
+        ],
+        "postcode": "YO1 6JH",
+        "easting": "460048",
+        "northing": "451614",
+        "phone": {
+          "public": "01904 653297",
+          "nonPublic": "",
+          "fax": ""
+        },
+        "web": "",
+        "openingTimes": {
+          "allHours": false,
+          "days": [
+            {
+              "day": "Monday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Tuesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Wednesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Thursday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Friday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Saturday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Sunday",
+              "sessions": [
+                
+              ]
+            },
+            {
+              "day": "Bankholiday",
+              "sessions": [
+                
+              ]
+            }
+          ],
+          "specifiedDates": [
+            
+          ]
+        },
+        "referralInstructions": {
+          "callHandler": "",
+          "other": ""
+        },
+        "capacity": {
+          "status": {
+            "rag": "",
+            "human": "",
+            "hex": ""
+          }
+        },
+        "endpoints": [
+          
+        ],
+        "patientDistance": "0.5"
+      },
+      {
+        "id": "1325605724",
+        "name": "Optician - York (Vision Express - Parliament St)",
+        "type": {
+          "id": "14",
+          "name": "Optician"
+        },
+        "odsCode": "1325605724",
+        "address": [
+          "8-10 Parliament Street",
+          "York"
+        ],
+        "postcode": "YO1 8SE",
+        "easting": "460375",
+        "northing": "451794",
+        "phone": {
+          "public": "01904 541104",
+          "nonPublic": "",
+          "fax": ""
+        },
+        "web": "",
+        "openingTimes": {
+          "allHours": false,
+          "days": [
+            {
+              "day": "Monday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Tuesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Wednesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Thursday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Friday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Saturday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Sunday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "10",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "16",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Bankholiday",
+              "sessions": [
+                
+              ]
+            }
+          ],
+          "specifiedDates": [
+            
+          ]
+        },
+        "referralInstructions": {
+          "callHandler": "",
+          "other": ""
+        },
+        "capacity": {
+          "status": {
+            "rag": "",
+            "human": "",
+            "hex": ""
+          }
+        },
+        "endpoints": [
+          
+        ],
+        "patientDistance": "0.5"
+      },
+      {
+        "id": "1325673868",
+        "name": "Optician - York (Boots - Coney Street)",
+        "type": {
+          "id": "14",
+          "name": "Optician"
+        },
+        "odsCode": "1325673868",
+        "address": [
+          "Coney Street",
+          "York"
+        ],
+        "postcode": "YO1 8ND",
+        "easting": "460270",
+        "northing": "451823",
+        "phone": {
+          "public": "01904 642617",
+          "nonPublic": "",
+          "fax": ""
+        },
+        "web": "",
+        "openingTimes": {
+          "allHours": false,
+          "days": [
+            {
+              "day": "Monday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Tuesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Wednesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Thursday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "19",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Friday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Saturday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Sunday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "11",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Bankholiday",
+              "sessions": [
+                
+              ]
+            }
+          ],
+          "specifiedDates": [
+            
+          ]
+        },
+        "referralInstructions": {
+          "callHandler": "",
+          "other": ""
+        },
+        "capacity": {
+          "status": {
+            "rag": "",
+            "human": "",
+            "hex": ""
+          }
+        },
+        "endpoints": [
+          
+        ],
+        "patientDistance": "0.5"
+      },
+      {
+        "id": "1325676349",
+        "name": "Optician - York (Vision Value Opticians)",
+        "type": {
+          "id": "14",
+          "name": "Optician"
+        },
+        "odsCode": "1325676349",
+        "address": [
+          "21 Parliament Street",
+          "York"
+        ],
+        "postcode": "YO1 8SG",
+        "easting": "460324",
+        "northing": "451855",
+        "phone": {
+          "public": "01904 637763",
+          "nonPublic": "",
+          "fax": ""
+        },
+        "web": "",
+        "openingTimes": {
+          "allHours": false,
+          "days": [
+            {
+              "day": "Monday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Tuesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Wednesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Thursday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Friday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Saturday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Sunday",
+              "sessions": [
+                
+              ]
+            },
+            {
+              "day": "Bankholiday",
+              "sessions": [
+                
+              ]
+            }
+          ],
+          "specifiedDates": [
+            
+          ]
+        },
+        "referralInstructions": {
+          "callHandler": "",
+          "other": ""
+        },
+        "capacity": {
+          "status": {
+            "rag": "",
+            "human": "",
+            "hex": ""
+          }
+        },
+        "endpoints": [
+          
+        ],
+        "patientDistance": "0.6"
+      },
+      {
+        "id": "1325605121",
+        "name": "Optician - York (Optical Express Opticians)",
+        "type": {
+          "id": "14",
+          "name": "Optician"
+        },
+        "odsCode": "1325605121",
+        "address": [
+          "16 Parliament Street",
+          "York"
+        ],
+        "postcode": "YO1 8SG",
+        "easting": "460324",
+        "northing": "451855",
+        "phone": {
+          "public": "01904 621628",
+          "nonPublic": "",
+          "fax": ""
+        },
+        "web": "",
+        "openingTimes": {
+          "allHours": false,
+          "days": [
+            {
+              "day": "Monday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Tuesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Wednesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Thursday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Friday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Saturday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Sunday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "10",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "16",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Bankholiday",
+              "sessions": [
+                
+              ]
+            }
+          ],
+          "specifiedDates": [
+            
+          ]
+        },
+        "referralInstructions": {
+          "callHandler": "",
+          "other": ""
+        },
+        "capacity": {
+          "status": {
+            "rag": "",
+            "human": "",
+            "hex": ""
+          }
+        },
+        "endpoints": [
+          
+        ],
+        "patientDistance": "0.6"
+      },
+      {
+        "id": "1325602447",
+        "name": "Optician - York (Dolland & Aitchison Opticians)",
+        "type": {
+          "id": "14",
+          "name": "Optician"
+        },
+        "odsCode": "1325602447",
+        "address": [
+          "Dolland and Aitchison",
+          "22 Parliament Street",
+          "York"
+        ],
+        "postcode": "YO1 8RS",
+        "easting": "460369",
+        "northing": "451874",
+        "phone": {
+          "public": "01904 638827",
+          "nonPublic": "",
+          "fax": ""
+        },
+        "web": "",
+        "openingTimes": {
+          "allHours": false,
+          "days": [
+            {
+              "day": "Monday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Tuesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Wednesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Thursday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Friday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "08",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "18",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Saturday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Sunday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "10",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "16",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Bankholiday",
+              "sessions": [
+                
+              ]
+            }
+          ],
+          "specifiedDates": [
+            
+          ]
+        },
+        "referralInstructions": {
+          "callHandler": "",
+          "other": ""
+        },
+        "capacity": {
+          "status": {
+            "rag": "",
+            "human": "",
+            "hex": ""
+          }
+        },
+        "endpoints": [
+          
+        ],
+        "patientDistance": "0.6"
+      },
+      {
+        "id": "1325678665",
+        "name": "Optician - York (Crown Eyeglass plc Direkt Optik)",
+        "type": {
+          "id": "14",
+          "name": "Optician"
+        },
+        "odsCode": "1325678665",
+        "address": [
+          "12 Newgate ",
+          "York"
+        ],
+        "postcode": "YO1 7LA",
+        "easting": "460404",
+        "northing": "451891",
+        "phone": {
+          "public": "01904 632121",
+          "nonPublic": "",
+          "fax": ""
+        },
+        "web": "",
+        "openingTimes": {
+          "allHours": false,
+          "days": [
+            {
+              "day": "Monday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Tuesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Wednesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Thursday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Friday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "30"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Saturday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Sunday",
+              "sessions": [
+                
+              ]
+            },
+            {
+              "day": "Bankholiday",
+              "sessions": [
+                
+              ]
+            }
+          ],
+          "specifiedDates": [
+            
+          ]
+        },
+        "referralInstructions": {
+          "callHandler": "",
+          "other": ""
+        },
+        "capacity": {
+          "status": {
+            "rag": "",
+            "human": "",
+            "hex": ""
+          }
+        },
+        "endpoints": [
+          
+        ],
+        "patientDistance": "0.6"
+      },
+      {
+        "id": "1325692348",
+        "name": "Optician - York (Rayners Opticians - Chruch St)",
+        "type": {
+          "id": "14",
+          "name": "Optician"
+        },
+        "odsCode": "1325692348",
+        "address": [
+          "4 Church Street",
+          "York"
+        ],
+        "postcode": "YO1 8BG",
+        "easting": "460398",
+        "northing": "451959",
+        "phone": {
+          "public": "01904 622465",
+          "nonPublic": "",
+          "fax": ""
+        },
+        "web": "",
+        "openingTimes": {
+          "allHours": false,
+          "days": [
+            {
+              "day": "Monday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Tuesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Wednesday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Thursday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Friday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "30"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Saturday",
+              "sessions": [
+                {
+                  "start": {
+                    "hours": "09",
+                    "minutes": "00"
+                  },
+                  "end": {
+                    "hours": "17",
+                    "minutes": "00"
+                  }
+                }
+              ]
+            },
+            {
+              "day": "Sunday",
+              "sessions": [
+                
+              ]
+            },
+            {
+              "day": "Bankholiday",
+              "sessions": [
+                
+              ]
+            }
+          ],
+          "specifiedDates": [
+            
+          ]
+        },
+        "referralInstructions": {
+          "callHandler": "",
+          "other": ""
+        },
+        "capacity": {
+          "status": {
+            "rag": "",
+            "human": "",
+            "hex": ""
+          }
+        },
+        "endpoints": [
+          
+        ],
+        "patientDistance": "0.6"
+      }
+    ]
+  }
+}
