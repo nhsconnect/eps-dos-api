@@ -142,7 +142,7 @@ public class DispenserDetailServiceImpl implements DispenserDetailService {
                     //an error response
                     switch (response.result().bodyAsString().trim()) {
                     case "NACS_CODE_NOT_RECOGNISED":
-                        LOG.log(Level.INFO, "Dispenser with ODS={0} not found for query with request.id={1}", requestId);
+                        LOG.log(Level.INFO, "Dispenser with ODS={0} not found for query with request.id={1}", new Object[]{ods, requestId});
                         serviceResponseHandler.handle(Future.failedFuture(new APIException(ApiErrorbase.NOT_FOUND)));
                         break;
                     case "NACS_CODE_WRONG_FORMAT":
