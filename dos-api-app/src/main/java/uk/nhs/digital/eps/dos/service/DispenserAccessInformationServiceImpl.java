@@ -50,7 +50,8 @@ public class DispenserAccessInformationServiceImpl implements DispenserAccessInf
     public static final String PATHWAYS_PORT_KEY = "pathways_port";
     public static final String PATHWAYS_DISPENSER_SEARCH_RESOURCE_KEY = "pathways_dispenser_search";
     private static final String PATHWAYS_DISPENSER_SEARCH_RESOURCE_DEFAULT = "/app/controllers/api/v1.0/services/byServiceType/0/%s/%f/0/0/0/0/13/50";
-    private static final String PATHWAYS_AUTH_KEY = "pathways_auth";
+    public static final String PATHWAYS_AUTH_KEY = "pathways_auth";
+    private static final long REQUEST_TIMEOUT = 1000L;
 
     private Vertx vertx;
     private JsonObject config;
@@ -214,9 +215,10 @@ public class DispenserAccessInformationServiceImpl implements DispenserAccessInf
             return future;
         }
         HttpRequest<Buffer> request = client.get(port, host, resource)
-            .ssl(config.getBoolean(PATHWAYS_USE_SSL_KEY, Boolean.TRUE))
+            .ssl(config.getBoolean(PATHWAYS_USE_SSL_KEY, true))
             .putHeader("Authorization", "Basic ".concat(config.getString(PATHWAYS_AUTH_KEY, "")))
-            .putHeader("x-Request-Id", requestId);
+            .putHeader("x-Request-Id", requestId)
+            .timeout(REQUEST_TIMEOUT);
 
         LOG.log(Level.FINE, "Requesting {0}:{1}{2} x-Request-Id: {3}", new Object[]{host, port, resource, requestId});
 
@@ -310,7 +312,8 @@ public class DispenserAccessInformationServiceImpl implements DispenserAccessInf
         HttpRequest<Buffer> request = client.get(port, host, resource)
                 .ssl(config.getBoolean(PATHWAYS_USE_SSL_KEY, Boolean.TRUE))
                 .putHeader("Authorization", "Basic ".concat(config.getString(PATHWAYS_AUTH_KEY, "")))
-                .putHeader("x-Request-Id", requestId);
+                .putHeader("x-Request-Id", requestId)
+                .timeout(REQUEST_TIMEOUT);
 
         LOG.log(Level.FINE, "Requesting {0}:{1}{2} x-Request-Id: {3}", new Object[]{host, port, resource, requestId});
 

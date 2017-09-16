@@ -273,7 +273,7 @@ public class DispenserInformationServiceVerticleTest {
     @Test()
     public void getDispenserByOpeningHourLocationTest(TestContext context) {
         LOG.fine("getDispenserByOpeningHourLocationTest");
-         Async async = context.async();
+         Async async = context.async(2);
 
         pathwaysServer.requestHandler( request -> {
             request.response()
@@ -303,13 +303,30 @@ public class DispenserInformationServiceVerticleTest {
             .addQueryParam("postcode", "YO231AY")
             .addQueryParam("open_within", "8")
             .addQueryParam("distance", "5.0")
+            .addQueryParam("availability_start", "2017-09-15T20:00:00+01:00")
             .ssl(false)
             .putHeader("Authorization", "Basic ".concat("auth-placeholder"))
             .putHeader("x-Request-Id", "getDispenserByOpeningHourLocationTest-4444444444").send((ar) -> {
                 context.assertTrue(ar.succeeded());
+                context.assertEquals(ar.result().bodyAsJsonArray().size(), 1);
                 LOG.fine("result:" + ar.result().bodyAsString());
                 //context.assertTrue(ar.result().bodyAsJsonArray().size()==2);
-                async.complete();
+                async.countDown();
+            });
+        
+        client.get(verticlePort, "localhost", "/dispensers/byLocationOpening")
+            .addQueryParam("postcode", "YO231AY")
+            .addQueryParam("open_within", "8")
+            .addQueryParam("distance", "5.0")
+            .addQueryParam("availability_start", "2017-09-15T12:00:00+01:00")
+            .ssl(false)
+            .putHeader("Authorization", "Basic ".concat("auth-placeholder"))
+            .putHeader("x-Request-Id", "getDispenserByOpeningHourLocationTest-5555555").send((ar) -> {
+                context.assertTrue(ar.succeeded());
+                context.assertEquals(ar.result().bodyAsJsonArray().size(), 5);
+                LOG.fine("result:" + ar.result().bodyAsString());
+                //context.assertTrue(ar.result().bodyAsJsonArray().size()==2);
+                async.countDown();
             });
     }
 }

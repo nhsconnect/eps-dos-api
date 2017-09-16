@@ -70,6 +70,7 @@ public class DispenserDetailServiceImpl implements DispenserDetailService {
     public static final String CHOICES_PORT_KEY = "choices_port";
     public static final String CHOICES_DISPENSER_SEARCH_RESOURCE_KEY = "choices_search";
     public static final String CHOICES_DISPENSER_SEARCH_RESOURCE_DEFAULT = "/ETPWebservices/service.asmx/GetDispenserByName?strorganisationame=%s&intservicetype=1&streps=YES";
+    private static final long REQUEST_TIMEOUT = 1000L;
     
     private final int port;
     private final String host;
@@ -125,7 +126,8 @@ public class DispenserDetailServiceImpl implements DispenserDetailService {
         String resource=String.format(config.getString(CHOICES_DISPENSER_RESOURCE_KEY, CHOICES_DISPENSER_RESOURCE_DEFAULT), ods);
         HttpRequest<Buffer> request = client.get(port,host,resource)
             .ssl(config.getBoolean(CHOICES_SSL_KEY, true))
-            .putHeader("x-Request-Id", requestId);
+            .putHeader("x-Request-Id", requestId)
+            .timeout(REQUEST_TIMEOUT);
         
         LOG.log(Level.FINE, "Requesting {0}:{1}{2} x-Request-Id: {3}", new Object[]{host, port, resource, requestId});
 
@@ -177,7 +179,8 @@ public class DispenserDetailServiceImpl implements DispenserDetailService {
         String resource=String.format(config.getString(CHOICES_DISPENSER_SEARCH_RESOURCE_KEY, CHOICES_DISPENSER_SEARCH_RESOURCE_DEFAULT), name);
         HttpRequest<Buffer> request = client.get(port,host,resource)
             .ssl(config.getBoolean(CHOICES_SSL_KEY, Boolean.TRUE))
-            .putHeader("x-Request-Id", requestId);
+            .putHeader("x-Request-Id", requestId)
+            .timeout(REQUEST_TIMEOUT);
         
         LOG.log(Level.FINE, "Requesting {0}:{1}{2} x-Request-Id: {3}", new Object[]{host, port, resource, requestId});
 
