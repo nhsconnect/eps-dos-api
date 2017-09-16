@@ -162,6 +162,9 @@ public class DispenserDetailServiceImplTest extends BaseTest {
                     new Address(Arrays.asList("22-24 Acaster Lane","Bishopthorpe", "York", ""), 
                             "YO23 2SJ"), null, null, null, null);
             context.assertTrue(response.result().contains(testDisepenser));
+            context.assertEquals(response.result().get(4).getAddress(), testDisepenser.getAddress());
+            context.assertEquals(response.result().get(4).getName(), testDisepenser.getName());
+            context.assertEquals(response.result().get(4).getPatientContact(), testDisepenser.getPatientContact());
             context.assertEquals(response.result().size(), 6);
             async.complete();
         });

@@ -20,6 +20,8 @@ import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import uk.nhs.digital.eps.dos.service.DispenserAccessInformationService;
 import uk.nhs.digital.eps.dos.service.DispenserAccessInformationServiceImpl;
+import uk.nhs.digital.eps.dos.service.DispenserDetailService;
+import uk.nhs.digital.eps.dos.service.DispenserDetailServiceImpl;
 
 /**
  *
@@ -50,6 +52,22 @@ public class IntegrationTestSuite extends BaseTest{
         DispenserAccessInformationService dispenserSccessInformationService = new DispenserAccessInformationServiceImpl(vertx, config);
         
         dispenserSccessInformationService.searchDispensersAvailableFromWithin("accessInformationServiceTest-111111", new Date(), 10, 10, "YO231AY", result -> {
+            context.assertTrue(result.succeeded());
+            async.complete();
+        });
+    }
+    
+    @Test
+    public void detailServiceTest(TestContext context){
+        Async async = context.async();
+        config = new JsonObject();
+        config.put(DispenserDetailServiceImpl.CHOICES_SSL_KEY, false);
+        config.put(DispenserDetailServiceImpl.CHOICES_PORT_KEY, 80);
+
+        
+        DispenserDetailService dispenserDetailService = new DispenserDetailServiceImpl(vertx, config);
+        
+        dispenserDetailService.dispenserDetail("detailServiceTest-222222", "FA242", result -> {
             context.assertTrue(result.succeeded());
             async.complete();
         });
