@@ -98,7 +98,7 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
                         super.copyProperty(dest, name, value);
                     }
                 }
-            }.copyProperties(o1, o2);
+            }.copyProperties(o2, o1);
         } catch (IllegalAccessException | InvocationTargetException ex) {
             LOG.log(Level.SEVERE, "Exception while merging objects");
         }
@@ -111,7 +111,17 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
                 context.request().headers().contains(ApiGatewayVerticle.REQUEST_ID_HEADER)? 
                     context.request().getHeader(ApiGatewayVerticle.REQUEST_ID_HEADER) : "NO-REQUEST-ID";
         
-        LOG.log(Level.INFO, "getDispenser called with param ODS={0} adn request.id={1}", new Object[]{ods, requestId});
+        LOG.log(Level.INFO, "getDispenser called with param ODS={0} and request.id={1}", new Object[]{ods, requestId});
+        
+        if (Strings.isNullOrEmpty(ods)){
+            rejectRequest(context, "ods", ods, requestId);
+            return;
+        }
+        if (!ods.matches("[A-Z0-9]{5}")){
+            rejectRequest(context, "ods", ods, requestId);
+            return;
+        }
+            
         Future<Dispenser> openingInfo = Future.future();
         dispenserAccessInformation.dispenserAccessInformation(requestId, ods, openingInfo.completer());
         Future<Dispenser> detail = Future.future();
@@ -144,11 +154,34 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
 
     private void searchByName(RoutingContext context) {
         String name = context.request().getParam("name");
+        String postcode = context.request().getParam("postcode");
+        String distanceString = context.request().getParam("distance");
+        double distance;
+
         String requestId = 
             context.request().headers().contains(ApiGatewayVerticle.REQUEST_ID_HEADER)? 
                 context.request().getHeader(ApiGatewayVerticle.REQUEST_ID_HEADER) : "NO-REQUEST-ID";
         LOG.log(Level.INFO, "searchByName REST request recieved with param name={0} and request.id={1}", new Object[]{name, requestId});
-        //this marks the success of the whole query
+        
+        if (!Strings.isNullOrEmpty(postcode) && !postcode.matches("[A-Z]{1,2}[0-9][0-9A-Z]?[0-9][A-Z]{2}")) {
+            rejectRequest(context, "postcode", postcode, requestId);
+            return;
+        }
+        
+        if (!Strings.isNullOrEmpty(distanceString)) {
+            try {
+                distance = Double.parseDouble(distanceString);
+            } catch (NumberFormatException ex) {
+                rejectRequest(context, "distance", distanceString, requestId);
+                return;
+            }
+            if (distance <= 0.0) {
+                rejectRequest(context, "distance", distanceString, requestId);
+                return;
+            }
+        }
+
+//this marks the success of the whole query
         Future<List<Dispenser>> queryFuture = Future.future();
 
         Future<List<Dispenser>> detail = Future.future();
@@ -253,7 +286,7 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
             try {
                 date = Date.from(Instant.from(ZonedDateTime.parse(timeStart, DateTimeFormatter.ISO_OFFSET_DATE_TIME)));
             } catch (DateTimeException | IllegalArgumentException e) {
-                rejectRequest(context, "availability_start", postcode, requestId);
+                rejectRequest(context, "availability_start", timeStart, requestId);
                 return;
             }
         }
@@ -262,11 +295,11 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
             try {
                 distance = Double.parseDouble(distanceString);
             } catch (NumberFormatException ex) {
-                rejectRequest(context, "distance", postcode, requestId);
+                rejectRequest(context, "distance", distanceString, requestId);
                 return;
             }
             if (distance <= 0.0) {
-                rejectRequest(context, "distance", postcode, requestId);
+                rejectRequest(context, "distance", distanceString, requestId);
                 return;
             }
         }
@@ -275,15 +308,15 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
             try {
                 hours = Integer.parseInt(hoursString);
             } catch (NumberFormatException ex) {
-                rejectRequest(context, "open_within", postcode, requestId);
+                rejectRequest(context, "open_within", hoursString, requestId);
                 return;
             }
             if (hours <= 0) {
-                rejectRequest(context, "open_within", postcode, requestId);
+                rejectRequest(context, "open_within", hoursString, requestId);
                 return;
             }
         } else {
-            rejectRequest(context, "open_within", postcode, requestId);
+            rejectRequest(context, "open_within", hoursString, requestId);
             return;
         }
 
