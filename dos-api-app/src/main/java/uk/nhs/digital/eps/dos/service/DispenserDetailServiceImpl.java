@@ -70,7 +70,7 @@ public class DispenserDetailServiceImpl implements DispenserDetailService {
     public static final String CHOICES_PORT_KEY = "choices_port";
     public static final String CHOICES_DISPENSER_SEARCH_RESOURCE_KEY = "choices_search";
     public static final String CHOICES_DISPENSER_SEARCH_RESOURCE_DEFAULT = "/ETPWebservices/service.asmx/GetDispenserByName?strorganisationame=%s&intservicetype=1&streps=YES";
-    private static final long REQUEST_TIMEOUT = 1000L;
+    private static final long REQUEST_TIMEOUT = 2000L;
     
     private final int port;
     private final String host;

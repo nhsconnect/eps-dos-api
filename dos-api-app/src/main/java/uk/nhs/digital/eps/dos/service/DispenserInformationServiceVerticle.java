@@ -107,7 +107,10 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
 
     private void getDispenser(RoutingContext context) {
         String ods = context.request().getParam("ods");
-        String requestId = context.request().getHeader(ApiGatewayVerticle.REQUEST_ID_HEADER);
+        String requestId = 
+                context.request().headers().contains(ApiGatewayVerticle.REQUEST_ID_HEADER)? 
+                    context.request().getHeader(ApiGatewayVerticle.REQUEST_ID_HEADER) : "NO-REQUEST-ID";
+        
         LOG.log(Level.INFO, "getDispenser called with param ODS={0} adn request.id={1}", new Object[]{ods, requestId});
         Future<Dispenser> openingInfo = Future.future();
         dispenserAccessInformation.dispenserAccessInformation(requestId, ods, openingInfo.completer());
@@ -141,7 +144,9 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
 
     private void searchByName(RoutingContext context) {
         String name = context.request().getParam("name");
-        String requestId = context.request().getHeader(ApiGatewayVerticle.REQUEST_ID_HEADER);
+        String requestId = 
+            context.request().headers().contains(ApiGatewayVerticle.REQUEST_ID_HEADER)? 
+                context.request().getHeader(ApiGatewayVerticle.REQUEST_ID_HEADER) : "NO-REQUEST-ID";
         LOG.log(Level.INFO, "searchByName REST request recieved with param name={0} and request.id={1}", new Object[]{name, requestId});
         //this marks the success of the whole query
         Future<List<Dispenser>> queryFuture = Future.future();
@@ -225,7 +230,9 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
         String distanceString = context.request().getParam("distance");
         String timeStart = context.request().getParam("availability_start");
         String hoursString = context.request().getParam("open_within");
-        String requestId = context.request().getHeader(ApiGatewayVerticle.REQUEST_ID_HEADER);
+        String requestId = 
+            context.request().headers().contains(ApiGatewayVerticle.REQUEST_ID_HEADER)? 
+                context.request().getHeader(ApiGatewayVerticle.REQUEST_ID_HEADER) : "NO-REQUEST-ID";
         LOG.log(Level.INFO, "searchByLocationOpening request with param postcode={0} distance={1} availability_start={2} open_within={3} request.id={4}",
                 new Object[]{postcode, distanceString, timeStart, hoursString, requestId});
 

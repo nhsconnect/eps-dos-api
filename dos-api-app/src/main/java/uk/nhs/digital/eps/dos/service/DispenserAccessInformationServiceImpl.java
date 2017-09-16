@@ -51,7 +51,7 @@ public class DispenserAccessInformationServiceImpl implements DispenserAccessInf
     public static final String PATHWAYS_DISPENSER_SEARCH_RESOURCE_KEY = "pathways_dispenser_search";
     private static final String PATHWAYS_DISPENSER_SEARCH_RESOURCE_DEFAULT = "/app/controllers/api/v1.0/services/byServiceType/0/%s/%f/0/0/0/0/13/50";
     public static final String PATHWAYS_AUTH_KEY = "pathways_auth";
-    private static final long REQUEST_TIMEOUT = 1000L;
+    private static final long REQUEST_TIMEOUT = 3500L;
 
     private Vertx vertx;
     private JsonObject config;
