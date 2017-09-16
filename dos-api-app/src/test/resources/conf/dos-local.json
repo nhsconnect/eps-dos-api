@@ -1,3 +1,4 @@
 {
-    "choices_use_ssl":false
+    "choices_use_ssl":false,
+    "choices_port":80
 }

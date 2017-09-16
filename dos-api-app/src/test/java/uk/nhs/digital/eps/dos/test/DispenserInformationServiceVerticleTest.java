@@ -6,6 +6,7 @@
 package uk.nhs.digital.eps.dos.test;
 
 import io.vertx.core.DeploymentOptions;
+import io.vertx.core.Future;
 import io.vertx.core.Vertx;
 import io.vertx.core.http.HttpServer;
 import io.vertx.core.http.HttpServerOptions;
@@ -123,21 +124,25 @@ public class DispenserInformationServiceVerticleTest {
         vertx = Vertx.vertx();
     }
 
-    //@Test
+    @Test
     public void getDispenserTest(TestContext context) {
         LOG.fine("testing verticle " + verticleDeployId);
          Async async = context.async();
 
         choicesServer.requestHandler( request -> {
             request.response()
-                    .putHeader("Content-Type", "text/xml")
-                    .end(BaseTest.getFile("/choices_dispenser_FA242.xml"));})
-                    .listen();
+                .putHeader("Content-Type", "text/xml")
+                .headersEndHandler(h -> {
+                    //vertx.setTimer(500L, n -> {
+                        request.response().end(BaseTest.getFile("/choices_dispenser_FA242.xml"));
+                    //});
+                });
+        }).listen(context.asyncAssertSuccess());
         
         pathwaysServer.requestHandler( request -> {
             request.response()
                     .end(BaseTest.getFile("/pathways_dispenser.json"));})
-                    .listen();
+                    .listen(context.asyncAssertSuccess());
         
         WebClient client = WebClient.create(vertx);
         client.get(verticlePort, "localhost", "/dispenser/FA242")
@@ -145,12 +150,15 @@ public class DispenserInformationServiceVerticleTest {
                 .putHeader("Authorization", "Basic ".concat("auth-placeholder"))
                 .putHeader("x-Request-Id", "getDispenserTest-2222222222").send((ar) -> {
                     context.assertTrue(ar.succeeded());
+                    JsonObject json = ar.result().bodyAsJsonObject();
+                    context.assertEquals("LloydsPharmacy", json.getString("name"));
+                    context.assertEquals("lp6937@lloydspharmacy.co.uk",json.getJsonObject("prescriber_contact").getString("email"));
                     LOG.fine("result:" + ar.result().bodyAsString());
                     async.complete();
                 });
     }
     
-    //@Test
+    @Test
     public void getDispenserByNameTest(TestContext context) {
         LOG.fine("getDispenserByNameTest");
          Async async = context.async();
@@ -177,7 +185,7 @@ public class DispenserInformationServiceVerticleTest {
                 });
     }
     
-    //@Test
+    @Test
     public void mergeTest(TestContext context){
         LOG.fine("mergeTest");
         Map<String,OpeningPeriod> testDate = new HashMap<>();

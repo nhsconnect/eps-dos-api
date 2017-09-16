@@ -1,4 +1,5 @@
 {
     "choices_use_ssl":false,
-    "pathways_auth":"cm9iZ29vY2g6QWJpZ2FpbDAx"
+    "pathways_auth":"cm9iZ29vY2g6QWJpZ2FpbDAx",
+    "choices_port":80
 }

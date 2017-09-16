@@ -33,7 +33,7 @@ public class Dispenser {
     private PrescriberContact prescriberContact = null;
     private Location location = null;
     private OpeningTimes opening = null;
-    private double distance;
+    private Double distance;
 
     public Dispenser() {
     }
@@ -50,11 +50,11 @@ public class Dispenser {
     }
 
     @JsonProperty("distance")
-    public double getDistance() {
+    public Double getDistance() {
         return distance;
     }
 
-    public void setDistance(double distance) {
+    public void setDistance(Double distance) {
         this.distance = distance;
     }
 
