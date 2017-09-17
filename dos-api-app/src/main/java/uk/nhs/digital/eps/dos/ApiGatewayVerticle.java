@@ -25,7 +25,7 @@ public class ApiGatewayVerticle extends AbstractVerticle{
     
     private static final int DEFAULT_PORT = 8888;
     
-    private static final String API_VERSION = "0.0.1";
+    private static final String API_VERSION = "v0.0.1";
     
     private static final String API_ROOT = "/v".concat(API_VERSION.concat("/"));
     
@@ -39,7 +39,7 @@ public class ApiGatewayVerticle extends AbstractVerticle{
         
         Router router= Router.router(vertx);
         
-        router.route().path("/v" + API_VERSION).handler(this::dispatchRequests);
+        router.route().path("/" + API_VERSION).handler(this::dispatchRequests);
         
         router.route("/*").handler(context -> context.response().setStatusCode(404).setStatusMessage("Resource not available in this version"));      
         
@@ -64,9 +64,12 @@ public class ApiGatewayVerticle extends AbstractVerticle{
     }
     
     private void dispatchRequests(RoutingContext context){
-        String requestId = UUID.randomUUID().toString();
-        context.request().headers().add(REQUEST_ID_HEADER, requestId);
-        LOG.log(Level.INFO, "API request allocated request.id={0}", requestId);
+        if (!context.request().headers().contains(REQUEST_ID_HEADER)){
+            String requestId = UUID.randomUUID().toString();
+            context.request().headers().add(REQUEST_ID_HEADER, requestId);
+            LOG.log(Level.INFO, "API request allocated request.id={0}", requestId);
+        }
+
         
         
     }

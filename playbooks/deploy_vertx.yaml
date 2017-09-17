@@ -1,0 +1,29 @@
+---
+- name: Deploy vertx files to target and start main verticle
+  hosts: nginx
+  become: true
+  vars:
+    version:  1.0-SNAPSHOT
+  tasks:
+  - name: create build dir
+    file: 
+      path: /opt/dos-api/vertx
+      recurse: yes 
+      state: directory
+  - name: copy build
+    copy: 
+      src: ../dos-api-app/target/dos-api-{{ version }}.jar
+      dest: /opt/dos-api/vertx
+    register: build_location
+  - name: create config dir
+    file: 
+      path: /opt/dos-api/vertx/config
+      recurse: yes
+      state: directory
+  - name: copy config
+    copy: 
+      src: env/{{ env_name }}/config.json
+      dest: /opt/dos-api/vertx/config
+    register: config_location
+  - name: start vertx
+    raw: java -jar {{ build_location.dest }} -conf {{ config_location.dest }}

@@ -1,0 +1,11 @@
+---
+# Install pharmacy data docker image
+
+- name: install nhsuk/pharmacy-db
+  hosts: nginx
+  become: true
+  tasks:
+    - name: install and start nhsuk/pharmacy-db
+      docker_container:
+        name: nhsuk/pharmacy-db
+        state: started

@@ -1,0 +1,12 @@
+---
+# Install docker on ubuntu hosts
+# Following instructions at https://docs.docker.com/engine/installation/linux/ubuntulinux/
+
+- name: Install java
+  hosts: nginx
+  become: True
+  tasks:
+    - name: install java
+      apt: 
+          name: openjdk-8-jre
+          update_cache: yes
