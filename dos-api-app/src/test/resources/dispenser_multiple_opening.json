@@ -1,0 +1,62 @@
+{
+    "ods": "FLM42",
+    "name": "Boots",
+    "address": {
+        "line": ["73 Piccadilly", "", "London", ""],
+        "postcode": "W1J 8HS"
+    },
+    "patient_contact": {
+        "tel": "020 7409 2982",
+        "web_address": ""
+    },
+    "prescriber_contact": {
+        "tel": "",
+        "fax": "020 7409 1232",
+        "email": ""
+    },
+    "location": {
+        "easting": 529050.0,
+        "northing": 180360.0
+    },
+    "opening": {
+        "open_247": false,
+        "sun": [{
+                "open": "11:00",
+                "close": "17:00"
+            }],
+        "mon": [{
+                "open": "08:00",
+                "close": "12:00"
+            }, {
+                "open": "13:00",
+                "close": "17:00"
+            }],
+        "tue": null,
+        "wed": null,
+        "thu": null,
+        "fri": null,
+        "sat": null,
+        "specified_date":{
+            "28-08-2017": [
+                {
+                    "open": "08:00",
+                    "close": "12:00"
+                },
+                {
+                    "open": "13:00",
+                    "close": "17:00"
+                }
+            ],
+            "29-08-2017": [
+                {
+                    "open": "08:00",
+                    "close": "12:00"
+                },
+                {
+                    "open": "13:00",
+                    "close": "17:00"
+                }
+            ]
+        }
+    }
+}

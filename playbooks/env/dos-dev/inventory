@@ -1,1 +1,1 @@
-nginx ansible_host=dos-dev.eps.digital.nhs.uk ansible_port=22 ansible_user=ubuntu ansible_private_key_file=~
+nginx ansible_host=dos-dev.eps.digital.nhs.uk ansible_port=22 ansible_user=ubuntu ansible_private_key_file=~/dos-dev.pem

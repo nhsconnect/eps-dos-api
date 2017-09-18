@@ -6,10 +6,12 @@
 package uk.nhs.digital.eps.dos.test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.vertx.core.json.JsonObject;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -42,10 +44,16 @@ public class ModelTests extends BaseTest {
 
     static {
         MAPPER = new ObjectMapper();
-        MAPPER.disable(MapperFeature.AUTO_DETECT_CREATORS,
+        MAPPER.disable(
+                MapperFeature.AUTO_DETECT_CREATORS,
                 MapperFeature.AUTO_DETECT_FIELDS,
                 MapperFeature.AUTO_DETECT_GETTERS,
-                MapperFeature.AUTO_DETECT_IS_GETTERS);
+                MapperFeature.AUTO_DETECT_IS_GETTERS
+                );
+        MAPPER.enable(
+            DeserializationFeature.ACCEPT_EMPTY_ARRAY_AS_NULL_OBJECT
+        );
+        
     }
 
     private static String objectToJson(Object obj) {
@@ -84,13 +92,15 @@ public class ModelTests extends BaseTest {
         assertThat("01952784460", equalTo(dispenser.getPrescriberContact().getFax()));
         assertThat(55.45673, equalTo(dispenser.getLocation().getNorthing()));
         assertThat(1.45678, equalTo(dispenser.getLocation().getEasting()));
-        assertThat("08:00", equalTo(dispenser.getOpening().getMon().getOpen()));
-        assertThat("18:00", equalTo(dispenser.getOpening().getMon().getClose()));
+        assertThat("08:00", equalTo(dispenser.getOpening().getMon().get(0).getOpen()));
+        assertThat("18:00", equalTo(dispenser.getOpening().getMon().get(0).getClose()));
         assertThat(dispenser.getOpening().getSun(), is(nullValue()));
-        assertThat("09:00", equalTo(dispenser.getOpening().getBankHoliday().getOpen()));
-        assertThat("12:00", equalTo(dispenser.getOpening().getBankHoliday().getClose()));
-        Map<String, OpeningPeriod> specifiedDate = new HashMap<>(1);
-        specifiedDate.put("2018-01-10", new OpeningPeriod("09:00", "12:00"));
+        assertThat("09:00", equalTo(dispenser.getOpening().getBankHoliday().get(0).getOpen()));
+        assertThat("12:00", equalTo(dispenser.getOpening().getBankHoliday().get(0).getClose()));
+        Map<String, List<OpeningPeriod>> specifiedDate = new HashMap<>(1);
+        List<OpeningPeriod> list = new ArrayList<>(1);
+        list.add(new OpeningPeriod("09:00", "12:00"));
+        specifiedDate.put("2018-01-10", list);
         assert (dispenser.getOpening().getSpecifiedDate().entrySet().containsAll(specifiedDate.entrySet()));
 
     }
@@ -209,31 +219,25 @@ public class ModelTests extends BaseTest {
         assertThat(d.getOds(), equalTo("FLM42"));
 
     }
-
+    
     @Test
-    public void OpeningTimesEqualityTest() {
-        Map<String, OpeningPeriod> testDate = new HashMap<>();
-        testDate.put("28-08-2017", new OpeningPeriod("10:00", "17:00"));
+    public void multipleOpeningTimes(){
+        Dispenser d = null;
+        String dispenserJson = getFile("/dispenser_multiple_opening.json");
+        try {
+            d = MAPPER.readValue(dispenserJson, Dispenser.class);
+        } catch (IOException ex) {
+            fail(ex.getLocalizedMessage());
+        }
+        List<OpeningPeriod> list = new ArrayList<>(2);
+        list.add(new OpeningPeriod("08:00", "12:00"));
+        list.add(new OpeningPeriod("13:00", "17:00"));
 
-        new OpeningTimes(Boolean.TRUE,
-            //sun    
-            null,
-            //mon,
-            new OpeningPeriod("09:00", "17:30"),
-            //tue,
-            new OpeningPeriod("09:00", "17:30"),
-            //wed,
-            new OpeningPeriod("09:00", "17:30"),
-            //thu,
-            new OpeningPeriod("09:00", "17:30"),
-            //fri,
-            new OpeningPeriod("09:00", "17:30"),
-            //sat
-            new OpeningPeriod("09:00", "13:00"),
-            //bank hol
-            null,
-                //specifiedDate
-            testDate
-        );
+        assertNotNull(d);
+        assertThat(d.getOds(), equalTo("FLM42"));
+        assertThat(d.getOpening().getMon().get(0), equalTo(new OpeningPeriod("08:00", "12:00")));
+        assertThat(d.getOpening().getMon().get(1), equalTo(new OpeningPeriod("13:00", "17:00")));
+        assertThat(d.getOpening().getTue(), equalTo(null));
+        assertThat(d.getOpening().getSpecifiedDate().get("28-08-2017"), equalTo(list));
     }
 }

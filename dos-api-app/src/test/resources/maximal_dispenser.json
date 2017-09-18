@@ -26,39 +26,39 @@
   "opening": {
     "open_247": false,
     "sun": null,
-    "mon": {
+    "mon": [{
       "open": "08:00",
       "close": "18:00"
-    },
-    "tue": {
+    }],
+    "tue": [{
       "open": "08:00",
       "close": "18:00"
-    },
-    "wed": {
+    }],
+    "wed": [{
       "open": "08:00",
       "close": "18:00"
-    },
-    "thu": {
+    }],
+    "thu": [{
       "open": "08:00",
       "close": "18:00"
-    },
-    "fri": {
+    }],
+    "fri": [{
       "open": "08:00",
       "close": "18:00"
-    },
-    "sat": {
+    }],
+    "sat": [{
       "open": "08:00",
       "close": "12:00"
-    },
-    "bank_holiday": {
+    }],
+    "bank_holiday": [{
       "open": "09:00",
       "close": "12:00"
-    },
+    }],
     "specified_date": {
-      "2018-01-10": {
+      "2018-01-10": [{
         "open": "09:00",
         "close": "12:00"
-      }
+      }]
     }
   }
 }

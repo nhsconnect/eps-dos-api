@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -43,7 +44,7 @@ import uk.nhs.digital.eps.dos.service.DispenserInformationServiceVerticle;
  * @author Aled Greenhalgh <aled.greenhalgh@nhs.net>
  */
 @RunWith(VertxUnitRunner.class)
-public class DispenserInformationServiceVerticleTest {
+public class DispenserInformationServiceVerticleTest extends BaseTest{
 
     private static final Logger LOG = Logger.getLogger(DispenserInformationServiceVerticleTest.class.getName());
     
@@ -192,8 +193,8 @@ public class DispenserInformationServiceVerticleTest {
     @Test
     public void mergeTest(TestContext context){
         LOG.fine("mergeTest");
-        Map<String,OpeningPeriod> testDate = new HashMap<>();
-        testDate.put("28-08-2017", new OpeningPeriod("10:00", "17:00"));
+        Map<String,List<OpeningPeriod>> testDate = new HashMap<>();
+        testDate.put("28-08-2017", listOfOpening("10:00", "17:00"));
         Dispenser d1 = new Dispenser(
             "FA242", null, null, null, 
             new PatientContact("01904 623472", ""),
@@ -203,17 +204,17 @@ public class DispenserInformationServiceVerticleTest {
                 //sun    
                 null,
                 //mon,
-                new OpeningPeriod("09:00", "17:30"),
+                listOfOpening("09:00", "17:30"),
                 //tue,
-                new OpeningPeriod("09:00", "17:30"),
+                listOfOpening("09:00", "17:30"),
                 //wed,
-                new OpeningPeriod("09:00", "17:30"),
+                listOfOpening("09:00", "17:30"),
                 //thu,
-                new OpeningPeriod("09:00", "17:30"),
+                listOfOpening("09:00", "17:30"),
                 //fri,
-                new OpeningPeriod("09:00", "17:30"),
+                listOfOpening("09:00", "17:30"),
                 //sat
-                new OpeningPeriod("09:00", "13:00"),
+                listOfOpening("09:00", "13:00"),
                 //bank hol
                 null,
                 //specifiedDate

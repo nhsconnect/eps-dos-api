@@ -1,11 +1,11 @@
 FROM nginx
 
-COPY dos-api /etc/nginx/sites-available/dos-api
+COPY dos-api.conf /etc/nginx/conf.d/dos-api.conf 
 
-RUN mkdir /var/www/dos-api
-RUN chmod 0755 /var/www/dos-api
+RUN mkdir -p -m 0755 /var/www/dos-api
 
-RUN ln -s /etc/nginx/sites-enabled/dos-api /etc/nginx/sites-available/dos-api 
-RUN rm /etc/nginx/sites-enabled/default
+RUN rm /etc/nginx/conf.d/default.conf
 
 VOLUME /var/www/dos-api
+
+CMD ["nginx", "-g", "daemon off;"]

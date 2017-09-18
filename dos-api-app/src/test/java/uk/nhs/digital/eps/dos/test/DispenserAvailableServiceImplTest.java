@@ -37,7 +37,7 @@ import uk.nhs.digital.eps.dos.service.DispenserAvailableServiceImpl;
  * @author Aled Greenhalgh <aled.greenhalgh@nhs.net>
  */
 @RunWith(VertxUnitRunner.class)
-public class DispenserAvailableServiceImplTest {
+public class DispenserAvailableServiceImplTest extends BaseTest{
 
     private static final Logger LOG = Logger.getLogger(DispenserAvailableServiceImplTest.class.getName());
     
@@ -71,16 +71,16 @@ public class DispenserAvailableServiceImplTest {
         
         List<Dispenser> dispensers = new ArrayList<>();
         
-        Map<String,OpeningPeriod> s1 = new HashMap<>();
+        Map<String,List<OpeningPeriod>> s1 = new HashMap<>();
         OpeningTimes o1 = new OpeningTimes(
                 false, 
                 null, //sun
-                new OpeningPeriod("09:00","12:00"), //mon, 
-                new OpeningPeriod("09:00","12:00"), //tue, 
-                new OpeningPeriod("09:00","12:00"), //wed, 
-                new OpeningPeriod("09:00","12:00"), //thu, 
-                new OpeningPeriod("09:00","12:00"), //fri, 
-                new OpeningPeriod("09:00","12:00"), //sat, 
+                listOfOpening("09:00","12:00"), //mon, 
+                listOfOpening("09:00","12:00"), //tue, 
+                listOfOpening("09:00","12:00"), //wed, 
+                listOfOpening("09:00","12:00"), //thu, 
+                listOfOpening("09:00","12:00"), //fri, 
+                listOfOpening("09:00","12:00"), //sat, 
                 null, //bankHoliday, 
                 s1
         );
@@ -116,16 +116,16 @@ public class DispenserAvailableServiceImplTest {
         List<Dispenser> dispensers = new ArrayList<>();
         
         //2017-09-03==sunday
-        Map<String,OpeningPeriod> s1 = new HashMap<>();
+        Map<String,List<OpeningPeriod>> s1 = new HashMap<>();
         OpeningTimes o1 = new OpeningTimes(
                 false, 
-                new OpeningPeriod("09:00","14:00"), //sun
+                listOfOpening("09:00","14:00"), //sun
                 null, //mon, 
-                new OpeningPeriod("09:00","12:00"), //tue, 
-                new OpeningPeriod("09:00","12:00"), //wed, 
-                new OpeningPeriod("09:00","12:00"), //thu, 
-                new OpeningPeriod("09:00","12:00"), //fri, 
-                new OpeningPeriod("09:00","12:00"), //sat, 
+                listOfOpening("09:00","12:00"), //tue, 
+                listOfOpening("09:00","12:00"), //wed, 
+                listOfOpening("09:00","12:00"), //thu, 
+                listOfOpening("09:00","12:00"), //fri, 
+                listOfOpening("09:00","12:00"), //sat, 
                 null, //bankHoliday, 
                 s1
         );
@@ -161,43 +161,43 @@ public class DispenserAvailableServiceImplTest {
         List<Dispenser> dispensers = new ArrayList<>();
         
         //2017-09-03==sunday
-        Map<String,OpeningPeriod> s1 = new HashMap<>();
-        Map<String,OpeningPeriod> mondaySpecial = new HashMap<>();
-        mondaySpecial.put("2017-09-04", new OpeningPeriod("09:00","12:00"));
+        Map<String,List<OpeningPeriod>> s1 = new HashMap<>();
+        Map<String,List<OpeningPeriod>> mondaySpecial = new HashMap<>();
+        mondaySpecial.put("2017-09-04", listOfOpening("09:00","12:00"));
 
         OpeningTimes special = new OpeningTimes(
                 false, 
                 null, //sun
-                new OpeningPeriod("09:00","14:00"), //mon, 
-                new OpeningPeriod("09:00","12:00"), //tue, 
-                new OpeningPeriod("09:00","12:00"), //wed, 
-                new OpeningPeriod("09:00","12:00"), //thu, 
-                new OpeningPeriod("09:00","12:00"), //fri, 
-                new OpeningPeriod("09:00","12:00"), //sat, 
+                listOfOpening("09:00","14:00"), //mon, 
+                listOfOpening("09:00","12:00"), //tue, 
+                listOfOpening("09:00","12:00"), //wed, 
+                listOfOpening("09:00","12:00"), //thu, 
+                listOfOpening("09:00","12:00"), //fri, 
+                listOfOpening("09:00","12:00"), //sat, 
                 null, //bankHoliday, 
                 mondaySpecial
         );
         OpeningTimes bhOpen = new OpeningTimes(
                 false, 
                 null, //sun
-                new OpeningPeriod("09:00","12:00"), //mon, 
-                new OpeningPeriod("09:00","12:00"), //tue, 
-                new OpeningPeriod("09:00","12:00"), //wed, 
-                new OpeningPeriod("09:00","12:00"), //thu, 
-                new OpeningPeriod("09:00","12:00"), //fri, 
-                new OpeningPeriod("09:00","12:00"), //sat, 
-                new OpeningPeriod("09:00","14:00"), //bankHoliday, 
+                listOfOpening("09:00","12:00"), //mon, 
+                listOfOpening("09:00","12:00"), //tue, 
+                listOfOpening("09:00","12:00"), //wed, 
+                listOfOpening("09:00","12:00"), //thu, 
+                listOfOpening("09:00","12:00"), //fri, 
+                listOfOpening("09:00","12:00"), //sat, 
+                listOfOpening("09:00","14:00"), //bankHoliday, 
                 s1
         );
         OpeningTimes bhClosed = new OpeningTimes(
                 false, 
                 null, //sun
-                new OpeningPeriod("09:00","12:00"), //mon, 
-                new OpeningPeriod("09:00","12:00"), //tue, 
-                new OpeningPeriod("09:00","12:00"), //wed, 
-                new OpeningPeriod("09:00","12:00"), //thu, 
-                new OpeningPeriod("09:00","12:00"), //fri, 
-                new OpeningPeriod("09:00","12:00"), //sat, 
+                listOfOpening("09:00","12:00"), //mon, 
+                listOfOpening("09:00","12:00"), //tue, 
+                listOfOpening("09:00","12:00"), //wed, 
+                listOfOpening("09:00","12:00"), //thu, 
+                listOfOpening("09:00","12:00"), //fri, 
+                listOfOpening("09:00","12:00"), //sat, 
                 null, //bankHoliday, 
                 s1
         );
@@ -235,11 +235,11 @@ public class DispenserAvailableServiceImplTest {
         List<Dispenser> dispensers = new ArrayList<>();
         
         //2017-09-03==sunday
-        Map<String,OpeningPeriod> s1 = new HashMap<>();
+        Map<String,List<OpeningPeriod>> s1 = new HashMap<>();
 
         OpeningTimes o1 = new OpeningTimes(
                 false, 
-                new OpeningPeriod("13:00","14:00"), //sun
+                listOfOpening("13:00","14:00"), //sun
                 null, //mon, 
                 null, //tue, 
                 null, //wed, 
@@ -252,13 +252,13 @@ public class DispenserAvailableServiceImplTest {
         
         OpeningTimes o2 = new OpeningTimes(
                 false, 
-                new OpeningPeriod("12:40","14:00"), //sun
-                new OpeningPeriod("09:00","14:00"), //mon, 
-                new OpeningPeriod("09:00","12:00"), //tue, 
-                new OpeningPeriod("09:00","12:00"), //wed, 
-                new OpeningPeriod("09:00","12:00"), //thu, 
-                new OpeningPeriod("09:00","12:00"), //fri, 
-                new OpeningPeriod("09:00","12:00"), //sat, 
+                listOfOpening("12:40","14:00"), //sun
+                listOfOpening("09:00","14:00"), //mon, 
+                listOfOpening("09:00","12:00"), //tue, 
+                listOfOpening("09:00","12:00"), //wed, 
+                listOfOpening("09:00","12:00"), //thu, 
+                listOfOpening("09:00","12:00"), //fri, 
+                listOfOpening("09:00","12:00"), //sat, 
                 null, //bankHoliday, 
                 s1
         );
@@ -301,7 +301,7 @@ public class DispenserAvailableServiceImplTest {
         
         List<Dispenser> dispensers = new ArrayList<>();
         
-        Map<String,OpeningPeriod> s1 = new HashMap<>();
+        Map<String,List<OpeningPeriod>> s1 = new HashMap<>();
 
         OpeningTimes o1 = new OpeningTimes(
                 true, 
@@ -325,12 +325,12 @@ public class DispenserAvailableServiceImplTest {
                 null, //thu, 
                 null, //fri, 
                 null, //sat, 
-                new OpeningPeriod("09:00","14:00"), //bankHoliday, 
+                listOfOpening("09:00","14:00"), //bankHoliday, 
                 s1
         );
         
-        Map<String,OpeningPeriod> s2 = new HashMap<>();
-        s2.put("2017-09-04", new OpeningPeriod("09:00","14:00"));
+        Map<String,List<OpeningPeriod>> s2 = new HashMap<>();
+        s2.put("2017-09-04", listOfOpening("09:00","14:00"));
 
         OpeningTimes o3 = new OpeningTimes(
                 true, 
@@ -345,7 +345,7 @@ public class DispenserAvailableServiceImplTest {
                 s2
         );
         
-        Map<String,OpeningPeriod> s3 = new HashMap<>();
+        Map<String,List<OpeningPeriod>> s3 = new HashMap<>();
         s3.put("2017-09-04", null);
 
         OpeningTimes o4 = new OpeningTimes(

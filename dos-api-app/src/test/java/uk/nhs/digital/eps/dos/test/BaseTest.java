@@ -13,10 +13,13 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import uk.nhs.digital.eps.dos.model.OpeningPeriod;
 
 /**
  * Utility class for unit tests.
@@ -75,5 +78,11 @@ public abstract class BaseTest {
             Logger.getLogger(BaseTest.class.getName()).log(Level.SEVERE, null, ex);
         }
         return "";
+    }
+    
+    public static List<OpeningPeriod> listOfOpening(String open, String close) {
+        List<OpeningPeriod> list = new ArrayList<>(1);
+        list.add(new OpeningPeriod(open, close));
+        return list;
     }
 }

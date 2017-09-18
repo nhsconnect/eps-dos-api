@@ -15,21 +15,21 @@ import java.util.Map;
 public class OpeningTimes   {
   
   private Boolean open247 = null;
-  private OpeningPeriod sun = null;
-  private OpeningPeriod mon = null;
-  private OpeningPeriod tue = null;
-  private OpeningPeriod wed = null;
-  private OpeningPeriod thu = null;
-  private OpeningPeriod fri = null;
-  private OpeningPeriod sat = null;
-  private OpeningPeriod bankHoliday = null;
-  private Map<String, OpeningPeriod> specifiedDate = new HashMap<>();
+  private List<OpeningPeriod> sun = null;
+  private List<OpeningPeriod> mon = null;
+  private List<OpeningPeriod> tue = null;
+  private List<OpeningPeriod> wed = null;
+  private List<OpeningPeriod> thu = null;
+  private List<OpeningPeriod> fri = null;
+  private List<OpeningPeriod> sat = null;
+  private List<OpeningPeriod> bankHoliday = null;
+  private Map<String, List<OpeningPeriod>> specifiedDate = new HashMap<>();
 
   public OpeningTimes () {
 
   }
 
-  public OpeningTimes (Boolean open247, OpeningPeriod sun, OpeningPeriod mon, OpeningPeriod tue, OpeningPeriod wed, OpeningPeriod thu, OpeningPeriod fri, OpeningPeriod sat, OpeningPeriod bankHoliday, Map<String, OpeningPeriod> specifiedDate) {
+  public OpeningTimes (Boolean open247, List<OpeningPeriod> sun, List<OpeningPeriod> mon, List<OpeningPeriod> tue, List<OpeningPeriod> wed, List<OpeningPeriod> thu, List<OpeningPeriod> fri, List<OpeningPeriod> sat, List<OpeningPeriod> bankHoliday, Map<String, List<OpeningPeriod>> specifiedDate) {
     this.open247 = open247;
     this.sun = sun;
     this.mon = mon;
@@ -53,82 +53,82 @@ public class OpeningTimes   {
 
     
   @JsonProperty("sun")
-  public OpeningPeriod getSun() {
+  public List<OpeningPeriod> getSun() {
     return sun;
   }
-  public void setSun(OpeningPeriod sun) {
+  public void setSun(List<OpeningPeriod> sun) {
     this.sun = sun;
   }
 
     
   @JsonProperty("mon")
-  public OpeningPeriod getMon() {
+  public List<OpeningPeriod> getMon() {
     return mon;
   }
-  public void setMon(OpeningPeriod mon) {
+  public void setMon(List<OpeningPeriod> mon) {
     this.mon = mon;
   }
 
     
   @JsonProperty("tue")
-  public OpeningPeriod getTue() {
+  public List<OpeningPeriod> getTue() {
     return tue;
   }
-  public void setTue(OpeningPeriod tue) {
+  public void setTue(List<OpeningPeriod> tue) {
     this.tue = tue;
   }
 
     
   @JsonProperty("wed")
-  public OpeningPeriod getWed() {
+  public List<OpeningPeriod> getWed() {
     return wed;
   }
-  public void setWed(OpeningPeriod wed) {
+  public void setWed(List<OpeningPeriod> wed) {
     this.wed = wed;
   }
 
     
   @JsonProperty("thu")
-  public OpeningPeriod getThu() {
+  public List<OpeningPeriod> getThu() {
     return thu;
   }
-  public void setThu(OpeningPeriod thu) {
+  public void setThu(List<OpeningPeriod> thu) {
     this.thu = thu;
   }
 
     
   @JsonProperty("fri")
-  public OpeningPeriod getFri() {
+  public List<OpeningPeriod> getFri() {
     return fri;
   }
-  public void setFri(OpeningPeriod fri) {
+  public void setFri(List<OpeningPeriod> fri) {
     this.fri = fri;
   }
 
     
   @JsonProperty("sat")
-  public OpeningPeriod getSat() {
+  public List<OpeningPeriod> getSat() {
     return sat;
   }
-  public void setSat(OpeningPeriod sat) {
+  public void setSat(List<OpeningPeriod> sat) {
     this.sat = sat;
   }
 
     
   @JsonProperty("bank_holiday")
-  public OpeningPeriod getBankHoliday() {
+  public List<OpeningPeriod> getBankHoliday() {
     return bankHoliday;
   }
-  public void setBankHoliday(OpeningPeriod bankHoliday) {
+  public void setBankHoliday(List<OpeningPeriod> bankHoliday) {
     this.bankHoliday = bankHoliday;
   }
 
     
   @JsonProperty("specified_date")
-  public Map<String, OpeningPeriod> getSpecifiedDate() {
+  public Map<String, List<OpeningPeriod>> getSpecifiedDate() {
     return specifiedDate;
   }
-  public void setSpecifiedDate(Map<String, OpeningPeriod> specifiedDate) {
+  public void setSpecifiedDate(Map<String, List<OpeningPeriod>> specifiedDate) {
     this.specifiedDate = specifiedDate;
   }
 

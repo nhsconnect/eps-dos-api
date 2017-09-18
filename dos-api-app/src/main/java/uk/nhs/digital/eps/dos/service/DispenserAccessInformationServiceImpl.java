@@ -109,23 +109,28 @@ public class DispenserAccessInformationServiceImpl implements DispenserAccessInf
         this.client = WebClient.create(vertx);
     }
 
-    private static OpeningPeriod periodFromJsonDay(JsonObject day) {
+    private static List<OpeningPeriod> periodFromJsonDay(JsonObject day) {
 
         JsonArray sessions = day.getJsonArray("sessions");
         if (sessions.size() == 0) {
             return null;
         }
-        JsonObject session = sessions.getJsonObject(0);
-        String startHours = session.getJsonObject("start").getString("hours");
-        String startMinutes = session.getJsonObject("start").getString("minutes");
-        String endHours = session.getJsonObject("end").getString("hours");
-        String endMinutes = session.getJsonObject("end").getString("minutes");
-        return new OpeningPeriod(startHours.concat(":".concat(startMinutes)),
+        ArrayList returnList = new ArrayList(sessions.size());
+        for (Object session : sessions){
+            JsonObject sessionJson = (JsonObject) session;
+            if (sessionJson.containsKey("closed")) continue;
+            String startHours = sessionJson.getJsonObject("start").getString("hours");
+            String startMinutes = sessionJson.getJsonObject("start").getString("minutes");
+            String endHours = sessionJson.getJsonObject("end").getString("hours");
+            String endMinutes = sessionJson.getJsonObject("end").getString("minutes");
+            returnList.add(new OpeningPeriod(startHours.concat(":".concat(startMinutes)),
                 endHours.concat(":".concat(endMinutes))
-        );
+            ));
+        }
+        return returnList;
     }
 
-    private static void populateOpening(Dispenser d, String day, OpeningPeriod time) {
+    private static void populateOpening(Dispenser d, String day, List<OpeningPeriod> time) {
         switch (day) {
             case "Monday":
                 d.getOpening().setMon(time);

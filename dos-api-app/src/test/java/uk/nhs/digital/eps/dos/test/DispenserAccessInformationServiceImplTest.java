@@ -48,7 +48,7 @@ import uk.nhs.digital.eps.dos.service.DispenserDetailServiceImpl;
  * @author Aled Greenhalgh <aled.greenhalgh@nhs.net>
  */
 @RunWith(VertxUnitRunner.class)
-public class DispenserAccessInformationServiceImplTest {
+public class DispenserAccessInformationServiceImplTest extends BaseTest {
 
     private static final Logger LOG = Logger.getLogger(DispenserAccessInformationServiceImplTest.class.getName());
     
@@ -110,8 +110,8 @@ public class DispenserAccessInformationServiceImplTest {
         dispenserService.dispenserAccessInformation("dispenserDetailTest", "FA242", response -> {
             if (response.failed()) LOG.warning(response.cause().getMessage() + ":" + response.cause());
             context.assertTrue(response.succeeded());
-            Map<String,OpeningPeriod> testDate = new HashMap<>();
-            testDate.put("28-08-2017", new OpeningPeriod("10:00", "17:00"));
+            Map<String,List<OpeningPeriod>> testDate = new HashMap<>();
+            testDate.put("28-08-2017", listOfOpening("10:00", "17:00"));
             Dispenser testDispenser = new Dispenser(
                 "FA242", null, null, null, 
                 new PatientContact("01904 623472", ""),
@@ -121,17 +121,17 @@ public class DispenserAccessInformationServiceImplTest {
                     //sun    
                     null,
                     //mon,
-                    new OpeningPeriod("09:00", "17:30"),
+                    listOfOpening("09:00", "17:30"),
                     //tue,
-                    new OpeningPeriod("09:00", "17:30"),
+                    listOfOpening("09:00", "17:30"),
                     //wed,
-                    new OpeningPeriod("09:00", "17:30"),
+                    listOfOpening("09:00", "17:30"),
                     //thu,
-                    new OpeningPeriod("09:00", "17:30"),
+                    listOfOpening("09:00", "17:30"),
                     //fri,
-                    new OpeningPeriod("09:00", "17:30"),
+                    listOfOpening("09:00", "17:30"),
                     //sat
-                    new OpeningPeriod("09:00", "13:00"),
+                    listOfOpening("09:00", "13:00"),
                     //bank hol
                     null,
                     //specifiedDate
@@ -187,7 +187,7 @@ public class DispenserAccessInformationServiceImplTest {
         dispenserService.searchDispensersAvailableFromWithin("dispenserSearchTest",  date, 2, 10, "YO231AY", (AsyncResult<List<Dispenser>> response) -> {
             if (response.failed()) LOG.warning(response.cause().getMessage() + ":" + response.cause());
             context.assertTrue(response.succeeded());
-            Map<String,OpeningPeriod> m = new HashMap<>();
+            Map<String,List<OpeningPeriod>> m = new HashMap<>();
             Dispenser closestDispenser = new Dispenser(
                 "FWD97", null, null, null, 
                 new PatientContact("01904 623509", ""),
@@ -197,17 +197,17 @@ public class DispenserAccessInformationServiceImplTest {
                     //sun    
                     null,
                     //mon,
-                    new OpeningPeriod("09:00", "18:00"),
+                    listOfOpening("09:00", "18:00"),
                     //tue,
-                    new OpeningPeriod("09:00", "18:00"),
+                    listOfOpening("09:00", "18:00"),
                     //wed,
-                    new OpeningPeriod("09:00", "18:00"),
+                    listOfOpening("09:00", "18:00"),
                     //thu,
-                    new OpeningPeriod("09:00", "18:00"),
+                    listOfOpening("09:00", "18:00"),
                     //fri,
-                    new OpeningPeriod("09:00", "18:00"),
+                    listOfOpening("09:00", "18:00"),
                     //sat
-                    new OpeningPeriod("09:00", "13:00"),
+                    listOfOpening("09:00", "13:00"),
                     //bank hol
                     null,
                     //specifiedDate

@@ -2,14 +2,14 @@ swagger: '2.0'
 info:
   title: EPS DoS API
   description: A reliable Directory of Service for EPS Dispensers
-  version: "v0.0.1"
+  version: "v0.0.2"
 # the domain of the service
 host: dos.eps.digital.nhs.uk
 # array of all schemes that your API supports
 schemes:
   - https
 # will be prefixed to all paths
-basePath: /v0.0.1
+basePath: /v0.0.2
 produces:
   - application/json
 securityDefinitions:
@@ -404,39 +404,43 @@ definitions:
         open_247: false
         sun: null
         mon: 
-          open: "08:00"
-          close: "18:00"
+          - open: "08:00"
+            close: "18:00"
         tue: 
-          open: "08:00"
-          close: "18:00"
+          - open: "08:00"
+            close: "18:00"
         wed: 
-          open: "08:00"
-          close: "18:00"
+          - open: "08:00"
+            close: "12:00"
         thu: 
-          open: "08:00"
-          close: "18:00"
+          - open: "08:00"
+            close: "18:00"
         fri:
-          open: "08:00"
-          close: "18:00"
+          - open: "08:00"
+            close: "18:00"
         sat: 
-          open: "08:00"
-          close: "12:00"
+          - open: "09:00"
+            close: "12:00"
         bank_holiday:
-          open: "09:00"
-          close: "12:00"
+          - open: "08:00"
+            close: "10:00"
+          - open: "14:00"
+            close: "16:00"
         specified_date:
           "2018-01-10":
-            open: "09:00"
-            close: "12:00"
+            - open: "09:00"
+              close: "12:00"
   OpeningTime:
-    type: object
-    properties:
-      open:
-        type: string
-        description: Unqualified local time in HH:MM format
-      close:
-        type: string
-        description: Unqualified local time in HH:MM format
+    type: array
+    items:
+      type: object
+      properties:
+        open:
+          type: string
+          description: Unqualified local time in HH:MM format
+        close:
+          type: string
+          description: Unqualified local time in HH:MM format
           
   Error:
     type: object

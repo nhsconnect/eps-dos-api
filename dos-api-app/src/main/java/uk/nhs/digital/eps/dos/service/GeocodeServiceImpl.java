@@ -10,7 +10,6 @@ import io.vertx.core.Future;
 import io.vertx.core.Handler;
 import io.vertx.core.Vertx;
 import io.vertx.core.json.JsonObject;
-import io.vertx.lang.js.SucceededResult;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;

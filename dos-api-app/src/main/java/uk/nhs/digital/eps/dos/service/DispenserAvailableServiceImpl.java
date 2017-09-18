@@ -68,12 +68,19 @@ public class DispenserAvailableServiceImpl implements DispenserAvailableService{
         return Interval.of(openInstant, closeInstant);
     }
     
+    private static boolean intervalWithinOpeningTimes(Interval interval, List<OpeningPeriod> openingTimes, Instant date) throws ParseException{
+        for (OpeningPeriod openingPeriod : openingTimes){
+                if (intervalFromOpeningPeriod(openingPeriod, date).overlaps(interval)) return true;
+        }
+        return false;
+    }
+    
     private boolean isBankHoliday(Instant timestamp) {
         ZoneId z = ZoneId.of("Europe/London");
         return this.bankholidays.contains(timestamp.atZone(z).toLocalDate().toString());
     }
 
-    private OpeningPeriod getSessionForDate(Dispenser d, Instant timestamp) {
+    private List<OpeningPeriod> getSessionForDate(Dispenser d, Instant timestamp) {
         ZoneId zone = ZoneId.of("Europe/London");
         String date = LocalDate.from(timestamp.atZone(zone)).toString();
 
@@ -86,7 +93,9 @@ public class DispenserAvailableServiceImpl implements DispenserAvailableService{
         }
 
         if (d.getOpening().getOpen247()) {
-            return new OpeningPeriod("00:00", "23:59");
+            List<OpeningPeriod> list = new ArrayList<>(1);
+            list.add(new OpeningPeriod("00:00", "23:59"));
+            return list ;
         }
 
         ZoneId z = ZoneId.of("Europe/London");
@@ -111,7 +120,6 @@ public class DispenserAvailableServiceImpl implements DispenserAvailableService{
         return null;
     }
 
-            
 
     @Override
     public List<Dispenser> availableDispensers(String requestId, Date timestamp, int hours, List<Dispenser> dispensers) {
@@ -128,14 +136,14 @@ public class DispenserAvailableServiceImpl implements DispenserAvailableService{
         while (i.hasNext() && results.size() < 5){
             Dispenser d = i.next();
             try {
-                OpeningPeriod sessionToday, sessionTomorrow;
+                List<OpeningPeriod> sessionsToday, sessionsTomorrow;
                 //sessionToday = getSessionForDate(d, patientIntervalStart.truncatedTo(ChronoUnit.DAYS));
-                sessionToday = getSessionForDate(d, patientIntervalStart);
-                sessionTomorrow = getSessionForDate(d, tomorrow);
-                if (sessionToday != null && intervalFromOpeningPeriod(sessionToday, patientIntervalStart).overlaps(patientInterval)) {
+                sessionsToday = getSessionForDate(d, patientIntervalStart);
+                sessionsTomorrow = getSessionForDate(d, tomorrow);
+                if (sessionsToday != null && intervalWithinOpeningTimes(patientInterval, sessionsToday, patientIntervalStart)) {
                     results.add(d);
                     continue;
-                }   if (sessionTomorrow != null && intervalFromOpeningPeriod(sessionTomorrow, tomorrow).overlaps(patientInterval)) {
+                }   if (sessionsTomorrow != null && intervalWithinOpeningTimes(patientInterval, sessionsTomorrow, tomorrow)) {
                     results.add(d);
                     continue;
                 }
