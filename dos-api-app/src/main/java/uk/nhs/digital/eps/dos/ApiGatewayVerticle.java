@@ -29,7 +29,7 @@ public class ApiGatewayVerticle extends AbstractVerticle{
     
     private static final String API_ROOT = "/v".concat(API_VERSION.concat("/"));
     
-    public static final String REQUEST_ID_HEADER = "x-Request-Id";
+    public static final String REQUEST_ID_HEADER = "X-Request-Id";
 
     @Override
     public void start(Future<Void> future) throws Exception {

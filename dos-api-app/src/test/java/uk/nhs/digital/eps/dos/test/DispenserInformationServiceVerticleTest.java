@@ -57,6 +57,7 @@ public class DispenserInformationServiceVerticleTest {
 
     @Before
     public void setUp(TestContext context) {
+        Async async = context.async();
         vertx.exceptionHandler(context.exceptionHandler());
         
         ServerSocket socket;
@@ -97,7 +98,13 @@ public class DispenserInformationServiceVerticleTest {
 
         DeploymentOptions options = new DeploymentOptions().setConfig(config);
         DispenserInformationServiceVerticle verticle = new DispenserInformationServiceVerticle();
-        vertx.deployVerticle(verticle, options, r -> verticleDeployId = verticle.deploymentID());
+        vertx.deployVerticle(verticle, options, r -> {
+            if (r.failed()){
+                context.fail();
+            } 
+            verticleDeployId = r.result();
+            async.complete();
+        });
         
         choicesServer = vertx.createHttpServer(new HttpServerOptions().setLogActivity(true).setHost("localhost").setPort(choicesPort));
         pathwaysServer = vertx.createHttpServer(new HttpServerOptions().setLogActivity(true).setHost("localhost").setPort(pathwaysPort));
@@ -132,12 +139,9 @@ public class DispenserInformationServiceVerticleTest {
         choicesServer.requestHandler( request -> {
             request.response()
                 .putHeader("Content-Type", "text/xml")
-                .headersEndHandler(h -> {
-                    //vertx.setTimer(500L, n -> {
-                        request.response().end(BaseTest.getFile("/choices_dispenser_FA242.xml"));
-                    //});
-                });
-        }).listen(context.asyncAssertSuccess());
+                .end(BaseTest.getFile("/choices_dispenser_FA242.xml"));
+                })
+            .listen(context.asyncAssertSuccess());
         
         pathwaysServer.requestHandler( request -> {
             request.response()
