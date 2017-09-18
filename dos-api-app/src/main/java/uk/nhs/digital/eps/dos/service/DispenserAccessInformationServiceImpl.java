@@ -49,7 +49,7 @@ public class DispenserAccessInformationServiceImpl implements DispenserAccessInf
     private static final String PATHWAYS_DISPENSER_RESOURCE_DEFAULT = "/app/controllers/api/v1.0/services/byOdsCode/%s";
     public static final String PATHWAYS_PORT_KEY = "pathways_port";
     public static final String PATHWAYS_DISPENSER_SEARCH_RESOURCE_KEY = "pathways_dispenser_search";
-    private static final String PATHWAYS_DISPENSER_SEARCH_RESOURCE_DEFAULT = "/app/controllers/api/v1.0/services/byServiceType/0/%s/%f/0/0/0/0/13/50";
+    private static final String PATHWAYS_DISPENSER_SEARCH_RESOURCE_DEFAULT = "/app/controllers/api/v1.0/services/byServiceType/0/%s/%f/0/0/0/0/13,116,131,132/50";
     public static final String PATHWAYS_AUTH_KEY = "pathways_auth";
     private static final long REQUEST_TIMEOUT = 3500L;
 
