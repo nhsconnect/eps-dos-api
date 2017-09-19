@@ -9,6 +9,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.google.common.base.Strings;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.CompositeFuture;
@@ -54,7 +55,8 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
                         MapperFeature.AUTO_DETECT_FIELDS,
                         MapperFeature.AUTO_DETECT_GETTERS,
                         MapperFeature.AUTO_DETECT_IS_GETTERS)
-                .enable(DeserializationFeature.UNWRAP_SINGLE_VALUE_ARRAYS);
+                .enable(DeserializationFeature.UNWRAP_SINGLE_VALUE_ARRAYS)
+                .enable(SerializationFeature.INDENT_OUTPUT);
     }
 
     private DispenserAccessInformationService dispenserAccessInformation;
