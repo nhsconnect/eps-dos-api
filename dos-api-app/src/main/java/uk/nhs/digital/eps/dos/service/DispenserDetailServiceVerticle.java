@@ -19,6 +19,7 @@ import io.vertx.core.eventbus.EventBus;
 import io.vertx.core.eventbus.Message;
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import uk.nhs.digital.eps.dos.model.APIException;
@@ -97,7 +98,7 @@ public class DispenserDetailServiceVerticle extends AbstractVerticle {
                     message.fail(ex.getCode(), objectToJson(ex));
                     return;
                 } else{
-                    service.searchDispenserByName(requestId, dispenserName, this::handleDispenserList);
+                    service.searchDispenserByName(requestId, dispenserName, Optional.empty(), Optional.empty(), this::handleDispenserList);
                 }
                 service.dispenserDetail(requestId, dispenserOds, this::handleDispenser);
             }

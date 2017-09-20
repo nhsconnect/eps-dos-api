@@ -16,6 +16,7 @@ import io.vertx.core.CompositeFuture;
 import io.vertx.core.Future;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
+import io.vertx.ext.web.handler.LoggerHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.time.DateTimeException;
 import java.time.Instant;
@@ -23,6 +24,7 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -69,6 +71,7 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
         this.dispenserAccessInformation = new DispenserAccessInformationServiceImpl(vertx, config());
         this.dispenserDetailService = new DispenserDetailServiceImpl(vertx, config());
         final Router router = Router.router(vertx);
+        router.route().handler(LoggerHandler.create());
         router.get(DISPENSER).handler(this::getDispenser);
         router.get(SEARCH_BY_LOCATION).handler(this::searchByLocationOpening);
         router.get(SEARCH_BY_NAME).handler(this::searchByName);
@@ -158,7 +161,7 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
         String name = context.request().getParam("name");
         String postcode = context.request().getParam("postcode");
         String distanceString = context.request().getParam("distance");
-        double distance;
+        Double distance = null;
 
         String requestId = 
             context.request().headers().contains(ApiGatewayVerticle.REQUEST_ID_HEADER)? 
@@ -187,7 +190,7 @@ public class DispenserInformationServiceVerticle extends AbstractVerticle {
         Future<List<Dispenser>> queryFuture = Future.future();
 
         Future<List<Dispenser>> detail = Future.future();
-        dispenserDetailService.searchDispenserByName(requestId, name, detail.completer());
+        dispenserDetailService.searchDispenserByName(requestId, name, Optional.ofNullable(postcode), Optional.ofNullable(distance), detail.completer());
 
         //once the detail search is complete get access info for each dispenser returned
         detail.compose((List<Dispenser> detailList) -> {

@@ -15,6 +15,7 @@ import io.vertx.ext.unit.junit.VertxUnitRunner;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.util.Arrays;
+import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.After;
@@ -156,7 +157,7 @@ public class DispenserDetailServiceImplTest extends BaseTest {
                     .putHeader("Content-Type", "text/xml")
                     .end(BaseTest.getFile("/choices_dispenser_name.response"));})
                     .listen(context.asyncAssertSuccess());
-        dispenserService.searchDispenserByName("dispenserSearchTest", "Bishop", response -> {
+        dispenserService.searchDispenserByName("dispenserSearchTest", "Bishop", Optional.empty(), Optional.empty(), response -> {
             context.assertTrue(response.succeeded());
             Dispenser testDisepenser = new Dispenser("FWF90", "Bishopthorpe Pharmacy", null, 
                     new Address(Arrays.asList("22-24 Acaster Lane","Bishopthorpe", "York", ""), 
@@ -175,7 +176,7 @@ public class DispenserDetailServiceImplTest extends BaseTest {
         LOG.entering(getClass().getName(), "dispenserSearchNoMatchTest");
         Async async = context.async();
         server.requestHandler( request -> {request.response().setStatusCode(500).end(BaseTest.getFile("/choices_no_dispenser_match.response"));}).listen(context.asyncAssertSuccess());
-        dispenserService.searchDispenserByName("dispenserSearchNoMatchTest", "@", response -> {
+        dispenserService.searchDispenserByName("dispenserSearchNoMatchTest", "@", Optional.empty(), Optional.empty(), response -> {
             context.assertTrue(response.failed());
             context.assertEquals(new APIException(ApiErrorbase.NO_MATCH), response.cause());
             async.complete();
@@ -187,7 +188,7 @@ public class DispenserDetailServiceImplTest extends BaseTest {
         LOG.entering(getClass().getName(), "dispenserSearchEmptyName");
         Async async = context.async();
         server.requestHandler( request -> {request.response().setStatusCode(500).end(BaseTest.getFile("/choices_search_no_name.response"));}).listen(context.asyncAssertSuccess());
-        dispenserService.searchDispenserByName("dispenserSearchEmptyName", "", response -> {
+        dispenserService.searchDispenserByName("dispenserSearchEmptyName", "", Optional.empty(), Optional.empty(), response -> {
             context.assertTrue(response.failed());
             context.assertEquals(new APIException(ApiErrorbase.INVALID_PARAMETER, "name", null), response.cause());
             async.complete();

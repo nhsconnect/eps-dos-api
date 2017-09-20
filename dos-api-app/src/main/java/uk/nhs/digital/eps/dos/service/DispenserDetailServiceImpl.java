@@ -24,6 +24,7 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.transform.Source;
@@ -69,7 +70,8 @@ public class DispenserDetailServiceImpl implements DispenserDetailService {
     public static final String CHOICES_SSL_KEY = "choices_use_ssl";
     public static final String CHOICES_PORT_KEY = "choices_port";
     public static final String CHOICES_DISPENSER_SEARCH_RESOURCE_KEY = "choices_search";
-    public static final String CHOICES_DISPENSER_SEARCH_RESOURCE_DEFAULT = "/ETPWebservices/service.asmx/GetDispenserByName?strorganisationame=%s&intservicetype=1&streps=YES";
+    public static final String CHOICES_DISPENSER_SEARCH_RESOURCE_DEFAULT = 
+            "/ETPWebservices/service.asmx/GetDispenserByNameAndLocation?strorganisationame=%s&strstreet=&strtown=&strpartpostcode=%s&intservicetype=1&streps=YES";
     private static final long REQUEST_TIMEOUT = 2000L;
     
     private final int port;
@@ -168,7 +170,7 @@ public class DispenserDetailServiceImpl implements DispenserDetailService {
     }
 
     @Override
-    public void searchDispenserByName(String requestId, String name, Handler<AsyncResult<List<Dispenser>>> serviceResponseHandler) {
+    public void searchDispenserByName(String requestId, String name, Optional<String> postcode, Optional<Double> distance, Handler<AsyncResult<List<Dispenser>>> serviceResponseHandler) {
         LOG.log(Level.FINE, "searchDispenserByName service call with request.id={0}", requestId);
         if (Strings.isNullOrEmpty(name)) {
             LOG.log(Level.FINE, "Null or empty name parameter in query  with request.id={0}", requestId);
@@ -176,7 +178,9 @@ public class DispenserDetailServiceImpl implements DispenserDetailService {
             return;
         }
         
-        String resource=String.format(config.getString(CHOICES_DISPENSER_SEARCH_RESOURCE_KEY, CHOICES_DISPENSER_SEARCH_RESOURCE_DEFAULT), name);
+        String resource=String.format(config.getString(CHOICES_DISPENSER_SEARCH_RESOURCE_KEY, CHOICES_DISPENSER_SEARCH_RESOURCE_DEFAULT), 
+                name,
+                postcode.orElse(""));
         HttpRequest<Buffer> request = client.get(port,host,resource)
             .ssl(config.getBoolean(CHOICES_SSL_KEY, Boolean.TRUE))
             .putHeader("x-Request-Id", requestId)

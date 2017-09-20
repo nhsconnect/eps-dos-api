@@ -1,0 +1,27 @@
+version: '3.3'
+
+services:
+  nginx:
+    image: dos-api-nginx:latest
+    volumes:
+    - maint:/var/www/dos-api:ro
+    ports:
+    - "80:80"
+    restart: always
+
+  dos-api-app_v0-0-1:
+    depends_on:
+    - nginx
+    image: dos-api-app:v0.0.1
+    ports:
+    - "8086:8086"
+
+  dos-api-app_v0-0-2:
+    depends_on:
+    - nginx
+    image: dos-api-app:latest
+    ports:
+    - "8087:8086"
+    
+volumes:
+  maint:
