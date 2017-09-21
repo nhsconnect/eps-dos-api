@@ -10,7 +10,7 @@ Responsible for:
 * Network (VPC) creation
 * Host creation and bootstrapping
 * Deployment - pulling & starting docker images on host(s)
-* Sorry-server careation and switching (TODO)
+* Sorry-server creation and switching (TODO)
 
 ### Nginx Proxy
 Responsible for:
