@@ -26,7 +26,7 @@ Responsible for:
 
 ### dos-api-app
  
-A vertx instance running in a container listening on 8086.
+A vertx instance running in a container listening on 8086. One instance per container and one container per API version.
 
 The instance has the following services:
 
