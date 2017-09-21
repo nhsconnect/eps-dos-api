@@ -4,7 +4,7 @@ services:
   nginx:
     image: dos-api-nginx:latest
     volumes:
-    - maint:/var/www/dos-api:ro
+    - "./maint:/var/www/dos-api:ro
     ports:
     - "80:80"
     restart: always
@@ -19,9 +19,16 @@ services:
   dos-api-app_v0-0-2:
     depends_on:
     - nginx
-    image: dos-api-app:latest
+    image: dos-api-app:v0.0.2
     ports:
     - "8087:8086"
+ 
+  dos-api-app_v0-0-3:
+    depends_on:
+    - nginx
+    image: dos-api-app:latest
+    ports:
+    - "8088:8086"
     
 volumes:
   maint:
