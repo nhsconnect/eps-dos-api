@@ -1,6 +1,6 @@
 # EPS DoS API Stub Architecture
 
-##Components
+## Components
 
 The EPS DoS API Stub is composed of the following elements:
 
@@ -12,7 +12,7 @@ Responsible for:
 * Deployment - pulling & starting docker images on host(s)
 * Sorry-server careation and switching (TODO)
 
-###Nginx Proxy
+### Nginx Proxy
 Responsible for:
 
 * Authentication (TODO)
