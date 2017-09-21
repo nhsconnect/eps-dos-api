@@ -22,7 +22,7 @@ Responsible for:
 * Failure handling
 * SSL termination (TODO)
 * Mapping API version number to container name and forwarding requests
-  - a request for `http://dos.eps.digital.nhs.uk/v0.0.2/dispenser/FA123` is proxied to http://dos-api-app_v0-0-2:8086/dispenser/FA123_
+  - a request for `http://dos.eps.digital.nhs.uk/v0.0.2/dispenser/FA123` is proxied to `http://dos-api-app_v0-0-2:8086/dispenser/FA123`
 
 ### dos-api-app
  
