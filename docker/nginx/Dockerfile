@@ -8,4 +8,6 @@ RUN rm /etc/nginx/conf.d/default.conf
 
 VOLUME /var/www/dos-api
 
+VOLUME /etc/letsencrypt
+
 CMD ["nginx", "-g", "daemon off;"]
