@@ -1,6 +1,5 @@
 ---
 # build a VPC
-# Following instructions at https://docs.docker.com/engine/installation/linux/ubuntulinux/
 
 - name: Build AWS VPC
   hosts: localhost
