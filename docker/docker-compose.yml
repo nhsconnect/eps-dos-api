@@ -1,22 +1,22 @@
 version: '3.3'
 
 services:
+  get_secrets:
+    image: dos-api/secrets:latest
+    volumes:
+    - "certs:/etc/letsencrypt"
+    environment:
+      ENV:
+    
   nginx:
     image: dos-api-nginx:latest
+    depends_on:
+    - get_secrets
     volumes:
     - "web_root:/var/www/dos-api:ro"
     - "certs:/etc/letsencrypt:ro"
     ports:
     - "80:80"
-    restart: always
-    environment:
-      ENV:
-    
-  certbot:
-    image: dos-api-certbot:latest
-    volumes:
-    - "web_root:/var/www/dos-api"
-    - "certs:/etc/letsencrypt"
     restart: always
     environment:
       ENV:

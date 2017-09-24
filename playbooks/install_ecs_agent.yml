@@ -1,0 +1,55 @@
+---
+# Install docker on ubuntu hosts
+# Following instructions at https://docs.docker.com/engine/installation/linux/ubuntulinux/
+
+- name: Install Amazon ECS agent
+  hosts: docker
+  gather_facts: false
+  become: True
+  tasks:
+    
+    - name: ensure a secrets store exists
+      aws_s3:
+        bucket: "{{ env_name }}_secrets"
+        mode: create
+        permission: private
+    
+    - name: allow the port proxy to route traffic using loopback addresses
+      shell: sh -c "echo 'net.ipv4.conf.all.route_localnet = 1' >> /etc/sysctl.conf" && sysctl -p /etc/sysctl.conf
+          
+    - name: enable IAM roles for tasks
+      shell: iptables -t nat -A PREROUTING -p tcp -d 169.254.170.2 --dport 80 -j DNAT --to-destination 127.0.0.1:51679
+          
+    - name: enable IAM roles for tasks
+      shell: iptables -t nat -A OUTPUT -d 169.254.170.2 -p tcp -m tcp --dport 80 -j REDIRECT --to-ports 51679
+    
+    - name: write iptables
+      shell: sh -c 'iptables-save > /etc/iptables/rules.v4'
+    
+    - name: create config files
+      shell: mkdir -p /etc/ecs && sudo touch /etc/ecs/ecs.config
+    
+    - name: start ecs agent
+      docker_container:
+        name: ecs-agent
+        detach: true
+        restart_policy: on_failure
+        restart_retries: 10
+        volumes:
+        - /var/run:/var/run
+        - /var/log/ecs/:/log
+        - /var/lib/ecs/data:/data
+        - /etc/ecs:/etc/ecs 
+        network_mode: host
+        image: amazon/amazon-ecs-agent
+        env:
+          ECS_CLUSTER: "{{ env_name }}_cluster"
+          ECS_DATADIR: /data
+          ECS_ENABLE_TASK_IAM_ROLE: true
+          ECS_ENABLE_TASK_IAM_ROLE_NETWORK_HOST: true
+          ECS_LOGFILE: /log/ecs-agent.log
+          ECS_AVAILABLE_LOGGING_DRIVERS: ["json-file","awslogs"]
+          ECS_LOGLEVEL: info
+     
+
+
