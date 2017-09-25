@@ -1,5 +1,5 @@
 ---
-- name: Provision EC2 environment with ninstances
+- name: Provision EC2 environment with instances
   hosts: localhost
   vars:
     region:  eu-west-2
@@ -8,21 +8,23 @@
   tasks:
   - name: get subnet ID
     ec2_vpc_subnet_facts:
+      region: "{{ region }}"
       filters:
           "tag:subnet": dmz
           "tag:env": "{{ env_name }}"
-      register: dmz_subnet
+    register: dmz_subnet
   - name: get vpc properties
     ec2_vpc_net_facts:
+      region: "{{ region }}"
       filters:
         "tag:env": "{{ env_name }}"
-      register: vpc
+    register: vpc
   - name: web security group
     ec2_group:
       name: web
       description: allow http and https access
       region: "{{ region }}"
-      vpc_id: "{{ vpc.id }}"
+      vpc_id: "{{ vpc.vpcs[0].id }}"
       rules:
         - proto: tcp
           from_port: 80
@@ -37,7 +39,7 @@
       name: ssh
       description: allow ssh access
       region: "{{ region }}"
-      vpc_id: "{{ vpc.id }}"
+      vpc_id: "{{ vpc.vpcs[0].id }}"
       rules:
         - proto: tcp
           from_port: 22
@@ -48,7 +50,7 @@
       name: outbound
       description: allow outbound connections to the internet
       region: "{{ region }}"
-      vpc_id: "{{ vpc.id }}"
+      vpc_id: "{{ vpc.vpcs[0].id }}"
       rules_egress:
         - proto: all
           cidr_ip: 0.0.0.0/0
@@ -65,6 +67,7 @@
   - name: start the instances
     ec2:
       region: "{{ region }}"
+      assign_public_ip: yes
       image: "{{ ami }}"
       instance_type: "{{ instance_type }}"
       key_name: "{{ env_name }}"
@@ -72,7 +75,7 @@
       instance_tags: { type: docker, env: "{{ env_name }}" }
       exact_count: "{{ count }}"
       count_tag: { type: docker }
-      vpc_subnet_id: "{{ dmz_subnet.id }}"
+      vpc_subnet_id: "{{ dmz_subnet.subnets[0].id }}"
       wait: yes
     register: ec2
   - name: add the instance to web and production groups
