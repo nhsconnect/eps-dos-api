@@ -6,6 +6,15 @@
     instance_type: t2.micro
     count: 1
   tasks:
+  
+  - name: create IAM role
+    iam_role:
+      name: ansible
+      assume_role_policy_document: "{{ lookup('file','ansible_trust_policy.json') }}"
+      state: present
+      managed_policy:
+        - arn:aws:iam::aws:policy/PowerUserAccess
+  
   - name: get subnet ID
     ec2_vpc_subnet_facts:
       region: "{{ region }}"
@@ -66,6 +75,7 @@
   - set_fact: "ami={{ ubuntu_image.results[0].ami_id }}"
   - name: start the instances
     ec2:
+      instance_profile_name: ansible
       region: "{{ region }}"
       assign_public_ip: yes
       image: "{{ ami }}"
@@ -88,9 +98,12 @@
     when: item.public_dns_name is defined
 
 - name: configure new instances with python
-  hosts: all
+  hosts: docker
   become: True
   gather_facts: False
   pre_tasks:
     - name: install python
       raw: apt-get install -y python-minimal
+      
+- include: install_docker.yml
+- include: install_ecs_agent.yml
