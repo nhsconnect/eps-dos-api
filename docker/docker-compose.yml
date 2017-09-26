@@ -7,7 +7,7 @@ services:
     - "certs:/etc/letsencrypt"
     mem_limit: 134217728
     environment:
-      ENV:
+      - ENV
     
   nginx:
     image: 363906122518.dkr.ecr.eu-west-2.amazonaws.com/dos-api-nginx:latest
@@ -18,10 +18,9 @@ services:
     - "certs:/etc/letsencrypt:ro"
     ports:
     - "80:80"
+    - "443:443"
     restart: always
     mem_limit: 134217728
-    environment:
-      ENV:
 
   dos-api-app_v0-0-1:
     depends_on:
