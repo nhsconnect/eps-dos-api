@@ -1,21 +1,11 @@
 version: '2'
 
 services:
-  get_secrets:
-    image: 363906122518.dkr.ecr.eu-west-2.amazonaws.com/dos-api/secrets:latest
-    volumes:
-    - "certs:/etc/letsencrypt"
-    mem_limit: 134217728
-    environment:
-      - ENV
     
   nginx:
     image: 363906122518.dkr.ecr.eu-west-2.amazonaws.com/dos-api-nginx:latest
-    depends_on:
-    - get_secrets
     volumes:
     - "web_root:/var/www/dos-api:ro"
-    - "certs:/etc/letsencrypt:ro"
     ports:
     - "80:80"
     - "443:443"
@@ -48,4 +38,3 @@ services:
     
 volumes:
   web_root:
-  certs:
