@@ -2,6 +2,8 @@
 
 - name: Install Amazon ECS agent
   hosts: docker
+  vars:
+    region:  eu-west-2
   gather_facts: false
   become: True
   tasks:
@@ -12,9 +14,10 @@
   
   - name: ensure a secrets store exists
     s3:
-      bucket: "{{ env_name }}_secrets"
+      bucket: "{{ env_name }}-secrets"
       mode: create
       permission: private
+      region:  "{{ region }}"
         
   - name: allow the port proxy to route traffic using loopback addresses
     shell: sh -c "echo 'net.ipv4.conf.all.route_localnet = 1' >> /etc/sysctl.conf" && sysctl -p /etc/sysctl.conf

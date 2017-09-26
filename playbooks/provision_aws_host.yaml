@@ -104,6 +104,13 @@
   pre_tasks:
     - name: install python
       raw: apt-get install -y python-minimal
-      
+
+- name: create cluster
+  hosts: localhost
+  tasks:
+    - ecs_cluster:
+        name: "{{ env_name }}_cluster"
+        state: present
+
 - include: install_docker.yml
 - include: install_ecs_agent.yml
