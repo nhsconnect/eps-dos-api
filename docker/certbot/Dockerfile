@@ -8,10 +8,8 @@ RUN \
 	apk --purge -v del py-pip && \
 	rm /var/cache/apk/*
 
-RUN mkdir -p /opt/dos-api/secrets
+COPY push-s3.sh /usr/local/bin
 
-COPY push-s3.sh /opt/dos-api/secrets
+RUN chmod u+x /usr/local/bin/push-s3.sh
 
-RUN chmod 0644 /opt/dos-api/secrets/push-s3.sh
-
-ENTRYPOINT certbot certonly --standalone --preferred-challenges http -d $ENV.eps.digital.nhs.uk --email aled.greenhalgh@nhs.uk --agree-tos --no-eff-email --deploy-hook /opt/dos-api/secrets/push-s3.sh --staging
+ENTRYPOINT certbot certonly --standalone --preferred-challenges http -d $ENV.eps.digital.nhs.uk --email aled.greenhalgh@nhs.uk --agree-tos --no-eff-email --deploy-hook /usr/local/bin/push-s3.sh --staging

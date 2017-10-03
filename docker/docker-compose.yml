@@ -10,6 +10,8 @@ services:
     - "80:80"
     - "443:443"
     restart: always
+    environment:
+      - ENV
     mem_limit: 134217728
 
   dos-api-app_v0-0-1:
