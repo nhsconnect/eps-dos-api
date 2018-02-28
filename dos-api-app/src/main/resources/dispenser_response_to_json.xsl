@@ -10,6 +10,7 @@ xmlns:ws="http://www.nhs.uk/nhswebservices/" >
         {
         "ods":"<xsl:value-of select="@organisationCode"/>",
         "name":"<xsl:value-of select="@name"/>",
+        "service_type":"eps_pharmacy",
         "address":{
             "line":["<xsl:value-of select="@street"/>", "<xsl:value-of select="@locality"/>", "<xsl:value-of select="@town"/>", "<xsl:value-of select="@administrative"/>"],
             "postcode":"<xsl:value-of select="@postcode"/>"

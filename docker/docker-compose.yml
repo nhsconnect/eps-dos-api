@@ -35,6 +35,7 @@ services:
     - nginx
     mem_limit: 134217728
     image: 363906122518.dkr.ecr.eu-west-2.amazonaws.com/dos-api-app:latest
+    restart: always
     ports:
     - "8088:8086"
     
