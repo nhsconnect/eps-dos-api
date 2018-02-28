@@ -1,6 +1,5 @@
 ---
 # build a VPC
-# Following instructions at https://docs.docker.com/engine/installation/linux/ubuntulinux/
 
 - name: Build AWS VPC
   hosts: localhost
@@ -62,30 +61,32 @@
         subnet_id: "{{ dmz.subnet.id }}"
         wait: yes
       register: nat
+    - debug:
+        var: dmz
 
-    - name: create route to Internet
+    - name: create route from dmz to Internet
       ec2_vpc_route_table:
-        vpc_id: "{{ vpc.vpc.id }}"
         region: "{{ region }}"
         tags:
           env: "{{ env_name }}"
+          Name: dmz to Internet
+        vpc_id: "{{ vpc.vpc.id }}"
         subnets:
-          - "{{ mgmt.subnet.id }}"
           - "{{ dmz.subnet.id }}"
+          - "{{ mgmt.subnet.id }}"
         routes:
           - dest: 0.0.0.0/0
-            gateway_id: "{{ igw.gateway_id }}"
-      register: public_route_table
+            gateway_id: igw
 
     - name: create route to Internet
       ec2_vpc_route_table:
         region: "{{ region }}"
         tags:
           env: "{{ env_name }}"
+          Name: private to Internet
         vpc_id: "{{ vpc.vpc.id }}"
         subnets:
           - "{{ private.subnet.id }}"
         routes:
           - dest: 0.0.0.0/0
             gateway_id: "{{ nat.nat_gateway_id }}"
-      register: public_route_table

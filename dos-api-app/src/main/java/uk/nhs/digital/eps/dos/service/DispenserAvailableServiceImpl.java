@@ -142,8 +142,9 @@ public class DispenserAvailableServiceImpl implements DispenserAvailableService{
                 sessionsTomorrow = getSessionForDate(d, tomorrow);
                 if (sessionsToday != null && intervalWithinOpeningTimes(patientInterval, sessionsToday, patientIntervalStart)) {
                     results.add(d);
-                    continue;
-                }   if (sessionsTomorrow != null && intervalWithinOpeningTimes(patientInterval, sessionsTomorrow, tomorrow)) {
+                    continue;//pharmacy should appear only once in the resultset
+                }   
+                if (sessionsTomorrow != null && intervalWithinOpeningTimes(patientInterval, sessionsTomorrow, tomorrow)) {
                     results.add(d);
                     continue;
                 }

@@ -1,0 +1,1 @@
+* * * * * root certbot certonly --webroot --webroot-path /var/www/html -d $ENV.eps.digital.nhs.uk --email aled.greenhalgh@nhs.uk --agree-tos --no-eff-email --staging > /proc/1/fd/1 2>/proc/1/fd/2

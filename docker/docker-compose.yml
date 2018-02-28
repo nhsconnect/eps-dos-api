@@ -1,34 +1,43 @@
-version: '3.3'
+version: '2'
 
 services:
+    
   nginx:
-    image: dos-api-nginx:latest
+    image: 363906122518.dkr.ecr.eu-west-2.amazonaws.com/dos-api-nginx:latest
     volumes:
-    - "./maint:/var/www/dos-api:ro
+    - "web_root:/var/www/dos-api:ro"
     ports:
     - "80:80"
+    - "443:443"
     restart: always
+    environment:
+      - ENV
+    mem_limit: 134217728
 
   dos-api-app_v0-0-1:
     depends_on:
     - nginx
-    image: dos-api-app:v0.0.1
+    image: 363906122518.dkr.ecr.eu-west-2.amazonaws.com/dos-api-app:v0.0.1
+    mem_limit: 134217728
     ports:
     - "8086:8086"
 
   dos-api-app_v0-0-2:
     depends_on:
     - nginx
-    image: dos-api-app:v0.0.2
+    mem_limit: 134217728
+    image: 363906122518.dkr.ecr.eu-west-2.amazonaws.com/dos-api-app:v0.0.2
     ports:
     - "8087:8086"
  
   dos-api-app_v0-0-3:
     depends_on:
     - nginx
-    image: dos-api-app:latest
+    mem_limit: 134217728
+    image: 363906122518.dkr.ecr.eu-west-2.amazonaws.com/dos-api-app:latest
+    restart: always
     ports:
     - "8088:8086"
     
 volumes:
-  maint:
+  web_root:
