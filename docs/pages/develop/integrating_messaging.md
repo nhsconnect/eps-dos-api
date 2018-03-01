@@ -8,10 +8,10 @@ summary: How to integrate information from the EPS DoS API with Prescription mes
 ---
 
 
-Once a suitable dispenser has been identified using the Search resources this information needs to be included in the prescription message if. There are two relevant parts of the message: the nominated dispenser and the nominated dispenser type. 
+Once a suitable dispenser has been identified using the Search resources this information needs to be included in the prescription message if. There are two relevant parts of the message: the nominated dispenser and the nominated dispenser type.
 
 ## Nominated Dispenser Type
-As described in [Key Concepts|key_concepts.html], there are different types of dispensing contractor, with some not able to dispense all items and some not directly accessible by the patient; as such it is important to nominate the correct type of dispenser and cross-check against the prescribed item classification where appropriate. 
+As described in [Key Concepts](key_concepts.html), there are different types of dispensing contractor, with some not able to dispense all items and some not directly accessible by the patient; as such it is important to nominate the correct type of dispenser and cross-check against the prescribed item classification where appropriate.
 
 The dispenser type is available within the EPS DoS API as the _service_type_ property. The vocabulary used to identify the dispenser type in the messafge is defined in the Message Specification. A cross-map to values in the _DispensingSitePreference_ vocabulary in MIM 4.2.02 is provided below:
 
@@ -89,10 +89,10 @@ Content-Transfer-Encoding: 8bit
 	<eb:Manifest SOAP:mustUnderstand="1" eb:version="2.0">
 		<eb:Reference xlink:href="cid:4df40f29-8bf8-11e7-b11a-85a4017ee59e@spine.nhs.uk">
 			<eb:Schema eb:location="http://www.nhsia.nhs.uk/schemas/HL7-Message.xsd" eb:version="1.0"/>
-			<eb:Description xml:lang="en">HL7 payload</eb:Description> 
+			<eb:Description xml:lang="en">HL7 payload</eb:Description>
 			<hl7ebxml:Payload style="HL7" encoding="XML" version="3.0"/>
 		</eb:Reference>
-		
+
 	</eb:Manifest>
 </SOAP:Body>
 </SOAP:Envelope>
@@ -368,24 +368,3 @@ rj2XDBzswwSSYQQ+a3rEFLAREfcd7cSTfbHY</X509Certificate></X509Data></KeyInfo></Sig
 </PORX_IN020101UK31>
 ----=_MIME-Boundary--
 ```
-
-## Searching by Location & Opening Hours ##
-
-The most common operation will be to find a dispenser which can dispense a prescription to the patient within the timeframe dictated by the patient disposition. Patients disposition is allocated by NHS Pathways and include values like `Dx85	- Repeat prescription required within 2 hours`. Passing a number of hours to the API will ensure that all dispensers returned in results are open within at least a portion of that timeframe. Once open dispensers are identified the system orders by distance and returs the five nearest. If a maximum distance filter is included this is applied, otherwise the system will default to a maximum distance of 38km. 
-
-
-### Examples ###
-
-```
-TODO
-````
-
-## Searching by Name ##
-
-
-### Examples ###
-
-```
-TODO
-````
-

@@ -10,7 +10,7 @@ summary: An overview of the main objects used in the API.
 ## Key Concepts ###
 
 ### Disposition ###
-A disposition is an indication of the needs of the patient encompassing both the service required and the urgency. There are many hundreds of dispositions used in NHS Pathways but the EPS DoS is only concerned with those related to prescriptions. The dispositions used in the API are:
+A disposition is an indication of the needs of the patient encompassing both the service required and the urgency. There are many hundreds of dispositions used in NHS Pathways but the currently relevant dispositions are:
 
 | Disposition Code   | Descriptive Name                             |
 |--------------------|----------------------------------------------|
@@ -27,21 +27,17 @@ There are a number of types of dispensing contractor who can dispense prescripti
 Community pharmacies are probably the most familiar dispenser as these are often seen on high streets. Community Pharmacies _must_ dispense all items on a prescription regardless of cost, but may not have all items immediately available without ordering in.
 
 #### Dispensing Applicance Contractors ####
-Dispensing Applicance Contractors (DACs) can only dispense applicances listed in part XXX of the NHS Drug Tarrif, and so are unable to dispense medications or reagents. DAcs are only obliged to dispense items they carry in the normal course of their business and many are quite specialised in only dealing with ostomy bags or foodstuffs for example. Many work on the basis of providing a delivery service so can't be attended in person by a patient. 
+Dispensing Applicance Contractors (DACs) can only dispense applicances listed in part XXX of the NHS Drug Tarrif, and so are unable to dispense medications or reagents. DAcs are only obliged to dispense items they carry in the normal course of their business and many are quite specialised in only dealing with ostomy bags or foodstuffs for example. Many work on the basis of providing a delivery service so can't be attended in person by a patient. Distance Selling Pharmacies are not included in the scope of the EPS DoS API.
 
-#### Internet Pharmacies ####
-Internet pharmacies work on the same contract as Community Pharmacies, and as such can dispense both medications and applicances but they operate on a delivery-only model and like many DACs do not have a dispensary that can be attended in person by a patient. 
+#### Distance Selling Pharmacies ####
+Distance Selling Pharmacies work with a similar scope to Community Pharmacies, and as such can dispense both medications and applicances but they operate on a delivery-only model and like many DACs do not have a dispensary that can be attended in person by a patient. Distance Selling Pharmacies are not included in the scope of the EPS DoS API, but there have been some cases of miscategorisation within the Pathways DoS which could result in them being displayed.
 
 #### EPS-enabled dispensers ####
 
-Any of the dispenser types above can be enabled to dispense EPS Release 2 prescriptions, and the vast majority can do. 
+Any of the dispenser types above can be enabled to dispense EPS Release 2 prescriptions, and the vast majority can do. The small number of non EPS-enabled dispensers are not included in EPS DoS API results.
 
 #### Dispensing Doctors ####
 
 Dispensing doctors can dispense for their own dispensing patients but are not included in the EPS DoS API.
 
-<br>
-<hr>
-
 ## Further Reading ##
-

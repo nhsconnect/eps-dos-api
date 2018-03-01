@@ -1,7 +1,7 @@
 entries:
 - title: EPS DoS API
   product: EPS DoS API<br/>
-  version: v0.0.2
+  version: v0.0.3
   levels: one
   folders:
 
@@ -74,7 +74,7 @@ entries:
 
 #  - title: Communications
 #    output: web
-#    folderitems:    
+#    folderitems:
 #    - title: Overview
 #      url: /communications_overview.html
 #      output: web
@@ -105,7 +105,7 @@ entries:
 #      output: web
 #    - title: Design
 #      url: /tag_design.html
-#      output: web	  
+#      output: web
 #    - title: Development
 #      url: /tag_development.html
 #      output: web
@@ -123,7 +123,7 @@ entries:
 #      output: web
 #    - title: Support
 #      url: /tag_support.html
-#      output: web	  
+#      output: web
 #    - title: Clinical Safety
 #      url: /tag_clinical_safety.html
 #      output: web

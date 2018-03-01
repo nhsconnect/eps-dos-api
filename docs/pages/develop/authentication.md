@@ -7,7 +7,7 @@ permalink: authentication.html
 summary: Authentication to use the DoS API using HTTP basic auth
 ---
 
-Authentication to the API uses HTTP basic auth. Authentication is used to track API usage and to authorize write access to the data where this is permitted. All resources except _/status_ require authentication.
+Authentication to the API uses HTTP basic auth. Authentication is used to track API usage and to authorize write access to the data where this is permitted. All resources require authentication.
 
 HTTP basic auth is built in to all HTTP clients and requires the `Authorization` request header with the username and password colon delimited and base 64 encoded. For example using username/password eps/3xamp1e would produce:
 
