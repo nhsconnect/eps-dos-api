@@ -7,6 +7,10 @@ permalink: develop_overview.html
 summary: An overview of the information available in the EPS DoS API
 ---
 
+The EPS DoS API provides a search interface for retrieving information on EPS dispensers.
+The information is drawn from NHS Pathways and NHS Choices web services. The web service is
+a simple RESTful style service returning JSON dispenser resources. 
+
 ## Dispenser Information##
 
 The dispenser object includes the following information:
@@ -17,10 +21,10 @@ The dispenser object includes the following information:
 * Address
   - Address line _x 4_
   - Postcode
-* Patient Contact Details
+* Patient contact details, which should not be publicly available
   - Phone
   - Web
-* Prescriber Contact Details
+* Contact details for prescriber use, which should not be publicly available
   - Phone
   - Fax
   - Email
@@ -43,4 +47,3 @@ The dispenser object includes the following information:
     + Date _YYYY-MM-DD format_
       - Open
       - Close
-

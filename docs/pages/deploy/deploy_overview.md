@@ -33,7 +33,7 @@ This section provides details of the generally available environments. Other env
 
 #### UAT ####
 
-User Acceptance Test. Infrastructure should directly reflect live, although may be scaled. Dataset should be the same as the live environment.
+User Acceptance Test. Infrastructure should directly reflect live, although may be scaled. Dataset should be the same as the live environment. The UAT environment may not be available outside of formal test windows.
 
 | **DNS Name**    | test-eps-dos.service.nhs.uk |
 | **Virtual IP**  | 51.141.38.68              |

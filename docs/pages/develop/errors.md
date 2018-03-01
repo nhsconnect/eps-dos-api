@@ -27,7 +27,7 @@ Example:
 {
   "code": 5,
   "message": "Invalid parameter",
-  "fields": "ods"
+  "fields": "ods:FLM23"
 }
 
 ```
@@ -47,11 +47,16 @@ All DoS-specific errors are listed below. This list is expected to be extended a
 | 13	 | Service is down for maintenance. | | 503	| This is given when either the DoS API or the ETP API services are down for maintenance reasons. |
 | 15	 | No matching dispenser found for the criteria specified. | | 500 |	This is given when no matching dispensers are found for the parameters values supplied. It means that all of the parameters given have been accepted and the DoS and ETP APIs have been successfully called, but the actual combination of the parameter values yields no result. |
 | 16   | Bad Request: <Error message from DoS API> | DoS API parameter value.	| 400	 | When the DoS API rejects a call from this API as a result of a badly formatted or missing parameter that is required. The name of the parameter that is missing or invalid is provided in the message. |
-| 20    | General Exception from EPS Dispesner API while processing request: <Internal error message> | |
+| 20    | General Exception from EPS DoS API while processing request: <Internal error message> | |
 500	| When an unexpected error is raised during the processing of a request. The error message invoking this error will be provided in the message. |
 
 ### Examples ###
 
+```json
+$ curl -u 'epsexample:3xample' 'https://eps-dos.service.nhs.uk/epsdispenser/byLocationAndTime?postcode=N1C+4AL&timeframe=2.9'
+{
+  "code": 4,
+  "message": "Invalid parameter",
+  "fields": "timeframe : 2.9"
+}
 ```
-TODO
-````

@@ -2,129 +2,33 @@ swagger: '2.0'
 info:
   title: EPS DoS API
   description: A reliable Directory of Service for EPS Dispensers
-  version: "v0.0.2"
+  version: 0.0.3
 # the domain of the service
-host: dos.eps.digital.nhs.uk
+host: eps-dos.service.nhs.uk
 # array of all schemes that your API supports
 schemes:
   - https
-# will be prefixed to all paths
-basePath: /v0.0.2
 produces:
   - application/json
 securityDefinitions:
   ReadOnlySecurity:
     type: basic
-    description: All operations require basic auth, including all read operations.
-  WriteSecurity:
-    type: basic
-    description: All write operations will require write permission using basic auth.
+    description: All operations require basic auth
 
 # By default all methods need basic auth for read access
 security:
-  - ReadOnlySecurity: [] 
+  - ReadOnlySecurity: []
 
 paths:
-  /dispenser/{ods}:
+  /epsdispenser/byLocationAndTime:
     get:
-      summary: Dispenser
+      summary: Search dispensers by opening hours & location
       description: |
-        A dispensing contractor, currently limited to only EPS-enabled dispensing contractors who are able to dispense EPS Release 2 prescriptions 
-        and are able to be physically accessed by the patient.
-      parameters:
-        - in: path
-          name: ods
-          description: The ODS code of the dispenser
-          required: true
-          type: string
-      responses:
-        200:
-          description: A dispenser
-          headers:
-            Warning:
-              type: string
-              description: |
-                This header is added where one of the backing services is unavailable so the response data is being served from the cache. 
-                  The `111 - "Revalidation Failed"` warning code will be used in this circumstance.
-          schema:
-            $ref: '#/definitions/dispenser'
-
-            
-        404:
-          description: Dispenser not found
-          headers:
-            Warning:
-              type: string
-              description: |
-                This header is added where one of the backing services is unavailable so the response data is being served from the cache. 
-                  The `111 - "Revalidation Failed"` warning code will be used in this circumstance.
-        429:
-          description: Exceeded rate limit
-          headers:
-            Warning:
-              type: string
-              description: |
-                This header is added where one of the backing services is unavailable so the response data is being served from the cache. 
-                  The `111 - "Revalidation Failed"` warning code will be used in this circumstance.
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
-    put:
-      summary: Create Dispenser resource.
-      description: |
-        Creates a dispensing contractor, overwriting any that exist with the same ODS code. The PUT method is not generally available other than to 
-        support testing in some environments. 
-      parameters:
-      - in: path
-        name: ods
-        description: The ODS code of the dispenser
-        required: true
-        type: string
-      - in: body
-        name: body
-        description: Dispenser to be created
-        required: true
-        schema:
-          $ref: '#/definitions/dispenser'
-      security:
-        - WriteSecurity: []
-      responses:
-        201:
-          description: Dispenser created
-        403:
-          description: This account is not authorised to use this method
-    delete:
-      summary: Remove Dispenser resource.
-      description: |
-        Deletes the identified dispensing contractor. The DELETE method is not generally available other than to 
-        support testing in some environments. 
-      parameters:
-      - in: path
-        name: ods
-        description: The ODS code of the dispenser
-        required: true
-        type: string
-      security:
-        - WriteSecurity: []
-      responses:
-        204:
-          description: Dispenser deleted
-        403:
-          description: This account is not authorised to use this method
-        404:
-          description: Attempted to remove a resource which does not exist
-
-  /dispensers/byLocationOpening:
-    get:
-      summary: Search dispensers by opening hours & location 
-      description: |
-        Searches for a suitable dispenser based on patient location and opening hours, ensuring that opening times fall within the timeframe required. 
-        Optionally filtering by service type and distance. Returns a maximum of five matching dispensers. 
+        Searches for a suitable dispenser based on patient location and opening hours, ensuring that opening times fall within the timeframe required. Returns a maximum of five matching dispensers.
       parameters:
       - name: postcode
         in: query
-        description: Postcode of patient location. 
+        description: Postcode of patient location.
         required: true
         type: string
       - name: distance
@@ -135,20 +39,20 @@ paths:
         type: number
         format: decimal
         default: 36.0
-      - name: open_within
+      - name: timeframe
         in: query
         allowEmptyValue: false
         required: true
         type: number
         format: integer
         description: |
-            The number of hours from the current time within which the service must be open. Takes account of bank holidays, specified dates and timezone offsets. 
+            The number of hours from the current time within which the service must be open. Takes account of bank holidays, specified dates and timezone offsets.
       - name: availability_start
         in: query
         type: string
         required: false
         description: |
-            Timestamp from which to start `open_within` calculation. Defaults to `now()`. Should not be used in production - this is primarily to support testing.
+            Timestamp from which to start `timeframe` calculation. Defaults to `now()`. Should not be used in production - this is primarily to support testing.
       - name: service_type
         in: query
         description: |
@@ -163,7 +67,7 @@ paths:
             Warning:
               type: string
               description: |
-                This header is added where one of the backing services is unavailable so the response data is being served from the cache. 
+                This header is added where one of the backing services is unavailable so the response data is being served from the cache.
                   The `111 - "Revalidation Failed"` warning code will be used in this circumstance.
           schema:
             type: array
@@ -171,12 +75,6 @@ paths:
               $ref: '#/definitions/dispenser'
         400:
           description: Invalid search
-          headers:
-            Warning:
-              type: string
-              description: |
-                This header is added where one of the backing services is unavailable so the response data is being served from the cache. 
-                  The `111 - "Revalidation Failed"` warning code will be used in this circumstance.
           schema:
             $ref: '#/definitions/Error'
         429:
@@ -185,99 +83,46 @@ paths:
             Warning:
               type: string
               description: |
-                This header is added where one of the backing services is unavailable so the response data is being served from the cache. 
+                This header is added where one of the backing services is unavailable so the response data is being served from the cache.
                   The `111 - "Revalidation Failed"` warning code will be used in this circumstance.
         default:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-            
-  /dispensers/byName/{name}:
+
+  /epsdispenser/byNameAndPostcode:
     get:
       summary: Search dispensers by name
-      description: Search dispensers by name with simple wildcards allowed. Optionally filter by service type and distance.
+      description: Search dispensers by part name and postcode.
       parameters:
         - name: name
-          in: path
-          description: The name of the dispenser, including wildcards. Permitted wildcards are [*,?]
+          in: query
+          description: Part of the name of the dispenser. This is automatically wildcarded at begginging and end.
           required: true
           type: string
         - name: postcode
           in: query
-          description: Postcode of patient location.
+          description: |
+            Postcode to search within. This is used to limit the number of results. A full valid postcode is required but
+            only the first part is used in the search.
           required: false
           allowEmptyValue: false
           type: string
-        - name: distance
-          in: query
-          description: The maximum distance from postcode to search, in km. Defaults to 36. Ignired where postcode not present.
-          required: false
-          allowEmptyValue: true            
-          type: number
-          format: decimal
-          default: 36.0
       responses:
         200:
           description: Matching dispensers
-          headers:
-            Warning:
-              type: string
-              description: |
-                This header is added where one of the backing services is unavailable so the response data is being served from the cache. 
-                  The `111 - "Revalidation Failed"` warning code will be used in this circumstance.
           schema:
             type: array
             items:
               $ref: '#/definitions/dispenser'
         400:
           description: Invalid search
-          headers:
-            Warning:
-              type: string
-              description: |
-                This header is added where one of the backing services is unavailable so the response data is being served from the cache. 
-                  The `111 - "Revalidation Failed"` warning code will be used in this circumstance.
           schema:
             $ref: '#/definitions/Error'
         429:
           description: Exceeded rate limit
-          headers:
-            Warning:
-              type: string
-              description: |
-                This header is added where one of the backing services is unavailable so the response data is being served from the cache. 
-                  The `111 - "Revalidation Failed"` warning code will be used in this circumstance.
         default:
           description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
-            
-  /status:
-    get:
-      summary: Current status of the API
-      description: Performs a deep ping to confirm the API is available. May optionally return info on the backing services.
-      security: []
-      responses:
-        200:
-          description: All elements of the API are live
-        203:
-          description: One of the backing elements is unavailable and the API is returning cached information. Error information relates to the backing service
-          schema:
-            $ref: '#/definitions/Error'
-          headers:
-            Warning:
-              type: string
-              description: |
-                This header is added where one of the backing services is unavailable so the response data is being served from the cache. 
-                  The `111 - "Revalidation Failed"` warning code will be used in this circumstance.
-        500:
-          description: API is not available, but is still able to serve responses.
-          headers:
-            Warning:
-              type: string
-              description: |
-                This header is added where one of the backing services is unavailable so the response data is being served from the cache. 
-                  The `111 - "Revalidation Failed"` warning code will be used in this circumstance.
           schema:
             $ref: '#/definitions/Error'
 
@@ -318,7 +163,7 @@ definitions:
           postcode:
             type: string
       distance:
-        description: Distance from patient location in km, where this has been provided in a search. 
+        description: Distance from patient location in km, where this has been provided in a search.
         type: number
         format: decimal
       patient_contact:
@@ -337,7 +182,7 @@ definitions:
             type: string
           fax:
             type: string
-          email: 
+          email:
             type: string
       location:
         type: object
@@ -349,12 +194,14 @@ definitions:
             type: number
             format: decimal
       opening:
-        description: Opening time as an open/closed pair in local time. A null value incidates closed on that day.
+        description: |
+          Opening time as an open/closed pair in local time. A null value incidates closed on that day.
+          Resources returned by search by location and time only include opening times within the search window.
         type: object
         properties:
           open_247:
             type: boolean
-            description: indicates the service is open 24/7, in which case weekday opening times are not included
+            description: indicates the service is open 24/7
           sun:
             $ref: '#/definitions/OpeningTime'
           mon:
@@ -376,11 +223,11 @@ definitions:
           specified_date:
             type: array
             items:
-              description: A map of date string to opening time object. Date is formated as ISO 8609 YYYY-MM-DD. Null values indicate complete closure on that date. 
+              description: A map of date string to opening time object. Date is formated as ISO 8609 YYYY-MM-DD. Null values indicate complete closure on that date.
               type: object
               additionalProperties:
                 $ref: '#/definitions/OpeningTime'
-    example: 
+    example:
       ods: FLM42
       name: Vantage Pharmacy
       service_type: eps_pharmacy
@@ -403,22 +250,22 @@ definitions:
       opening:
         open_247: false
         sun: null
-        mon: 
+        mon:
           - open: "08:00"
             close: "18:00"
-        tue: 
+        tue:
           - open: "08:00"
             close: "18:00"
-        wed: 
+        wed:
           - open: "08:00"
             close: "12:00"
-        thu: 
+        thu:
           - open: "08:00"
             close: "18:00"
         fri:
           - open: "08:00"
             close: "18:00"
-        sat: 
+        sat:
           - open: "09:00"
             close: "12:00"
         bank_holiday:
@@ -441,7 +288,7 @@ definitions:
         close:
           type: string
           description: Unqualified local time in HH:MM format
-          
+
   Error:
     type: object
     properties:
